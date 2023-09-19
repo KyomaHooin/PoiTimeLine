@@ -7,7 +7,18 @@ https://codyhouse.co/gem/vertical-timeline/
 
 TODO
 
-- Page core.
+- Page core
+  - dir struct
+  - listing cards
+  - timeline visualization
+  - Search
+  - Video
+  - Picture
+  - Artist profile
+  - Text
+  - Link
+  - Contact
+
 - Metadata harvest:
   extract frame -> ffmpeg -i $FILE -vf "select=eq(n\,35)" -vframes 1 $OUT.png
   extract metadata -> ffprobe
@@ -18,17 +29,20 @@ METADATA
 	"metadata":{
 		"name":"Rusty",
 		"format":"WMV",
-		"length":"290"
+		"length":"290",
+		"size":"",
 		"author":["Skunk","Nomad"],
 		"edit":["Skunk"],
 		"date":"2003",
 	"title": {
+		"date":"8.3.2003",
+		"author":["Skunk","Nomad"],
+		"editor":["Skunk"],
 		"performer":["Le Skunk","NYC],
 		"name":["Daniel Holler","?"],
 		"location":["Washington Square Park"],
 		"country":["US"],
 		"music":["1L/Das Nonstop-Programm - Elextrovulse"],
-		"date":"8.3.2003"
-		"tag":["1L Courtesy of Res Freq Records", "FlambeVolupte","1337","ANTHELION","res-freq.com","1337bu.org","antelion.net"]
+		"metadata":["1L Courtesy of Res Freq Records", "FlambeVolupte","1337","ANTHELION","res-freq.com","13378u.org","antelion.net"]
 }
 </pre>
