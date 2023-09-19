@@ -10,7 +10,7 @@ TODO
 - Page core
   - dir struct
   - listing cards
-  - timeline visualization
+  - timeline + world map scatter
   - Search
   - Video
   - Picture
@@ -42,6 +42,7 @@ METADATA
 		"performer":["Le Skunk","NYC],
 		"name":["Daniel Holler","?"],
 		"location":["Washington Square Park"],
+		"City":["Washington"],
 		"country":["US"],
 		"music":["1L/Das Nonstop-Programm - Elextrovulse"],
 		"metadata":["1L Courtesy of Res Freq Records", "FlambeVolupte","1337","ANTHELION","res-freq.com","13378u.org","antelion.net"]
