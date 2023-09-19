@@ -16,7 +16,8 @@ TODO
   - Picture
   - Artist profile
   - Text
-  - Link
+  - Archive
+  - Wanted
   - Contact
 
 - Metadata harvest:
