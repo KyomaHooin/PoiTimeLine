@@ -5,6 +5,19 @@ Early Poi spinning documentation project.
 https://jquery-plugins.net/building-vertical-timeline-with-css-and-javascript
 https://codyhouse.co/gem/vertical-timeline/
 
+
+Missing: (wayback 2001)
+
+Here is a one minute clip of ShadowFire spinning fire to "Bombs over Bagdad" by OutKast. ShadowFire is from  San Antonio, Texas , USA
+
+mvc-001v.mpg 1.3M
+
+skunk.mov
+
+1.7M
+
+Skunk from Snowy, NYC, USA. Doing Fire poi in the snow.
+
 "We came whirling out of nothingness, glittering stars like dust,
 start that made a circle, where in the middle, we dance."
 
