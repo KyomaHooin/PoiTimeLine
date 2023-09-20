@@ -5,6 +5,61 @@ Early Poi spinning documentation project.
 https://jquery-plugins.net/building-vertical-timeline-with-css-and-javascript
 https://codyhouse.co/gem/vertical-timeline/
 
+"We came whirling out of nothingness, glittering stars like dust,
+start that made a circle, where in the middle, we dance."
+
+(HOP COL1/2/3.php wayback harvest)
+Jedi White
+John Smith
+Stillwater, OK, USA 
+
+Daniel Tyler
+Wrap Master Funk
+Stillwater, OK, USA
+
+Skunk
+New York City, NY, USA 
+
+A.N.T.H.E.L.I.O.N
+Peregrine, Samiya, Anisa, Nomad, Code128, Tito
+(filmed by Daniel Furst)
+Boston, MA, USA
+
+Nix?
+Tom Caine
+Totness, Devon, UK
+
+Tempest (Liam), Rumplestiltskin (Nathan), Phat Boy (Aiden Tempest)
+Cheshire
+UK 
+
+Bender the Offender
+Bill La
+Melbourne, VIC Australia
+
+Antti Suniala
+Antti Suniala
+Finland 
+
+Dio - Wildfire Entertainment
+Vernon Skach
+Stillwater, OK, USA
+
+Yuta
+Yuta Ushiogi
+Tokyo, Japan 
+
+Xaeda
+Jacinta Patterson
+Dunedin, New Zealand 
+
+Nomad
+Joseph Donyo
+Somerville, MA, USA
+
+Sage
+Shawn Robertson
+Austin, TX, USA
 TODO
 
 - Page core
