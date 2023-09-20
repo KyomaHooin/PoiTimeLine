@@ -8,6 +8,8 @@ https://codyhouse.co/gem/vertical-timeline/
 
 Missing: (wayback 2001)
 
+061203yutaaska.wmv
+
 Here is a one minute clip of ShadowFire spinning fire to "Bombs over Bagdad" by OutKast. ShadowFire is from  San Antonio, Texas , USA
 
 mvc-001v.mpg 1.3M
