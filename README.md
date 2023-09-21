@@ -97,24 +97,24 @@ TODO
 METADATA
 <pre>
 "file":{
-	"metadata":{
-		"name":"Rusty",
-		"format":"WMV",
-		"length":"290",
-		"size":"",
-		"author":["Skunk","Nomad"],
-		"edit":["Skunk"],
-		"date":"2003",
-	"title": {
-		"date":"8.3.2003",
-		"author":["Skunk","Nomad"],
-		"editor":["Skunk"],
-		"performer":["Le Skunk","NYC],
-		"name":["Daniel Holler","?"],
-		"location":["Washington Square Park"],
-		"City":["Washington"],
-		"country":["US"],
-		"music":["1L/Das Nonstop-Programm - Elextrovulse"],
-		"metadata":["1L Courtesy of Res Freq Records", "FlambeVolupte","1337","ANTHELION","res-freq.com","13378u.org","antelion.net"]
+	"name":"RustyFinallSmall.wmv",
+	"length":"290",
+	"size":"",
+	"date":"8.3.2003",
+	"author":["Skunk","Nomad"],
+	"editor":["Skunk"],
+	"performer":["Le Skunk","NYC"] -> "name":["Daniel Holler","?"],
+	"location":["Washington Square Park"],
+	"City":["Washington"],
+	"country":["US"],
+	"music":["1L/Das Nonstop-Programm - Elextrovulse"],
+	"metadata":["1L Courtesy of Res Freq Records", "FlambeVolupte","1337","ANTHELION","res-freq.com","13378u.org","anthelion.net"]
+}
+
+"performer":{
+	"nickname":["Skunk","Le Skunk"],
+	"name":"Daniel Holler",
+	"City":"",
+	"Country"
 }
 </pre>
