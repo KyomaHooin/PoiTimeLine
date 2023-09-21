@@ -77,18 +77,8 @@ Shawn Robertson
 Austin, TX, USA
 TODO
 
-- Page core
-  - dir struct
-  - listing cards
-  - timeline + world map scatter
-  - Search
-  - Video
-  - Picture
-  - Artist profile
-  - Text
-  - Archive
-  - Wanted
-  - Contact
+- dir struct
+- Wanted
 
 - Metadata harvest:
   extract frame -> ffmpeg -i $FILE -vf "select=eq(n\,35)" -vframes 1 $OUT.png
