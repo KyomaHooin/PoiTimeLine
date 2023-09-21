@@ -60,10 +60,6 @@ Dio - Wildfire Entertainment
 Vernon Skach
 Stillwater, OK, USA
 
-Yuta
-Yuta Ushiogi
-Tokyo, Japan 
-
 Xaeda
 Jacinta Patterson
 Dunedin, New Zealand 
@@ -79,7 +75,7 @@ TODO
 
 - dir struct
 - Wanted
-
+- cart metadata row
 - Metadata harvest:
   extract frame -> ffmpeg -i $FILE -vf "select=eq(n\,35)" -vframes 1 $OUT.png
   extract metadata -> ffprobe
