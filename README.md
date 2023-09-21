@@ -71,8 +71,11 @@ Somerville, MA, USA
 Sage
 Shawn Robertson
 Austin, TX, USA
+
 TODO
 
+- Data editor.
+- PHP generators.
 - dir struct
 - Wanted
 - cart metadata row
