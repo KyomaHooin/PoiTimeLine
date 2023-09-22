@@ -78,10 +78,10 @@ TODO
 
 - PHP generators.
 - Wanted
-- Metadata
-- Metadata harvest:
-  extract frame -> ffmpeg -i $FILE -vf "select=eq(n\,35)" -vframes 1 $OUT.png
-  extract metadata -> ffprobe
 
-- convert in.png -resize 300x200 out.png
+META
+<pre>
+Metadata: ffprobe
+VLC: [e] = next frame; [shift] + [e] = screenshot
+Resize: convert in.png -resize 300x200 out.png
 </pre>
