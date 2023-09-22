@@ -81,4 +81,6 @@ TODO
 - Metadata harvest:
   extract frame -> ffmpeg -i $FILE -vf "select=eq(n\,35)" -vframes 1 $OUT.png
   extract metadata -> ffprobe
+
+- convert in.png -resize 300x200 out.png
 </pre>
