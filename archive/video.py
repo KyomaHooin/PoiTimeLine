@@ -62,6 +62,10 @@ preview = raw_input("\nShow preview? [y/n]: ")
 if preview == 'y': print(json.dumps(video, indent=2))
 
 # WRITE
+try:
+	os.mkdir(dn)
+except: pass
+
 fn = name.split('.')[0]
 write = raw_input('Write to file ' + '[' + dn + '/' + fn + '.json ]? [y/n]: ')
 if write == 'y':

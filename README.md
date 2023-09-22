@@ -8,6 +8,8 @@ https://codyhouse.co/gem/vertical-timeline/
 
 Missing: (wayback 2001)
 
+AnthelionFireVideoDSL06b.mov
+
 061203yutaaska.wmv
 
 Here is a one minute clip of ShadowFire spinning fire to "Bombs over Bagdad" by OutKast. ShadowFire is from  San Antonio, Texas , USA
@@ -75,9 +77,8 @@ Austin, TX, USA
 TODO
 
 - PHP generators.
-- dir struct
 - Wanted
-- cart metadata row
+- Metadata
 - Metadata harvest:
   extract frame -> ffmpeg -i $FILE -vf "select=eq(n\,35)" -vframes 1 $OUT.png
   extract metadata -> ffprobe
