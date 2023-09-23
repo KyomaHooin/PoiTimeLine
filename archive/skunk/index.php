@@ -66,7 +66,7 @@ $name = array_map(function ($var) { return explode('.', $var)[0]; }, $data);
 	echo '<tr><td class="align-middle text-end">';
 	echo '<a href="' . $fn . '.tgz.enc' . '" class="link-warning link-underline-opacity-0"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffc107" class="bi bi-download" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg></a>';
 	echo '</td><td>';
-	echo '<h5 class="my-2">' . $jsn['name'] . '</h5>';
+	echo '<h5 class="my-2 text-break">' . $jsn['name'] . '</h5>';
 	echo '<tr><td class="text-end">Date:</td><td>' . $jsn['date'] . '</td></tr>';
 	echo '<tr><td class="text-end">Size:</td><td>' . $jsn['size'] . ' Mb</td></tr>';
 	echo '<tr><td class="text-end">Duration:</td><td>' . $jsn['duration'] . ' min</td></tr>';
