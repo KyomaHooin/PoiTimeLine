@@ -74,14 +74,9 @@ Sage
 Shawn Robertson
 Austin, TX, USA
 
-TODO
-
-- PHP generators.
-- Wanted
-
 META
 <pre>
 Metadata: ffprobe
 VLC: [e] = next frame; [shift] + [e] = screenshot
-Resize: convert in.png -resize 300x200 out.png
+Resize: mogrify -resize 320x224\! *.png
 </pre>
