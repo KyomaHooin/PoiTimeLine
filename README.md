@@ -75,8 +75,10 @@ Shawn Robertson
 Austin, TX, USA
 
 TODO
-
--Decryption player
+<pre>
+HLS.js player with decryption
+CyptoJS.js download with decryption
+</pre>
 META
 <pre>
 Metadata: ffprobe
