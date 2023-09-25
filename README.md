@@ -27,7 +27,7 @@ start that made a circle, where in the middle, we dance."
 
 (HOP COL1/2/3.php wayback harvest)
 Jedi White
-John Smith
+John Smith, J.T. Smith
 Stillwater, OK, USA 
 
 Daniel Tyler
