@@ -76,7 +76,6 @@ Austin, TX, USA
 
 TODO
 <pre>
-HLS.js player with decryption
 CyptoJS.js download with decryption
 </pre>
 META
