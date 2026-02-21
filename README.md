@@ -74,9 +74,47 @@ Sage
 Shawn Robertson
 Austin, TX, USA
 
+ARCHITECTURE
+<pre>
+
+2002|----- XXX
+    |
+2003|----- XXX
+    |
+    |
+...
+
+[collection]
+|--[mcp]
+|----[*]lab2.avi
+|----[*]lab3.avi
+|--[TePooka]
+|----[*]rubbish.avi
+....
+
+/assets/icons/mcp.png
+/assets/video/lab2.png
+
+/_data/artst.md <- dataset
+/_data/group.md <- dataset
+
+/video/mcp/_post/YEAR-MONTH-DAY-lab2.md
+/video/mcp/_post/YEAR-MONTH-DAY-lab3.md
+</pre>
+STRUCT
+<pre>
+JSON->Markdown-templater.py->
+
+struct:video|artist|group
+
+COLLECTION video: name, fn, date, music, performer(tag), screenshot(asset), size, duration
+artist: HOP icon, nickname(list), firstname, surname, country, location
+group: name, artist, country, location
+
+</pre>
 TODO
 <pre>
-CyptoJS.js download with decryption
+lphlist
 </pre>
 META
 <pre>
