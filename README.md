@@ -122,3 +122,10 @@ Metadata: ffprobe
 VLC: [e] = next frame; [shift] + [e] = screenshot
 Resize: mogrify -resize 320x224\! *.png
 </pre>
+
+STAGE
+<pre>
+ffmpeg -> 10s clip  start + end
+ffmpeg -> audio
+ffmpeg -> metadata
+</pre>
