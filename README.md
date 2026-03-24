@@ -25,6 +25,17 @@ Skunk from Snowy, NYC, USA. Doing Fire poi in the snow.
 "We came whirling out of nothingness, glittering stars like dust,
 start that made a circle, where in the middle, we dance."
 
+UCOF - John -> Rob
+Cassandra (FR) - Danae Mache
+Olive(FR) - Oliver Masson
+Rev(USA) -> Arashi
+Dom - Dom Robinson
+FNF - Ros Vitkovitch
+NYC(USA) - Matt Morgano 
+Oli - -> Rob
+Pele - Lyne Couillard
+Tree - Tree Stewart
+
 (HOP COL1/2/3.php wayback harvest)
 Jedi White
 John Smith, J.T. Smith
