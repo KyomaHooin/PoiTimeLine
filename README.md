@@ -20,70 +20,21 @@ skunk.mov
 
 1.7M
 
-Skunk from Snowy, NYC, USA. Doing Fire poi in the snow.
-
 "We came whirling out of nothingness, glittering stars like dust,
 start that made a circle, where in the middle, we dance."
 
-UCOF - John -> Rob
-Cassandra (FR) - Danae Mache
-Olive(FR) - Oliver Masson
-Rev(USA) -> Arashi
-Dom - Dom Robinson
-FNF - Ros Vitkovitch
-NYC(USA) - Matt Morgano 
-Oli - -> Rob
-Pele - Lyne Couillard
-Tree - Tree Stewart
+http://www.homeofpoi.com/ubbthreads/images/users/796.jpg
+https://web.archive.org/web/20061214070131/http://www.homeofpoi.com/ubbthreads/showprofile.php?Cat=0&User=1571
 
-(HOP COL1/2/3.php wayback harvest)
-Jedi White
-John Smith, J.T. Smith
-Stillwater, OK, USA 
-
-Daniel Tyler
-Wrap Master Funk
-Stillwater, OK, USA
-
-Skunk
-New York City, NY, USA 
 
 A.N.T.H.E.L.I.O.N
 Peregrine, Samiya, Anisa, Nomad, Code128, Tito
 (filmed by Daniel Furst)
 Boston, MA, USA
 
-Nix?
-Tom Caine
-Totness, Devon, UK
-
 Tempest (Liam), Rumplestiltskin (Nathan), Phat Boy (Aiden Tempest)
 Cheshire
 UK 
-
-Bender the Offender
-Bill La
-Melbourne, VIC Australia
-
-Antti Suniala
-Antti Suniala
-Finland 
-
-Dio - Wildfire Entertainment
-Vernon Skach
-Stillwater, OK, USA
-
-Xaeda
-Jacinta Patterson
-Dunedin, New Zealand 
-
-Nomad
-Joseph Donyo
-Somerville, MA, USA
-
-Sage
-Shawn Robertson
-Austin, TX, USA
 
 ARCHITECTURE
 <pre>
@@ -119,7 +70,6 @@ JSON->Markdown-templater.py->
 struct:video|artist|group
 
 COLLECTION video: name, fn, date, music, performer(tag), screenshot(asset), size, duration
-artist: HOP icon, nickname(list), firstname, surname, country, location
 group: name, artist, country, location
 
 </pre>
@@ -132,6 +82,10 @@ META
 Metadata: ffprobe
 VLC: [e] = next frame; [shift] + [e] = screenshot
 Resize: mogrify -resize 320x224\! *.png
+
+nextfrme=e
+
+storefrme=shift+s
 </pre>
 
 STAGE
