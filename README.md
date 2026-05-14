@@ -2,6 +2,14 @@ DESCRIPTION
 
 Early Poi spinning documentation project.
 
+INSTALL
+<pre>
+apt-get install qt6-base-dev designer-qt6 python3-pyqt6 
+</pre>
+
+METADATA TOOKIT
+
+
 https://jquery-plugins.net/building-vertical-timeline-with-css-and-javascript
 https://codyhouse.co/gem/vertical-timeline/
 
@@ -94,3 +102,6 @@ ffmpeg -> 10s clip  start + end
 ffmpeg -> audio
 ffmpeg -> metadata
 </pre>
+
+apt-get install qt6-base-dev designer-qt6 python3-pyqt6 
+
