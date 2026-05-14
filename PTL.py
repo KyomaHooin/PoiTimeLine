@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+#
+# PTL Metadata toolkit
+#
 	
 import sys
 
@@ -25,6 +28,7 @@ class MainWindow(QMainWindow):
 
 		self.setWindowTitle("PTL Metadata toolkit")
 		self.setFixedSize(QSize(341,602))
+		self.move(750,200)
 
 		## CONTAINER
 
@@ -37,7 +41,7 @@ class MainWindow(QMainWindow):
 		self.menubar.setGeometry(QRect(0, 0, 341, 22))
 
 		self.menuSoubor = QMenu(self.menubar)
-		self.menuSoubor.setTitle("Soubor")
+		self.menuSoubor.setTitle("File")
 		self.menubar.addMenu(self.menuSoubor)
 
 		self.actionOpen = QAction()
@@ -111,6 +115,12 @@ class MainWindow(QMainWindow):
 		self.artist_altname_text = QTextEdit(self.formLayoutWidget_1)
 		self.formLayout_1.setWidget(1, QFormLayout.ItemRole.FieldRole, self.artist_altname_text)
 
+		self.artist_name = QLabel(self.formLayoutWidget_1)
+		self.artist_name.setText("Name")
+		self.formLayout_1.setWidget(2, QFormLayout.ItemRole.LabelRole, self.artist_name)
+		self.artist_name_text = QLineEdit(self.formLayoutWidget_1)
+		self.formLayout_1.setWidget(2, QFormLayout.ItemRole.FieldRole, self.artist_name_text)
+
 		self.artist_id = QLabel(self.formLayoutWidget_1)
 		self.artist_id.setText("ID")
 		self.formLayout_1.setWidget(3, QFormLayout.ItemRole.LabelRole, self.artist_id)
@@ -166,6 +176,12 @@ class MainWindow(QMainWindow):
 		self.formLayout_2.setWidget(3, QFormLayout.ItemRole.LabelRole, self.group_country)
 		self.group_country_text = QLineEdit(self.formLayoutWidget_2)
 		self.formLayout_2.setWidget(3, QFormLayout.ItemRole.FieldRole, self.group_country_text)
+
+		self.group_meta = QLabel(self.formLayoutWidget_2)
+		self.group_meta.setText("Meta")
+		self.formLayout_2.setWidget(4, QFormLayout.ItemRole.LabelRole, self.group_meta)
+		self.group_meta_text = QTextEdit(self.formLayoutWidget_2)
+		self.formLayout_2.setWidget(4, QFormLayout.ItemRole.FieldRole, self.group_meta_text)
 
 		## TAB 3
 
