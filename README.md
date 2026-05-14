@@ -33,7 +33,7 @@ apt-get install (qt6-base-dev designer-qt6) python3-pyqt6 python3-yaml
 </pre>
 METADATA TOOKIT
 
-![Toolkit](https://github.com/KyomaHooin/PoiTimeLine/raw/master/PTLToolkit.jpg "screenshot")
+![Toolkit](https://github.com/KyomaHooin/PoiTimeLine/blob/main/PTLToolkit.jpg?raw=true "screenshot")
 
 META
 <pre>
