@@ -2,58 +2,14 @@ DESCRIPTION
 
 Early Poi spinning documentation project.
 
-INSTALL
-<pre>
-apt-get install qt6-base-dev designer-qt6 python3-pyqt6 
-</pre>
-
-METADATA TOOKIT
-
-
-https://jquery-plugins.net/building-vertical-timeline-with-css-and-javascript
-https://codyhouse.co/gem/vertical-timeline/
-
-
-Missing: (wayback 2001)
-
-AnthelionFireVideoDSL06b.mov
-
-061203yutaaska.wmv
-
-Here is a one minute clip of ShadowFire spinning fire to "Bombs over Bagdad" by OutKast. ShadowFire is from  San Antonio, Texas , USA
-
-mvc-001v.mpg 1.3M
-
-skunk.mov
-
-1.7M
-
-"We came whirling out of nothingness, glittering stars like dust,
-start that made a circle, where in the middle, we dance."
-
-http://www.homeofpoi.com/ubbthreads/images/users/796.jpg
-https://web.archive.org/web/20061214070131/http://www.homeofpoi.com/ubbthreads/showprofile.php?Cat=0&User=1571
-
-
-A.N.T.H.E.L.I.O.N
-Peregrine, Samiya, Anisa, Nomad, Code128, Tito
-(filmed by Daniel Furst)
-Boston, MA, USA
-
-Tempest (Liam), Rumplestiltskin (Nathan), Phat Boy (Aiden Tempest)
-Cheshire
-UK 
-
 ARCHITECTURE
 <pre>
-
 2002|----- XXX
     |
 2003|----- XXX
     |
     |
 ...
-
 [collection]
 |--[mcp]
 |----[*]lab2.avi
@@ -71,37 +27,49 @@ ARCHITECTURE
 /video/mcp/_post/YEAR-MONTH-DAY-lab2.md
 /video/mcp/_post/YEAR-MONTH-DAY-lab3.md
 </pre>
-STRUCT
+INSTALL
 <pre>
-JSON->Markdown-templater.py->
-
-struct:video|artist|group
-
-COLLECTION video: name, fn, date, music, performer(tag), screenshot(asset), size, duration
-group: name, artist, country, location
-
+apt-get install (qt6-base-dev designer-qt6) python3-pyqt6 python3-yaml 
 </pre>
-TODO
-<pre>
-lphlist
-</pre>
+METADATA TOOKIT
+
+![Toolkit](https://github.com/KyomaHooin/PoiTimeLine/raw/master/PTLToolkit.jpg "screenshot")
+
 META
 <pre>
-Metadata: ffprobe
-VLC: [e] = next frame; [shift] + [e] = screenshot
 Resize: mogrify -resize 320x224\! *.png
-
-nextfrme=e
-
-storefrme=shift+s
 </pre>
-
-STAGE
+VLC
 <pre>
-ffmpeg -> 10s clip  start + end
-ffmpeg -> audio
-ffmpeg -> metadata
+[e] next frame
+[shift] + [e] screenshot
+[shift] + [s] store frame
 </pre>
 
-apt-get install qt6-base-dev designer-qt6 python3-pyqt6 
+https://jquery-plugins.net/building-vertical-timeline-with-css-and-javascript
+https://codyhouse.co/gem/vertical-timeline/
 
+Missing: (wayback 2001)
+
+AnthelionFireVideoDSL06b.mov
+061203yutaaska.wmv
+
+Here is a one minute clip of ShadowFire spinning fire to "Bombs over Bagdad" by OutKast. ShadowFire is from  San Antonio, Texas , USA
+
+mvc-001v.mpg 1.3M
+skunk.mov 1.7M
+
+"We came whirling out of nothingness, glittering stars like dust,
+start that made a circle, where in the middle, we dance."
+
+http://www.homeofpoi.com/ubbthreads/images/users/796.jpg
+https://web.archive.org/web/20061214070131/http://www.homeofpoi.com/ubbthreads/showprofile.php?Cat=0&User=1571
+
+A.N.T.H.E.L.I.O.N
+Peregrine, Samiya, Anisa, Nomad, Code128, Tito
+(filmed by Daniel Furst)
+Boston, MA, USA
+
+Tempest (Liam), Rumplestiltskin (Nathan), Phat Boy (Aiden Tempest)
+Cheshire
+UK 
