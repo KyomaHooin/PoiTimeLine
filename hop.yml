@@ -2,27 +2,27 @@
 #
 - id: 1284
   nickname: Richee
-  name: ricahrd Bruna
+  name: Richard Bruna
   altname:
   location: Prague, Czechia
   web: https://kyomahooin.github.io
   meta: HOP librarian
 - id: 4320 
-  nickname: MikeIcon
+  nickname: ICoN
   name: Michael Dombrowski
   altname:
-  location: Philadelphi, PA, USA
+  location: Philadelphia, PA, USA
   web:
   meta:
 - id: 4889
   nickname: Ben-ja-men
   name: Ben ?
   altname:
+    - The Gay Poet
+    - Derik Troy
   location:
   web:
   meta: www.soton-firespinning.co.uk
-    - The Gay Poet
-    - Derik Troy
 - id: 3686
   nickname: Bluecat
   name: Robert Thorburn
@@ -304,7 +304,7 @@
 - id:
   nickname: Sage
   name: Shawn Robertson
-  altname:
+  altname: Sage Yacote
   location: Austin , TX, USA
   web:
   meta:
