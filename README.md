@@ -49,6 +49,10 @@ VLC
 https://jquery-plugins.net/building-vertical-timeline-with-css-and-javascript
 https://codyhouse.co/gem/vertical-timeline/
 
+Contactstaffduo:US+Germany
+
+Austri:mcp+
+
 Missing: (wayback 2001)
 
 AnthelionFireVideoDSL06b.mov
