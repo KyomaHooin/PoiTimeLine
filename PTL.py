@@ -3,7 +3,7 @@
 # PTL Metadata toolkit
 #
 
-import sys,os.path
+import sys,os,subprocess
 
 from yaml import safe_dump,safe_load
 
@@ -19,12 +19,15 @@ from PyQt6.QtWidgets import (
 	QDialog,
 	QTabWidget,
 	QFormLayout,
+	QGridLayout,
+	QGroupBox,
+	QPushButton,
 	QLineEdit,
 	QTextEdit,
 	QLabel
 )
 
-BASE='/home/user/Desktop/project/YAML/'#[artist|group|video[/assets/]]
+BASE='/home/user/Desktop/project/YAML/'
 
 TPL_ARTIST={
 	'nickname':None,
@@ -56,20 +59,27 @@ TPL_VIDEO={
 	'meta':None,
 }
 
+FFMPEG_META = ['ffmpeg', '-v', 'error', '-i', 'IN', '-f', 'ffmetadata', 'OUT']
+FFMPEG_SCREEN = ['ffmpeg', '-v', 'error', '-i', 'IN', '-ss', 'START', '-frames:v', '1', 'OUT.jpg']
+FFMPEG_AUDIO = ['ffmpeg', '-v', 'error', '-y', '-i', 'IN', '-ss', 'START', '-t', 'STOP', 'OUT.mp3']
+
 class MainWindow(QMainWindow):
 	def __init__(self):
 		super().__init__()
 
 		# WINDOW
+
 		self.setWindowTitle("PTL Metadata toolkit")
 		self.setFixedSize(QSize(341,602))
 		self.move(750,200)
 
 		# CONTAINER
+
 		self.container = QWidget()
 		self.setCentralWidget(self.container)
 
 		# MENU
+
 		self.menubar = QMenuBar()
 		self.menubar.setGeometry(QRect(0, 0, 341, 22))
 
@@ -94,20 +104,10 @@ class MainWindow(QMainWindow):
 		self.actionClose.triggered.connect(self.close)
 		self.menuSoubor.addAction(self.actionClose)
 
-		self.menuVideo = QMenu(self.menubar)
-		self.menuVideo.setTitle("Video")
-		self.menubar.addMenu(self.menuVideo)
-
-		self.actionGetMeta = QAction("GetMeta..")
-		self.menuVideo.addAction(self.actionGetMeta)
-		self.actionGetScreen = QAction("GetScreen..")
-		self.menuVideo.addAction(self.actionGetScreen)
-		self.actionGetAudio = QAction("GetAudio..")
-		self.menuVideo.addAction(self.actionGetAudio)
-
 		self.setMenuBar(self.menubar)
 		
 		# TAB
+
 		self.tab = QTabWidget(self.container)
 		self.tab.setGeometry(QRect(10, 10, 321, 561))
 		self.tab_1 = QWidget()
@@ -118,6 +118,7 @@ class MainWindow(QMainWindow):
 		self.tab.addTab(self.tab_3, "Video")
 
 		# TAB LAYOUT
+
 		self.formLayoutWidget_1 = QWidget(self.tab_1)
 		self.formLayoutWidget_1.setGeometry(QRect(9, 9, 301, 511))
 		self.formLayout_1 = QFormLayout(self.formLayoutWidget_1)
@@ -133,7 +134,11 @@ class MainWindow(QMainWindow):
 		self.formLayout_3 = QFormLayout(self.formLayoutWidget_3)
 		self.formLayout_3.setContentsMargins(0, 0, 0, 0)
 
+		self.groupVideoWidget = QGroupBox()
+		self.groupVideoLayout = QGridLayout(self.groupVideoWidget)
+
 		# TAB 1
+
 		self.artist_nickname = QLabel("Nickname", self.formLayoutWidget_1)
 		self.formLayout_1.setWidget(0, QFormLayout.ItemRole.LabelRole, self.artist_nickname)
 		self.artist_nickname_text = QLineEdit(self.formLayoutWidget_1)
@@ -168,6 +173,7 @@ class MainWindow(QMainWindow):
 		self.formLayout_1.setWidget(7, QFormLayout.ItemRole.FieldRole, self.artist_meta_text)
 
 		# TAB 2
+
 		self.group_name = QLabel("Name", self.formLayoutWidget_2)
 		self.formLayout_2.setWidget(0, QFormLayout.ItemRole.LabelRole, self.group_name)
 		self.group_name_text = QLineEdit(self.formLayoutWidget_2)
@@ -190,6 +196,7 @@ class MainWindow(QMainWindow):
 		self.formLayout_2.setWidget(4, QFormLayout.ItemRole.FieldRole, self.group_meta_text)
 
 		# TAB 3
+
 		self.video_name = QLabel("Name", self.formLayoutWidget_3)
 		self.formLayout_3.setWidget(0, QFormLayout.ItemRole.LabelRole, self.video_name)
 		self.video_name_text = QLineEdit(self.formLayoutWidget_3)
@@ -223,6 +230,28 @@ class MainWindow(QMainWindow):
 		self.video_meta_text = QTextEdit(self.formLayoutWidget_3)
 		self.formLayout_3.setWidget(7, QFormLayout.ItemRole.FieldRole, self.video_meta_text)
 
+		self.formLayout_3.addRow(self.groupVideoWidget)
+
+		self.video_GetMetaButton = QPushButton("Get Meta")
+		self.groupVideoLayout.addWidget(self.video_GetMetaButton, 0, 0, 1, 5)
+		self.video_GetScreenshot = QLabel("Start")
+		self.video_GetScreenshotEdit = QLineEdit()
+		self.video_GetScreenshotButton = QPushButton("Get Screen")
+		self.groupVideoLayout.addWidget(self.video_GetScreenshot , 1, 0)
+		self.groupVideoLayout.addWidget(self.video_GetScreenshotEdit , 1, 1, 1, 3)
+		self.groupVideoLayout.addWidget(self.video_GetScreenshotButton , 1, 4)
+		self.video_GetAudioStart = QLabel("Start")
+		self.video_GetAudioStartEdit = QLineEdit()
+		self.video_GetAudioEnd = QLabel("End")
+		self.video_GetAudioEndEdit = QLineEdit()
+		self.video_GetAudioButton = QPushButton("Get Audio")
+		self.groupVideoLayout.addWidget(self.video_GetAudioStart, 2, 0)
+		self.groupVideoLayout.addWidget(self.video_GetAudioStartEdit , 2, 1)
+		self.groupVideoLayout.addWidget(self.video_GetAudioEnd, 2, 2)
+		self.groupVideoLayout.addWidget(self.video_GetAudioEndEdit , 2, 3)
+		self.groupVideoLayout.addWidget(self.video_GetAudioButton , 2, 4)
+
+
 	def file_open(self):
 		fn = QFileDialog.getOpenFileName(self, "Open File", BASE, "YML (*.yml)")
 		yml = None
@@ -237,37 +266,78 @@ class MainWindow(QMainWindow):
 		if yml:
 			match os.path.basename(os.path.dirname(fn[0])):
 				case "artist":
-					self.artist_nickname_text.text(TPL.nickname)
+					self.artist_nickname_text.setText(TPL_ARTIST.nickname)
+					self.artist_altname_text.seText(TPL_ARTIST.altname)
+					self.artist_name_text.setText(TPL_ARTIST.name)
+					self.artist_id_text.seText(TPL_ARTIST.id)
+					self.artist_icon_text.setText(TPL_ARTIST.icon)
+					self.artist_location_text.setText(TPL_ARTIST.location)
+					self.artist_group_text.setText(TPL_ARTIST.group)
+					self.artist_meta_text.seText(TPL_ARTIST.meta)
 					self.tab.setCurrentIndex(0)
 				case "group":
+					self.group_name_text.setText(TPL_GROUP.name)
+					self.group_artist_text.setText(TPL_GROUP.artist)
+					self.group_location_text.seText(TPL_GROUP.location)
+					self.group_coutry_text.setText(TPL_GROUP.country)
+					self.group_meta_text.setText(TPL_GROUP.meta)
 					self.tab.setCurrentIndex(1)
 				case "video":
+					self.video_name_text.setText(TPL_VIDEO.name)
+					self.video_screenshot_text.setText(TPL_VIDEO.screenshot)
+					self.video_date_text.setText(TPL_VIDEO.date)
+					self.video_size_text.setText(TPL_VIDEO.size)
+					self.video_duration_text.setText(TPL_VIDEO.duration)
+					self.video_music_text.setText(TPL_VIDEO.music)
+					self.video_artist_text.setText(TPL_VIDEO.artist)
+					self.video_meta_text.setText(TPL_VIDEO.meta)
 					self.tab.setCurrentIndex(2)
 	
 	def file_save(self):
 		fn = None
+		yml = None
 		match self.tab.currentIndex():
 			case 0:
 				if self.artist_nickname_text.text():
+					TPL_ARTIST.nickname = self.artist_nickname_text.text()
+					TPL_ARTIST.altname = self.artist_altname_text.text()
+					TPL_ARTIST.name = self.artist_name_text.text()
+					TPL_ARTIST.id = self.artist_id_text.text()
+					TPL_ARTIST.icon = self.artist_icon_text.text()
+					TPL_ARTIST.location = self.artist_location_text.text()
+					TPL_ARTIST.group = self.artist_group_text.text()
+					TPL_ARTIST.meta = self.artist_meta_text.text()
 					fn = BASE + 'artist/' + self.artist_nickname_text.text() + '.yml'
+					yml = TPL_ARTIST
 			case 1:
 				if self.group_name_text.text():
+					TPL_GROUP.name = self.group_name_text.text()
+					TPL_GROUP.artist = self.group_artist_text.text()
+					TPL_GROUP.location = self.group_location_text.text()
+					TPL_GROUP.country = self.group_coutry_text.text()
+					TPL_GROUP.meta = self.group_meta_text.text()
 					fn = BASE + 'group/' + self.group_name_text.text() + '.yml'
+					yml = TPL_GROUP
+
 			case 2:
 				if self.video_name_text.text():
+					TPL_VIDEO.name = self.video_name_text.text()
+					TPL_VIDEO.screenshot = self.video_screenshot_text.text()
+					TPL_VIDEO.date = self.video_date_text.text()
+					TPL_VIDEO.size = self.video_size_text.text()
+					TPL_VIDEO.duration = self.video_duration_text.text()
+					TPL_VIDEO.music = self.video_music_text.text()
+					TPL_VIDEO.artist = self.video_artist_text.text()
+					TPL_VIDEO.meta = self.video_meta_text.text()
 					fn = BASE + 'video/' + self.video_name_text.text() + '.yml'
+					yml = TPL_VIDEO
 
 		if not os.path.isfile(fn):
 			fn_tup = QFileDialog.getSaveFileName(self, "Save File", BASE, "YML (*.yml)")
 			if os.path.splitext(fn[0]) != 'yml': fn = fn_tup[0] + '.yml'
 
 		with open(fn, 'w') as f:
-        		f.write(safe_dump(
-				TPL_ARTIST,
-				sort_keys=False,
-				explicit_start=True,
-				explicit_end=True
-			))
+        		f.write(safe_dump(yml, sort_keys=False, explicit_start=True, explicit_end=True))
 
 ## MAIN
 
