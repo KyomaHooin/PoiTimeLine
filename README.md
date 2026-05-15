@@ -51,6 +51,8 @@ https://codyhouse.co/gem/vertical-timeline/
 
 Contactstaffduo:US+Germany
 
+Bm Cole UCOF - "Skitz - ft Dynmite MC nd G - We make them make noise"
+
 Austri:mcp+
 
 Missing: (wayback 2001)
