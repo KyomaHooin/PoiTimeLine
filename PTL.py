@@ -27,9 +27,9 @@ from PyQt6.QtWidgets import (
 	QLabel
 )
 
-BASE='/home/user/Desktop/project/YAML/'
+BASE = '/home/user/Desktop/project'
 
-TPL_ARTIST={
+TPL_ARTIST = {
 	'nickname':None,
 	'altname':None,
 	'name':None,
@@ -40,7 +40,7 @@ TPL_ARTIST={
 	'meta':None
 }
 
-TPL_GROUP={
+TPL_GROUP = {
 	'name':None,
 	'artist':None,
 	'location':None,
@@ -48,7 +48,7 @@ TPL_GROUP={
 	'meta':None,
 }
 
-TPL_VIDEO={
+TPL_VIDEO = {
 	'name':None,
 	'screenshot':None,
 	'date':None,
@@ -58,10 +58,6 @@ TPL_VIDEO={
 	'artist':None,
 	'meta':None,
 }
-
-FFMPEG_META = ['ffmpeg', '-v', 'error', '-i', 'IN', '-f', 'ffmetadata', 'OUT']
-FFMPEG_SCREEN = ['ffmpeg', '-v', 'error', '-i', 'IN', '-ss', 'START', '-frames:v', '1', 'OUT.jpg']
-FFMPEG_AUDIO = ['ffmpeg', '-v', 'error', '-y', '-i', 'IN', '-ss', 'START', '-t', 'STOP', 'OUT.mp3']
 
 class MainWindow(QMainWindow):
 	def __init__(self):
@@ -251,9 +247,53 @@ class MainWindow(QMainWindow):
 		self.groupVideoLayout.addWidget(self.video_GetAudioEndEdit , 2, 3)
 		self.groupVideoLayout.addWidget(self.video_GetAudioButton , 2, 4)
 
+		self.video_GetMetaButton.clicked.connect(self.get_meta)
+		self.video_GetScreenshotButton.clicked.connect(self.get_screen)
+		self.video_GetAudioButton.clicked.connect(self.get_audio)
+
+	def file_find(self, name):
+		for root, dirs, files in os.walk(BASE + '/VIDEO/'):
+			if name in files:
+				return os.path.join(root, name)
+
+	def get_meta(self):
+		if self.video_name_text.text():
+			fn = file_find(self.video_name_text.text())
+			if fn:
+				FFMPEG_META = ['ffmpeg', '-v', 'error', '-y', '-i', fn, '-f', 'ffmetadata', '-']
+				try:
+					with subprocess.Popen(FFMPEG_METADATA, stdin=subprocess.PIPE, stderr=subprocess.STDOUT) as proc:
+						proc.stdout.write()
+				except:
+					print('[error] ffmpeg meta: ' + fn)
+
+	def get_screen(self):
+		if self.video_name_text.text():
+			fn = file_find(self.video_name_text.text())
+			if fn:
+				START = self.video_GetScreenshotEdit.text()
+				FFMPEG_SCREEN = ['ffmpeg', '-v', 'error', '-y', '-i', fn, '-ss', START, '-frames:v', '1', fn + '.jpg']
+				try:
+					with subprocess.Popen(FFMPEG_SCREEN, stdin=subprocess.PIPE, stderr=subprocess.STDOUT) as proc:
+						proc.stdout.write()
+				except:
+					print('[error] ffmpeg screen: ' + fn)
+
+	def get_audio(self):
+		if self.video_name_text.text():
+			fn = file_find(self.video_name_text.text())
+			if fn:
+				START = self.video_GetAudioStartEdit.text()
+				STOP = self.video_GetAudioEndEdit.text()
+				FFMPEG_AUDIO = ['ffmpeg', '-v', 'error', '-y', '-i', fn, '-ss', START, '-t', STOP, fn + '.mp3']
+				try:
+					with subprocess.Popen(FFMPEG_AUDIO, stdin=subprocess.PIPE, stderr=subprocess.STDOUT) as proc:
+						proc.stdout.write()
+				except:
+					print('[error] ffmpeg audio: ' + fn)
 
 	def file_open(self):
-		fn = QFileDialog.getOpenFileName(self, "Open File", BASE, "YML (*.yml)")
+		fn = QFileDialog.getOpenFileName(self, "Open File", BASE + '/ASSETS/', "YML (*.yml)")
 		yml = None
 		if os.path.isfile(fn[0]):
 			with open(fn[0], 'r') as stream:
@@ -266,31 +306,31 @@ class MainWindow(QMainWindow):
 		if yml:
 			match os.path.basename(os.path.dirname(fn[0])):
 				case "artist":
-					self.artist_nickname_text.setText(TPL_ARTIST.nickname)
-					self.artist_altname_text.seText(TPL_ARTIST.altname)
-					self.artist_name_text.setText(TPL_ARTIST.name)
-					self.artist_id_text.seText(TPL_ARTIST.id)
-					self.artist_icon_text.setText(TPL_ARTIST.icon)
-					self.artist_location_text.setText(TPL_ARTIST.location)
-					self.artist_group_text.setText(TPL_ARTIST.group)
-					self.artist_meta_text.seText(TPL_ARTIST.meta)
+					self.artist_nickname_text.setText(yml.nickname)
+					self.artist_altname_text.seText(yml.altname)
+					self.artist_name_text.setText(yml.name)
+					self.artist_id_text.seText(yml.id)
+					self.artist_icon_text.setText(yml.icon)
+					self.artist_location_text.setText(yml.location)
+					self.artist_group_text.setText(yml.group)
+					self.artist_meta_text.seText(yml.meta)
 					self.tab.setCurrentIndex(0)
 				case "group":
-					self.group_name_text.setText(TPL_GROUP.name)
-					self.group_artist_text.setText(TPL_GROUP.artist)
-					self.group_location_text.seText(TPL_GROUP.location)
-					self.group_coutry_text.setText(TPL_GROUP.country)
-					self.group_meta_text.setText(TPL_GROUP.meta)
+					self.group_name_text.setText(yml.name)
+					self.group_artist_text.setText(yml.artist)
+					self.group_location_text.seText(yml.location)
+					self.group_coutry_text.setText(yml.country)
+					self.group_meta_text.setText(yml.meta)
 					self.tab.setCurrentIndex(1)
 				case "video":
-					self.video_name_text.setText(TPL_VIDEO.name)
-					self.video_screenshot_text.setText(TPL_VIDEO.screenshot)
-					self.video_date_text.setText(TPL_VIDEO.date)
-					self.video_size_text.setText(TPL_VIDEO.size)
-					self.video_duration_text.setText(TPL_VIDEO.duration)
-					self.video_music_text.setText(TPL_VIDEO.music)
-					self.video_artist_text.setText(TPL_VIDEO.artist)
-					self.video_meta_text.setText(TPL_VIDEO.meta)
+					self.video_name_text.setText(yml.name)
+					self.video_screenshot_text.setText(yml.screenshot)
+					self.video_date_text.setText(yml.date)
+					self.video_size_text.setText(yml.size)
+					self.video_duration_text.setText(yml.duration)
+					self.video_music_text.setText(yml.music)
+					self.video_artist_text.setText(yml.artist)
+					self.video_meta_text.setText(yml.meta)
 					self.tab.setCurrentIndex(2)
 	
 	def file_save(self):
@@ -307,7 +347,7 @@ class MainWindow(QMainWindow):
 					TPL_ARTIST.location = self.artist_location_text.text()
 					TPL_ARTIST.group = self.artist_group_text.text()
 					TPL_ARTIST.meta = self.artist_meta_text.text()
-					fn = BASE + 'artist/' + self.artist_nickname_text.text() + '.yml'
+					fn = BASE + '/YAML/artist/' + self.artist_nickname_text.text() + '.yml'
 					yml = TPL_ARTIST
 			case 1:
 				if self.group_name_text.text():
@@ -316,7 +356,7 @@ class MainWindow(QMainWindow):
 					TPL_GROUP.location = self.group_location_text.text()
 					TPL_GROUP.country = self.group_coutry_text.text()
 					TPL_GROUP.meta = self.group_meta_text.text()
-					fn = BASE + 'group/' + self.group_name_text.text() + '.yml'
+					fn = BASE + '/YAML/group/' + self.group_name_text.text() + '.yml'
 					yml = TPL_GROUP
 
 			case 2:
@@ -329,17 +369,17 @@ class MainWindow(QMainWindow):
 					TPL_VIDEO.music = self.video_music_text.text()
 					TPL_VIDEO.artist = self.video_artist_text.text()
 					TPL_VIDEO.meta = self.video_meta_text.text()
-					fn = BASE + 'video/' + self.video_name_text.text() + '.yml'
+					fn = BASE + '/YAML/video/' + self.video_name_text.text() + '.yml'
 					yml = TPL_VIDEO
 
-		if not os.path.isfile(fn):
-			fn_tup = QFileDialog.getSaveFileName(self, "Save File", BASE, "YML (*.yml)")
+		if not os.path.isfile(fn):# Save as..
+			fn_tup = QFileDialog.getSaveFileName(self, "Save File", BASE + '/YAML/', "YML (*.yml)")
 			if os.path.splitext(fn[0]) != 'yml': fn = fn_tup[0] + '.yml'
 
 		with open(fn, 'w') as f:
         		f.write(safe_dump(yml, sort_keys=False, explicit_start=True, explicit_end=True))
 
-## MAIN
+# MAIN
 
 app = QApplication(sys.argv)
 
