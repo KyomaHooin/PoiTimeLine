@@ -3,7 +3,7 @@
 # PTL Metadata toolkit
 #
 
-import sys,os,subprocess
+import subprocess,sys,os
 
 from yaml import safe_dump,safe_load
 
@@ -228,7 +228,7 @@ class MainWindow(QMainWindow):
 
 		self.formLayout_3.addRow(self.groupVideoWidget)
 
-		self.video_GetMetaButton = QPushButton("Get Meta")
+		self.video_GetMetaButton = QPushButton("Get Metadata")
 		self.groupVideoLayout.addWidget(self.video_GetMetaButton, 0, 0, 1, 5)
 		self.video_GetScreenshot = QLabel("Start")
 		self.video_GetScreenshotEdit = QLineEdit()
@@ -307,20 +307,20 @@ class MainWindow(QMainWindow):
 			match os.path.basename(os.path.dirname(fn[0])):
 				case "artist":
 					self.artist_nickname_text.setText(yml['nickname'])
-					self.artist_altname_text.setText(yml['altname'])
+					self.artist_altname_text.setPlainText('/n'.join(yml['altname']))
 					self.artist_name_text.setText(yml['name'])
 					self.artist_id_text.setText(yml['id'])
 					self.artist_icon_text.setText(yml['icon'])
 					self.artist_location_text.setText(yml['location'])
 					self.artist_group_text.setText(yml['group'])
-					self.artist_meta_text.setText(yml['meta'])
+					self.artist_meta_text.setPlainText('/n'.join(yml['meta']))
 					self.tab.setCurrentIndex(0)
 				case "group":
 					self.group_name_text.setText(yml['name'])
-					self.group_artist_text.setText(yml['artist'])
-					self.group_location_text.seText(yml['location'])
+					self.group_artist_text.setPlainText('/n'.join(yml['artist']))
+					self.group_location_text.setText(yml['location'])
 					self.group_coutry_text.setText(yml['country'])
-					self.group_meta_text.setText(yml['meta'])
+					self.group_meta_text.setPlainText('/n'.join(yml['meta']))
 					self.tab.setCurrentIndex(1)
 				case "video":
 					self.video_name_text.setText(yml['name'])
@@ -328,9 +328,9 @@ class MainWindow(QMainWindow):
 					self.video_date_text.setText(yml['date'])
 					self.video_size_text.setText(yml['size'])
 					self.video_duration_text.setText(yml['duration'])
-					self.video_music_text.setText(yml['music'])
-					self.video_artist_text.setText(yml['artist'])
-					self.video_meta_text.setText(yml['meta'])
+					self.video_music_text.setPlainText('/n'.join(yml['music']))
+					self.video_artist_text.setPlainText('/n'.join(yml['artist']))
+					self.video_meta_text.setPlainText('/n'.join(yml['meta']))
 					self.tab.setCurrentIndex(2)
 	
 	def file_save(self):
@@ -340,22 +340,22 @@ class MainWindow(QMainWindow):
 			case 0:
 				if self.artist_nickname_text.text():
 					TPL_ARTIST['nickname'] = self.artist_nickname_text.text()
-					TPL_ARTIST['altname'] = self.artist_altname_text.toMarkdown()
+					TPL_ARTIST['altname'] = self.artist_altname_text.toPlainText().splitlines()
 					TPL_ARTIST['name'] = self.artist_name_text.text()
 					TPL_ARTIST['id'] = self.artist_id_text.text()
 					TPL_ARTIST['icon'] = self.artist_icon_text.text()
 					TPL_ARTIST['location'] = self.artist_location_text.text()
 					TPL_ARTIST['group'] = self.artist_group_text.text()
-					TPL_ARTIST['meta'] = self.artist_meta_text.toPlainText()
+					TPL_ARTIST['meta'] = self.artist_meta_text.toPlainText().splitlines()
 					fn = BASE + '/YAML/artist/' + self.artist_nickname_text.text() + '.yml'
 					yml = TPL_ARTIST
 			case 1:
 				if self.group_name_text.text():
 					TPL_GROUP['name'] = self.group_name_text.text()
-					TPL_GROUP['artist'] = self.group_artist_text.toPlainText()
+					TPL_GROUP['artist'] = self.group_artist_text.toPlainText().splitlines()
 					TPL_GROUP['location'] = self.group_location_text.text()
 					TPL_GROUP['country'] = self.group_coutry_text.text()
-					TPL_GROUP['meta'] = self.group_meta_text.toPlainText()
+					TPL_GROUP['meta'] = self.group_meta_text.toPlainText().splitlines()
 					fn = BASE + '/YAML/group/' + self.group_name_text.text() + '.yml'
 					yml = TPL_GROUP
 
@@ -366,9 +366,9 @@ class MainWindow(QMainWindow):
 					TPL_VIDEO['date'] = self.video_date_text.text()
 					TPL_VIDEO['size'] = self.video_size_text.text()
 					TPL_VIDEO['duration'] = self.video_duration_text.text()
-					TPL_VIDEO['music'] = self.video_music_text.toPlainText()
-					TPL_VIDEO['artist'] = self.video_artist_text.toPlainText()
-					TPL_VIDEO['meta'] = self.video_meta_text.toPlainText()
+					TPL_VIDEO['music'] = self.video_music_text.toPlainText().splitlines()
+					TPL_VIDEO['artist'] = self.video_artist_text.toPlainText().splitlines()
+					TPL_VIDEO['meta'] = self.video_meta_text.toPlainText().splitlines()
 					fn = BASE + '/YAML/video/' + self.video_name_text.text() + '.yml'
 					yml = TPL_VIDEO
 
