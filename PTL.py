@@ -30,36 +30,6 @@ from PyQt6.QtWidgets import (
 
 BASE = '/home/user/Desktop/project'
 
-TPL_ARTIST = {
-	'nickname':None,
-	'altname':None,
-	'name':None,
-	'id':None,
-	'icon':None,
-	'location':None,
-	'group':None,
-	'meta':None
-}
-
-TPL_GROUP = {
-	'name':None,
-	'artist':None,
-	'location':None,
-	'coutry':None,
-	'meta':None,
-}
-
-TPL_VIDEO = {
-	'name':None,
-	'screenshot':None,
-	'date':None,
-	'size':None,
-	'duration':None,
-	'music':None,
-	'artist':None,
-	'meta':None,
-}
-
 class MainWindow(QMainWindow):
 	def __init__(self):
 		super().__init__()
@@ -282,7 +252,7 @@ class MainWindow(QMainWindow):
 		if self.video_name_text.text():
 			fn = self.file_find(self.video_name_text.text())
 			frame = self.video_GetScreenshotEdit.text()
-			out = 'foo.jpg'
+			out = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn)) + self.video_name_text.text() + '.jpg'
 		
 			if fn and frame:
 				FFMPEG_SCREEN = ['ffmpeg','-v','error','-y','-i',fn,'-ss',frame,'-frames:v','1',out]
@@ -296,7 +266,7 @@ class MainWindow(QMainWindow):
 			fn = self.file_find(self.video_name_text.text())
 			frame_start = self.video_GetAudioStartEdit.text()
 			frame_stop = self.video_GetAudioEndEdit.text()
-			out = 'foo.mp3'
+			out = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn)) + self.video_name_text.text() + '.mp3'
 
 			if fn and frame_start and frame_stop:
 				FFMPEG_AUDIO = ['ffmpeg','-v','error','-y','-i',fn,'-ss',frame_start,'-t',frame_stop,out]
@@ -319,73 +289,70 @@ class MainWindow(QMainWindow):
 		if yml:
 			match os.path.basename(os.path.dirname(fn[0])):
 				case "artist":
-					self.artist_nickname_text.setText(yml['nickname'])
-					self.artist_altname_text.setPlainText("\n".join(yml['altname']))
-					self.artist_name_text.setText(yml['name'])
-					self.artist_id_text.setText(yml['id'])
-					self.artist_icon_text.setText(yml['icon'])
-					self.artist_location_text.setText(yml['location'])
-					self.artist_group_text.setText(yml['group'])
-					self.artist_meta_text.setPlainText("\n".join(yml['meta']))
+					if yml['nickname']: self.artist_nickname_text.setText(yml['nickname'])
+					if yml['altname']: self.artist_altname_text.setPlainText("\n".join(yml['altname']))
+					if yml['name']: self.artist_name_text.setText(yml['name'])
+					if yml['id']: self.artist_id_text.setText(yml['id'])
+					if yml['icon']: self.artist_icon_text.setText(yml['icon'])
+					if yml['location']: self.artist_location_text.setText(yml['location'])
+					if yml['group']: self.artist_group_text.setText(yml['group'])
+					if yml['meta']: self.artist_meta_text.setPlainText("\n".join(yml['meta']))
 					self.tab.setCurrentIndex(0)
 				case "group":
-					self.group_name_text.setText(yml['name'])
-					self.group_artist_text.setPlainText("\n".join(yml['artist']))
-					self.group_location_text.setText(yml['location'])
-					self.group_country_text.setText(yml['country'])
-					self.group_meta_text.setPlainText("\n".join(yml['meta']))
+					if yml['name']: self.group_name_text.setText(yml['name'])
+					if yml['artist']: self.group_artist_text.setPlainText("\n".join(yml['artist']))
+					if yml['location']: self.group_location_text.setText(yml['location'])
+					if yml['country']: self.group_country_text.setText(yml['country'])
+					if yml['meta']: self.group_meta_text.setPlainText("\n".join(yml['meta']))
 					self.tab.setCurrentIndex(1)
 				case "video":
-					self.video_name_text.setText(yml['name'])
-					self.video_screenshot_text.setText(yml['screenshot'])
-					self.video_date_text.setText(yml['date'])
-					self.video_size_text.setText(yml['size'])
-					self.video_duration_text.setText(yml['duration'])
-					self.video_music_text.setPlainText("\n".join(yml['music']))
-					self.video_artist_text.setPlainText("\n".join(yml['artist']))
-					self.video_meta_text.setPlainText("\n".join(yml['meta']))
+					if yml['name']: self.video_name_text.setText(yml['name'])
+					if yml['screenshot']: self.video_screenshot_text.setText(yml['screenshot'])
+					if yml['date']: self.video_date_text.setText(yml['date'])
+					if yml['size']: self.video_size_text.setText(yml['size'])
+					if yml['duration']: self.video_duration_text.setText(yml['duration'])
+					if yml['music']: self.video_music_text.setPlainText("\n".join(yml['music']))
+					if yml['artist']: self.video_artist_text.setPlainText("\n".join(yml['artist']))
+					if yml['meta']: self.video_meta_text.setPlainText("\n".join(yml['meta']))
 					self.tab.setCurrentIndex(2)
 	
 	def file_save(self):
 		fn = None
-		yml = None
+		yml = {}
 		match self.tab.currentIndex():
 			case 0:
 				if self.artist_nickname_text.text():
-					TPL_ARTIST['nickname'] = self.artist_nickname_text.text()
-					TPL_ARTIST['altname'] = self.artist_altname_text.toPlainText().splitlines()
-					TPL_ARTIST['name'] = self.artist_name_text.text()
-					TPL_ARTIST['id'] = self.artist_id_text.text()
-					TPL_ARTIST['icon'] = self.artist_icon_text.text()
-					TPL_ARTIST['location'] = self.artist_location_text.text()
-					TPL_ARTIST['group'] = self.artist_group_text.text()
-					TPL_ARTIST['meta'] = self.artist_meta_text.toPlainText().splitlines()
+					yml['nickname'] = self.artist_nickname_text.text()
+					if self.artist_altname_text.toPlainText(): yml['altname'] = self.artist_altname_text.toPlainText().splitlines()
+					if self.artist_name_text.text(): yml['name'] = self.artist_name_text.text()
+					if self.artist_id_text.text(): yml['id'] = self.artist_id_text.text()
+					if self.artist_icon_text.text(): yml['icon'] = self.artist_icon_text.text()
+					if self.artist_location_text.text(): yml['location'] = self.artist_location_text.text()
+					if self.artist_group_text.text(): yml['group'] = self.artist_group_text.text()
+					if self.artist_meta_text.toPlainText(): yml['meta'] = self.artist_meta_text.toPlainText().splitlines()
 					fn = BASE + '/YAML/artist/' + self.artist_nickname_text.text() + '.yml'
-					yml = TPL_ARTIST
 			case 1:
 				if self.group_name_text.text():
-					TPL_GROUP['name'] = self.group_name_text.text()
-					TPL_GROUP['artist'] = self.group_artist_text.toPlainText().splitlines()
-					TPL_GROUP['location'] = self.group_location_text.text()
-					TPL_GROUP['country'] = self.group_country_text.text()
-					TPL_GROUP['meta'] = self.group_meta_text.toPlainText().splitlines()
+					yml['name'] = self.group_name_text.text()
+					if self.group_artist_text.toPlainText(): yml['artist'] = self.group_artist_text.toPlainText().splitlines()
+					if self.group_location_text.text(): yml['location'] = self.group_location_text.text()
+					if self.group_country_text.text(): yml['country'] = self.group_country_text.text()
+					if self.group_meta_text.toPlainText(): yml['meta'] = self.group_meta_text.toPlainText().splitlines()
 					fn = BASE + '/YAML/group/' + self.group_name_text.text() + '.yml'
-					yml = TPL_GROUP
 
 			case 2:
 				if self.video_name_text.text():
-					TPL_VIDEO['name'] = self.video_name_text.text()
-					TPL_VIDEO['screenshot'] = self.video_screenshot_text.text()
-					TPL_VIDEO['date'] = self.video_date_text.text()
-					TPL_VIDEO['size'] = self.video_size_text.text()
-					TPL_VIDEO['duration'] = self.video_duration_text.text()
-					TPL_VIDEO['music'] = self.video_music_text.toPlainText().splitlines()
-					TPL_VIDEO['artist'] = self.video_artist_text.toPlainText().splitlines()
-					TPL_VIDEO['meta'] = self.video_meta_text.toPlainText().splitlines()
+					yml['name'] = self.video_name_text.text()
+					if self.video_screenshot_text.text(): yml['screenshot'] = self.video_screenshot_text.text()
+					if self.video_date_text.text(): yml['date'] = self.video_date_text.text()
+					if self.video_size_text.text(): yml['size'] = self.video_size_text.text()
+					if self.video_duration_text.text(): yml['duration'] = self.video_duration_text.text()
+					if self.video_music_text.toPlainText(): yml['music'] = self.video_music_text.toPlainText().splitlines()
+					if self.video_artist_text.toPlainText(): yml['artist'] = self.video_artist_text.toPlainText().splitlines()
+					if self.video_meta_text.toPlainText(): yml['meta'] = self.video_meta_text.toPlainText().splitlines()
 					fn = BASE + '/YAML/video/' + self.video_name_text.text() + '.yml'
-					yml = TPL_VIDEO
 
-		if not os.path.isfile(fn):# Save as..
+		if not os.path.isfile(fn):
 			fn_tup = QFileDialog.getSaveFileName(self, "Save File", BASE + '/YAML/', "YML (*.yml)")
 			if os.path.splitext(fn[0]) != 'yml': fn = fn_tup[0] + '.yml'
 
