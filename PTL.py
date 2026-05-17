@@ -307,20 +307,20 @@ class MainWindow(QMainWindow):
 			match os.path.basename(os.path.dirname(fn[0])):
 				case "artist":
 					self.artist_nickname_text.setText(yml['nickname'])
-					self.artist_altname_text.setPlainText('/n'.join(yml['altname']))
+					self.artist_altname_text.setPlainText("\n".join(yml['altname']))
 					self.artist_name_text.setText(yml['name'])
 					self.artist_id_text.setText(yml['id'])
 					self.artist_icon_text.setText(yml['icon'])
 					self.artist_location_text.setText(yml['location'])
 					self.artist_group_text.setText(yml['group'])
-					self.artist_meta_text.setPlainText('/n'.join(yml['meta']))
+					self.artist_meta_text.setPlainText("\n".join(yml['meta']))
 					self.tab.setCurrentIndex(0)
 				case "group":
 					self.group_name_text.setText(yml['name'])
-					self.group_artist_text.setPlainText('/n'.join(yml['artist']))
+					self.group_artist_text.setPlainText("\n".join(yml['artist']))
 					self.group_location_text.setText(yml['location'])
-					self.group_coutry_text.setText(yml['country'])
-					self.group_meta_text.setPlainText('/n'.join(yml['meta']))
+					self.group_country_text.setText(yml['country'])
+					self.group_meta_text.setPlainText("\n".join(yml['meta']))
 					self.tab.setCurrentIndex(1)
 				case "video":
 					self.video_name_text.setText(yml['name'])
@@ -328,9 +328,9 @@ class MainWindow(QMainWindow):
 					self.video_date_text.setText(yml['date'])
 					self.video_size_text.setText(yml['size'])
 					self.video_duration_text.setText(yml['duration'])
-					self.video_music_text.setPlainText('/n'.join(yml['music']))
-					self.video_artist_text.setPlainText('/n'.join(yml['artist']))
-					self.video_meta_text.setPlainText('/n'.join(yml['meta']))
+					self.video_music_text.setPlainText("\n".join(yml['music']))
+					self.video_artist_text.setPlainText("\n".join(yml['artist']))
+					self.video_meta_text.setPlainText("\n".join(yml['meta']))
 					self.tab.setCurrentIndex(2)
 	
 	def file_save(self):
@@ -354,7 +354,7 @@ class MainWindow(QMainWindow):
 					TPL_GROUP['name'] = self.group_name_text.text()
 					TPL_GROUP['artist'] = self.group_artist_text.toPlainText().splitlines()
 					TPL_GROUP['location'] = self.group_location_text.text()
-					TPL_GROUP['country'] = self.group_coutry_text.text()
+					TPL_GROUP['country'] = self.group_country_text.text()
 					TPL_GROUP['meta'] = self.group_meta_text.toPlainText().splitlines()
 					fn = BASE + '/YAML/group/' + self.group_name_text.text() + '.yml'
 					yml = TPL_GROUP
