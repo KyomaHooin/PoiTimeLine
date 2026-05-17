@@ -280,26 +280,28 @@ class MainWindow(QMainWindow):
 
 	def get_screen(self):
 		if self.video_name_text.text():
-			fn = file_find(self.video_name_text.text())
-			if fn:
-				START = self.video_GetScreenshotEdit.text()
-				FFMPEG_SCREEN = ['ffmpeg', '-v', 'error', '-y', '-i', fn, '-ss', START, '-frames:v', '1', fn + '.jpg']
+			fn = self.file_find(self.video_name_text.text())
+			frame = self.video_GetScreenshotEdit.text()
+			out = 'foo.jpg'
+		
+			if fn and frame:
+				FFMPEG_SCREEN = ['ffmpeg','-v','error','-y','-i',fn,'-ss',frame,'-frames:v','1',out]
 				try:
-					with subprocess.Popen(FFMPEG_SCREEN, stdout=subprocess.PIPE, stderr=subprocess.STDOUT) as proc:
-						proc.stdoutte()
+					proc = subprocess.run(FFMPEG_SCREEN)
 				except:
 					print('[error] ffmpeg screen: ' + fn)
 
 	def get_audio(self):
 		if self.video_name_text.text():
-			fn = file_find(self.video_name_text.text())
-			if fn:
-				START = self.video_GetAudioStartEdit.text()
-				STOP = self.video_GetAudioEndEdit.text()
-				FFMPEG_AUDIO = ['ffmpeg', '-v', 'error', '-y', '-i', fn, '-ss', START, '-t', STOP, fn + '.mp3']
+			fn = self.file_find(self.video_name_text.text())
+			frame_start = self.video_GetAudioStartEdit.text()
+			frame_stop = self.video_GetAudioEndEdit.text()
+			out = 'foo.mp3'
+
+			if fn and frame_start and frame_stop:
+				FFMPEG_AUDIO = ['ffmpeg','-v','error','-y','-i',fn,'-ss',frame_start,'-t',frame_stop,out]
 				try:
-					with subprocess.Popen(FFMPEG_AUDIO, stdin=subprocess.PIPE, stderr=subprocess.STDOUT) as proc:
-						proc.stdout.write()
+					proc = subprocess.run(FFMPEG_AUDIO)
 				except:
 					print('[error] ffmpeg audio: ' + fn)
 
