@@ -19,6 +19,7 @@ from PyQt6.QtWidgets import (
 	QDialog,
 	QTabWidget,
 	QFormLayout,
+	QVBoxLayout,
 	QGridLayout,
 	QGroupBox,
 	QPushButton,
@@ -251,19 +252,29 @@ class MainWindow(QMainWindow):
 		self.video_GetScreenshotButton.clicked.connect(self.get_screen)
 		self.video_GetAudioButton.clicked.connect(self.get_audio)
 
+
 	def file_find(self, name):
 		for root, dirs, files in os.walk(BASE + '/VIDEO/'):
 			if name in files:
 				return os.path.join(root, name)
 
+	def get_metaDialog(self, fn, text):
+		self.dlg = QDialog()
+		self.dlg.setWindowTitle(fn + ' - Metadata')
+		layout = QVBoxLayout() 
+		message = QLabel(text)		
+		layout.addWidget(message)
+		self.dlg.setLayout(layout)
+		self.dlg.show()
+
 	def get_meta(self):
 		if self.video_name_text.text():
-			fn = file_find(self.video_name_text.text())
+			fn = self.file_find(self.video_name_text.text())
 			if fn:
-				FFMPEG_META = ['ffmpeg', '-v', 'error', '-y', '-i', fn, '-f', 'ffmetadata', '-']
+				FFPROBE_METADATA = ['ffprobe', '-hide_banner', fn]
 				try:
-					with subprocess.Popen(FFMPEG_METADATA, stdin=subprocess.PIPE, stderr=subprocess.STDOUT) as proc:
-						proc.stdout.write()
+					proc = subprocess.run(FFPROBE_METADATA, text=True, capture_output=True)
+					self.get_metaDialog(self.video_name_text.text(), proc.stderr)
 				except:
 					print('[error] ffmpeg meta: ' + fn)
 
@@ -274,8 +285,8 @@ class MainWindow(QMainWindow):
 				START = self.video_GetScreenshotEdit.text()
 				FFMPEG_SCREEN = ['ffmpeg', '-v', 'error', '-y', '-i', fn, '-ss', START, '-frames:v', '1', fn + '.jpg']
 				try:
-					with subprocess.Popen(FFMPEG_SCREEN, stdin=subprocess.PIPE, stderr=subprocess.STDOUT) as proc:
-						proc.stdout.write()
+					with subprocess.Popen(FFMPEG_SCREEN, stdout=subprocess.PIPE, stderr=subprocess.STDOUT) as proc:
+						proc.stdoutte()
 				except:
 					print('[error] ffmpeg screen: ' + fn)
 
