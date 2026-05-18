@@ -284,8 +284,15 @@ class MainWindow(QMainWindow):
 					print('[error] ffmpeg audio: ' + fn)
 
 	def file_open(self):
-		fn = QFileDialog.getOpenFileName(self, "Open File", BASE + '/YAML/', "MD (*.md)")
-		yml = None
+		yml,fn_base = None, None
+		match self.tab.currentIndex():
+			case 0:
+				fn_base = BASE + '/YAML/artist/'
+			case 1:
+				fn_base = BASE + '/YAML/group/'
+			case 2:
+				fn_base = BASE + '/YAML/video/'
+		fn = QFileDialog.getOpenFileName(self, "Open File", fn_base, "MD (*.md)")
 		if os.path.isfile(fn[0]):
 			with open(fn[0], 'r') as stream:
 				try:
@@ -297,33 +304,33 @@ class MainWindow(QMainWindow):
 		if yml:
 			match os.path.basename(os.path.dirname(fn[0])):
 				case "artist":
-					if 'nickname' in yml: self.artist_nickname_text.setText(yml['nickname'])
-					if 'altname' in yml: self.artist_altname_text.setPlainText("\n".join(yml['altname']))
-					if 'name' in yml: self.artist_name_text.setText(yml['name'])
-					if 'id' in yml: self.artist_id_text.setText(yml['id'])
-					if 'icon' in yml: self.artist_icon_text.setText(yml['icon'])
-					if 'picture' in yml: self.artist_picture_text.setText(yml['picture'])
-					if 'video' in yml: self.artist_video_text.setPlainText("\n".join(yml['video']))
-					if 'location' in yml: self.artist_location_text.setText(yml['location'])
-					if 'group' in yml: self.artist_group_text.setText(yml['group'])
-					if 'meta' in yml: self.artist_meta_text.setPlainText("\n".join(yml['meta']))
+					self.artist_nickname_text.setText(yml['nickname'] if 'nickname' in yml else '')
+					self.artist_altname_text.setPlainText("\n".join(yml['altname']) if 'altname' in yml else '')
+					self.artist_name_text.setText(yml['name'] if 'name' in yml else '')
+					self.artist_id_text.setText(yml['id'] if 'id' in yml else '')
+					self.artist_icon_text.setText(yml['icon'] if 'icon' in yml else '')
+					self.artist_picture_text.setText(yml['picture'] if 'picture' in yml else '')
+					self.artist_video_text.setPlainText("\n".join(yml['video']) if 'video' in yml else '')
+					self.artist_location_text.setText(yml['location'] if 'location' in yml else '')
+					self.artist_group_text.setText(yml['group'] if 'group' in yml else '')
+					self.artist_meta_text.setPlainText("\n".join(yml['meta']) if 'meta' in yml else '')
 					self.tab.setCurrentIndex(0)
 				case "group":
-					if 'name' in yml: self.group_name_text.setText(yml['name'])
-					if 'artist' in yml: self.group_artist_text.setPlainText("\n".join(yml['artist']))
-					if 'location' in yml: self.group_location_text.setText(yml['location'])
-					if 'country' in yml: self.group_country_text.setText(yml['country'])
-					if 'meta' in yml: self.group_meta_text.setPlainText("\n".join(yml['meta']))
+					self.group_name_text.setText(yml['name'] if 'name' in yml else '')
+					self.group_artist_text.setPlainText("\n".join(yml['artist']) if 'artist' in yml else '')
+					self.group_location_text.setText(yml['location'] if 'location' in yml else '')
+					self.group_country_text.setText(yml['country'] if 'country' in yml else '')
+					self.group_meta_text.setPlainText("\n".join(yml['meta']) if 'meta' in yml else '')
 					self.tab.setCurrentIndex(1)
 				case "video":
-					if 'name' in yml: self.video_name_text.setText(yml['name'])
-					if 'screenshot' in yml: self.video_screenshot_text.setText(yml['screenshot'])
-					if 'date' in yml: self.video_date_text.setText(yml['date'])
-					if 'size' in yml: self.video_size_text.setText(yml['size'])
-					if 'duration' in yml: self.video_duration_text.setText(yml['duration'])
-					if 'music' in yml: self.video_music_text.setPlainText("\n".join(yml['music']))
-					if 'artist' in yml: self.video_artist_text.setPlainText("\n".join(yml['artist']))
-					if 'meta' in yml: self.video_meta_text.setPlainText("\n".join(yml['meta']))
+					self.video_name_text.setText(yml['name'] if 'name' in yml else '')
+					self.video_screenshot_text.setText(yml['screenshot'] if 'screenshot' in yml else '')
+					self.video_date_text.setText(yml['date'] if 'date' in yml else '')
+					self.video_size_text.setText(yml['size'] if 'size' in yml else '')
+					self.video_duration_text.setText(yml['duration'] if 'duration' in yml else '')
+					self.video_music_text.setPlainText("\n".join(yml['music']) if 'music' in yml else '')
+					self.video_artist_text.setPlainText("\n".join(yml['artist']) if 'artist' in yml else '')
+					self.video_meta_text.setPlainText("\n".join(yml['meta']) if 'meta' in yml else '')
 					self.tab.setCurrentIndex(2)
 	
 	def file_save(self):
