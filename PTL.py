@@ -230,7 +230,6 @@ class MainWindow(QMainWindow):
 		self.video_GetScreenshotButton.clicked.connect(self.get_screen)
 		self.video_GetAudioButton.clicked.connect(self.get_audio)
 
-
 	def file_find(self, name):
 		for root, dirs, files in os.walk(BASE + '/VIDEO/'):
 			if name in files:
@@ -261,6 +260,7 @@ class MainWindow(QMainWindow):
 			fn = self.file_find(self.video_name_text.text())
 			fn_base = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn)) + '/'
 			os.makedirs(fn_base, exist_ok=True)
+
 			frame = self.video_GetScreenshotEdit.text()
 
 			if fn and frame:
@@ -275,6 +275,7 @@ class MainWindow(QMainWindow):
 			fn = self.file_find(self.video_name_text.text())
 			fn_base = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn)) + '/'
 			os.makedirs(fn_base, exist_ok=True)
+
 			frame_start = self.video_GetAudioStartEdit.text()
 			frame_stop = self.video_GetAudioEndEdit.text()
 
@@ -294,6 +295,7 @@ class MainWindow(QMainWindow):
 				fn_base = BASE + '/YAML/group/'
 			case 2:
 				fn_base = BASE + '/YAML/video/'
+
 		fn = QFileDialog.getOpenFileName(self, "Open File", fn_base, "MD (*.md)")
 
 		if os.path.isfile(fn[0]):
