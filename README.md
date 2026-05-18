@@ -2,68 +2,63 @@ DESCRIPTION
 
 Early Poi spinning documentation project.
 
+METADATA TOOKIT
+
+![Toolkit](https://github.com/KyomaHooin/PoiTimeLine/blob/main/PTLToolkit.jpg?raw=true "screenshot")
+
+FILE
+<pre>
+assets/icon/    ... artist icon files
+assets/picture/ ... artist picture files
+assets/screen/  ... video screen files
+assets/ ........... misc files
+
+_data/artist/ ..... artist MD files
+_data/group/ ...... group MD files
+_data/video/ ...... video MD files
+
+html/ ............. Jekyll frontned
+
+PTL.py ............ Metadata Qt6 toolkit GUI
+PTLToolkit.jpg .... PTL Toolkit Screen
+README.md ......... Readme 
+</pre>
+
 ARCHITECTURE
 <pre>
 2002|----- XXX
     |
 2003|----- XXX
     |
-    |
-...
+
 [collection]
 |--[mcp]
 |----[*]lab2.avi
 |----[*]lab3.avi
 |--[TePooka]
 |----[*]rubbish.avi
-....
-
-/assets/icons/mcp.png
-/assets/video/lab2.png
-
-/_data/artst.md <- dataset
-/_data/group.md <- dataset
 
 /video/mcp/_post/YEAR-MONTH-DAY-lab2.md
 /video/mcp/_post/YEAR-MONTH-DAY-lab3.md
 </pre>
-INSTALL
-<pre>
-apt-get install (qt6-base-dev designer-qt6) python3-pyqt6 python3-yaml 
-</pre>
-METADATA TOOKIT
-
-![Toolkit](https://github.com/KyomaHooin/PoiTimeLine/blob/main/PTLToolkit.jpg?raw=true "screenshot")
 
 META
 <pre>
+
 Resize: mogrify -resize 320x224\! *.png
-</pre>
-VLC
-<pre>
+
+VLC:
 [e] next frame
 [shift] + [e] screenshot
 [shift] + [s] store frame
 </pre>
 
+TODO
+
 https://jquery-plugins.net/building-vertical-timeline-with-css-and-javascript
 https://codyhouse.co/gem/vertical-timeline/
 
-Contactstaffduo:US+Germany
-
 Bm Cole UCOF - "Skitz - ft Dynmite MC nd G - We make them make noise"
-
-Austri:mcp+
-
-Missing: (wayback 2001)
-
-AnthelionFireVideoDSL06b.mov
-061203yutaaska.wmv
-
-Here is a one minute clip of ShadowFire spinning fire to "Bombs over Bagdad" by OutKast. ShadowFire is from  San Antonio, Texas , USA
-
-mvc-001v.mpg 1.3M
-skunk.mov 1.7M
 
 "We came whirling out of nothingness, glittering stars like dust,
 start that made a circle, where in the middle, we dance."
@@ -71,11 +66,11 @@ start that made a circle, where in the middle, we dance."
 http://www.homeofpoi.com/ubbthreads/images/users/796.jpg
 https://web.archive.org/web/20061214070131/http://www.homeofpoi.com/ubbthreads/showprofile.php?Cat=0&User=1571
 
-A.N.T.H.E.L.I.O.N
-Peregrine, Samiya, Anisa, Nomad, Code128, Tito
-(filmed by Daniel Furst)
-Boston, MA, USA
-
 Tempest (Liam), Rumplestiltskin (Nathan), Phat Boy (Aiden Tempest)
 Cheshire
-UK 
+UK
+
+SOURCE
+
+https://github.com/kyomahooin/PoiTimeLine
+ 

@@ -327,7 +327,7 @@ class MainWindow(QMainWindow):
 					self.tab.setCurrentIndex(2)
 	
 	def file_save(self):
-		fn = None
+		fn, fn_base = None, None
 		yml = {}
 		match self.tab.currentIndex():
 			case 0:
@@ -342,7 +342,8 @@ class MainWindow(QMainWindow):
 					if self.artist_location_text.text(): yml['location'] = self.artist_location_text.text()
 					if self.artist_group_text.text(): yml['group'] = self.artist_group_text.text()
 					if self.artist_meta_text.toPlainText(): yml['meta'] = self.artist_meta_text.toPlainText().splitlines()
-					fn = BASE + '/YAML/artist/' + self.artist_nickname_text.text() + '.md'
+					fn_base = BASE + '/YAML/artist/'
+					fn = fn_base + self.artist_nickname_text.text() + '.md'
 			case 1:
 				if self.group_name_text.text():
 					yml['name'] = self.group_name_text.text()
@@ -350,7 +351,8 @@ class MainWindow(QMainWindow):
 					if self.group_location_text.text(): yml['location'] = self.group_location_text.text()
 					if self.group_country_text.text(): yml['country'] = self.group_country_text.text()
 					if self.group_meta_text.toPlainText(): yml['meta'] = self.group_meta_text.toPlainText().splitlines()
-					fn = BASE + '/YAML/group/' + self.group_name_text.text() + '.md'
+					fn_base = BASE + '/YAML/group/'
+					fn = fn_base + self.group_name_text.text() + '.md'
 
 			case 2:
 				if self.video_name_text.text():
@@ -362,10 +364,11 @@ class MainWindow(QMainWindow):
 					if self.video_music_text.toPlainText(): yml['music'] = self.video_music_text.toPlainText().splitlines()
 					if self.video_artist_text.toPlainText(): yml['artist'] = self.video_artist_text.toPlainText().splitlines()
 					if self.video_meta_text.toPlainText(): yml['meta'] = self.video_meta_text.toPlainText().splitlines()
-					fn = BASE + '/YAML/video/' + self.video_name_text.text() + '.md'
+					fn_base = BASE + '/YAML/video/'
+					fn = fn_base + self.video_name_text.text() + '.md'
 
 		if not os.path.isfile(fn):
-			fn_tup = QFileDialog.getSaveFileName(self, "Save File", BASE + '/YAML/', "MD (*.md)")
+			fn_tup = QFileDialog.getSaveFileName(self, "Save File", fn_base, "MD (*.md)")
 			if os.path.splitext(fn[0]) != 'yml': fn = fn_tup[0] + '.md'
 
 		with open(fn, 'w') as f:
