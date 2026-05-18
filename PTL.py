@@ -126,18 +126,26 @@ class MainWindow(QMainWindow):
 		self.formLayout_1.setWidget(4, QFormLayout.ItemRole.LabelRole, self.artist_icon)
 		self.artist_icon_text = QLineEdit(self.formLayoutWidget_1)
 		self.formLayout_1.setWidget(4, QFormLayout.ItemRole.FieldRole, self.artist_icon_text)
+		self.artist_picture = QLabel("Picture", self.formLayoutWidget_1)
+		self.formLayout_1.setWidget(5, QFormLayout.ItemRole.LabelRole, self.artist_picture)
+		self.artist_picture_text = QLineEdit(self.formLayoutWidget_1)
+		self.formLayout_1.setWidget(5, QFormLayout.ItemRole.FieldRole, self.artist_picture_text)
+		self.artist_video = QLabel("Video", self.formLayoutWidget_1)
+		self.formLayout_1.setWidget(6, QFormLayout.ItemRole.LabelRole, self.artist_video)
+		self.artist_video_text = QTextEdit(self.formLayoutWidget_1)
+		self.formLayout_1.setWidget(6, QFormLayout.ItemRole.FieldRole, self.artist_video_text)
 		self.artist_location = QLabel("Location", self.formLayoutWidget_1)
-		self.formLayout_1.setWidget(5, QFormLayout.ItemRole.LabelRole, self.artist_location)
+		self.formLayout_1.setWidget(7, QFormLayout.ItemRole.LabelRole, self.artist_location)
 		self.artist_location_text = QLineEdit(self.formLayoutWidget_1)
-		self.formLayout_1.setWidget(5, QFormLayout.ItemRole.FieldRole, self.artist_location_text)
+		self.formLayout_1.setWidget(7, QFormLayout.ItemRole.FieldRole, self.artist_location_text)
 		self.artist_group = QLabel("Group", self.formLayoutWidget_1)
-		self.formLayout_1.setWidget(6, QFormLayout.ItemRole.LabelRole, self.artist_group)
+		self.formLayout_1.setWidget(8, QFormLayout.ItemRole.LabelRole, self.artist_group)
 		self.artist_group_text = QLineEdit(self.formLayoutWidget_1)
-		self.formLayout_1.setWidget(6, QFormLayout.ItemRole.FieldRole, self.artist_group_text)
+		self.formLayout_1.setWidget(8, QFormLayout.ItemRole.FieldRole, self.artist_group_text)
 		self.artist_meta = QLabel("Meta", self.formLayoutWidget_1)
-		self.formLayout_1.setWidget(7, QFormLayout.ItemRole.LabelRole, self.artist_meta)
+		self.formLayout_1.setWidget(9, QFormLayout.ItemRole.LabelRole, self.artist_meta)
 		self.artist_meta_text = QTextEdit(self.formLayoutWidget_1)
-		self.formLayout_1.setWidget(7, QFormLayout.ItemRole.FieldRole, self.artist_meta_text)
+		self.formLayout_1.setWidget(9, QFormLayout.ItemRole.FieldRole, self.artist_meta_text)
 
 		# TAB 2
 
@@ -276,7 +284,7 @@ class MainWindow(QMainWindow):
 					print('[error] ffmpeg audio: ' + fn)
 
 	def file_open(self):
-		fn = QFileDialog.getOpenFileName(self, "Open File", BASE + '/YAML/', "YML (*.yml)")
+		fn = QFileDialog.getOpenFileName(self, "Open File", BASE + '/YAML/', "MD (*.md)")
 		yml = None
 		if os.path.isfile(fn[0]):
 			with open(fn[0], 'r') as stream:
@@ -289,31 +297,33 @@ class MainWindow(QMainWindow):
 		if yml:
 			match os.path.basename(os.path.dirname(fn[0])):
 				case "artist":
-					if yml['nickname']: self.artist_nickname_text.setText(yml['nickname'])
-					if yml['altname']: self.artist_altname_text.setPlainText("\n".join(yml['altname']))
-					if yml['name']: self.artist_name_text.setText(yml['name'])
-					if yml['id']: self.artist_id_text.setText(yml['id'])
-					if yml['icon']: self.artist_icon_text.setText(yml['icon'])
-					if yml['location']: self.artist_location_text.setText(yml['location'])
-					if yml['group']: self.artist_group_text.setText(yml['group'])
-					if yml['meta']: self.artist_meta_text.setPlainText("\n".join(yml['meta']))
+					if 'nickname' in yml: self.artist_nickname_text.setText(yml['nickname'])
+					if 'altname' in yml: self.artist_altname_text.setPlainText("\n".join(yml['altname']))
+					if 'name' in yml: self.artist_name_text.setText(yml['name'])
+					if 'id' in yml: self.artist_id_text.setText(yml['id'])
+					if 'icon' in yml: self.artist_icon_text.setText(yml['icon'])
+					if 'picture' in yml: self.artist_picture_text.setText(yml['picture'])
+					if 'video' in yml: self.artist_video_text.setPlainText("\n".join(yml['video']))
+					if 'location' in yml: self.artist_location_text.setText(yml['location'])
+					if 'group' in yml: self.artist_group_text.setText(yml['group'])
+					if 'meta' in yml: self.artist_meta_text.setPlainText("\n".join(yml['meta']))
 					self.tab.setCurrentIndex(0)
 				case "group":
-					if yml['name']: self.group_name_text.setText(yml['name'])
-					if yml['artist']: self.group_artist_text.setPlainText("\n".join(yml['artist']))
-					if yml['location']: self.group_location_text.setText(yml['location'])
-					if yml['country']: self.group_country_text.setText(yml['country'])
-					if yml['meta']: self.group_meta_text.setPlainText("\n".join(yml['meta']))
+					if 'name' in yml: self.group_name_text.setText(yml['name'])
+					if 'artist' in yml: self.group_artist_text.setPlainText("\n".join(yml['artist']))
+					if 'location' in yml: self.group_location_text.setText(yml['location'])
+					if 'country' in yml: self.group_country_text.setText(yml['country'])
+					if 'meta' in yml: self.group_meta_text.setPlainText("\n".join(yml['meta']))
 					self.tab.setCurrentIndex(1)
 				case "video":
-					if yml['name']: self.video_name_text.setText(yml['name'])
-					if yml['screenshot']: self.video_screenshot_text.setText(yml['screenshot'])
-					if yml['date']: self.video_date_text.setText(yml['date'])
-					if yml['size']: self.video_size_text.setText(yml['size'])
-					if yml['duration']: self.video_duration_text.setText(yml['duration'])
-					if yml['music']: self.video_music_text.setPlainText("\n".join(yml['music']))
-					if yml['artist']: self.video_artist_text.setPlainText("\n".join(yml['artist']))
-					if yml['meta']: self.video_meta_text.setPlainText("\n".join(yml['meta']))
+					if 'name' in yml: self.video_name_text.setText(yml['name'])
+					if 'screenshot' in yml: self.video_screenshot_text.setText(yml['screenshot'])
+					if 'date' in yml: self.video_date_text.setText(yml['date'])
+					if 'size' in yml: self.video_size_text.setText(yml['size'])
+					if 'duration' in yml: self.video_duration_text.setText(yml['duration'])
+					if 'music' in yml: self.video_music_text.setPlainText("\n".join(yml['music']))
+					if 'artist' in yml: self.video_artist_text.setPlainText("\n".join(yml['artist']))
+					if 'meta' in yml: self.video_meta_text.setPlainText("\n".join(yml['meta']))
 					self.tab.setCurrentIndex(2)
 	
 	def file_save(self):
@@ -327,10 +337,12 @@ class MainWindow(QMainWindow):
 					if self.artist_name_text.text(): yml['name'] = self.artist_name_text.text()
 					if self.artist_id_text.text(): yml['id'] = self.artist_id_text.text()
 					if self.artist_icon_text.text(): yml['icon'] = self.artist_icon_text.text()
+					if self.artist_picture_text.text(): yml['picture'] = self.artist_picture_text.text()
+					if self.artist_video_text.toPlainText(): yml['video'] = self.artist_video_text.toPlainText().splitlines()
 					if self.artist_location_text.text(): yml['location'] = self.artist_location_text.text()
 					if self.artist_group_text.text(): yml['group'] = self.artist_group_text.text()
 					if self.artist_meta_text.toPlainText(): yml['meta'] = self.artist_meta_text.toPlainText().splitlines()
-					fn = BASE + '/YAML/artist/' + self.artist_nickname_text.text() + '.yml'
+					fn = BASE + '/YAML/artist/' + self.artist_nickname_text.text() + '.md'
 			case 1:
 				if self.group_name_text.text():
 					yml['name'] = self.group_name_text.text()
@@ -338,7 +350,7 @@ class MainWindow(QMainWindow):
 					if self.group_location_text.text(): yml['location'] = self.group_location_text.text()
 					if self.group_country_text.text(): yml['country'] = self.group_country_text.text()
 					if self.group_meta_text.toPlainText(): yml['meta'] = self.group_meta_text.toPlainText().splitlines()
-					fn = BASE + '/YAML/group/' + self.group_name_text.text() + '.yml'
+					fn = BASE + '/YAML/group/' + self.group_name_text.text() + '.md'
 
 			case 2:
 				if self.video_name_text.text():
@@ -350,11 +362,11 @@ class MainWindow(QMainWindow):
 					if self.video_music_text.toPlainText(): yml['music'] = self.video_music_text.toPlainText().splitlines()
 					if self.video_artist_text.toPlainText(): yml['artist'] = self.video_artist_text.toPlainText().splitlines()
 					if self.video_meta_text.toPlainText(): yml['meta'] = self.video_meta_text.toPlainText().splitlines()
-					fn = BASE + '/YAML/video/' + self.video_name_text.text() + '.yml'
+					fn = BASE + '/YAML/video/' + self.video_name_text.text() + '.md'
 
 		if not os.path.isfile(fn):
-			fn_tup = QFileDialog.getSaveFileName(self, "Save File", BASE + '/YAML/', "YML (*.yml)")
-			if os.path.splitext(fn[0]) != 'yml': fn = fn_tup[0] + '.yml'
+			fn_tup = QFileDialog.getSaveFileName(self, "Save File", BASE + '/YAML/', "MD (*.md)")
+			if os.path.splitext(fn[0]) != 'yml': fn = fn_tup[0] + '.md'
 
 		with open(fn, 'w') as f:
         		f.write(safe_dump(yml, sort_keys=False, explicit_start=True, explicit_end=True))
