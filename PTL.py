@@ -259,11 +259,12 @@ class MainWindow(QMainWindow):
 	def get_screen(self):
 		if self.video_name_text.text():
 			fn = self.file_find(self.video_name_text.text())
+			fn_base = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn)) + '/'
+			os.makedirs(fn_base, exist_ok=True)
 			frame = self.video_GetScreenshotEdit.text()
-			out = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn)) + self.video_name_text.text() + '.jpg'
-		
+
 			if fn and frame:
-				FFMPEG_SCREEN = ['ffmpeg','-v','error','-y','-i',fn,'-ss',frame,'-frames:v','1',out]
+				FFMPEG_SCREEN = ['ffmpeg', '-v', 'error', '-y', '-i', fn, '-ss', frame, '-frames:v', '1', fn_base + self.video_name_text.text() + '.jpg']
 				try:
 					proc = subprocess.run(FFMPEG_SCREEN)
 				except:
@@ -272,12 +273,13 @@ class MainWindow(QMainWindow):
 	def get_audio(self):
 		if self.video_name_text.text():
 			fn = self.file_find(self.video_name_text.text())
+			fn_base = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn)) + '/'
+			os.makedirs(fn_base, exist_ok=True)
 			frame_start = self.video_GetAudioStartEdit.text()
 			frame_stop = self.video_GetAudioEndEdit.text()
-			out = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn)) + self.video_name_text.text() + '.mp3'
 
 			if fn and frame_start and frame_stop:
-				FFMPEG_AUDIO = ['ffmpeg','-v','error','-y','-i',fn,'-ss',frame_start,'-t',frame_stop,out]
+				FFMPEG_AUDIO = ['ffmpeg', '-v', 'error', '-y', '-i', fn, '-ss', frame_start, '-t', frame_stop, fn_base + self.video_name_text.text() + '.mp3']
 				try:
 					proc = subprocess.run(FFMPEG_AUDIO)
 				except:
@@ -293,6 +295,7 @@ class MainWindow(QMainWindow):
 			case 2:
 				fn_base = BASE + '/YAML/video/'
 		fn = QFileDialog.getOpenFileName(self, "Open File", fn_base, "MD (*.md)")
+
 		if os.path.isfile(fn[0]):
 			with open(fn[0], 'r') as stream:
 				try:
@@ -322,7 +325,7 @@ class MainWindow(QMainWindow):
 					self.group_country_text.setText(yml['country'] if 'country' in yml else '')
 					self.group_meta_text.setPlainText("\n".join(yml['meta']) if 'meta' in yml else '')
 					self.tab.setCurrentIndex(1)
-				case "video":
+				case _:
 					self.video_name_text.setText(yml['name'] if 'name' in yml else '')
 					self.video_screenshot_text.setText(yml['screenshot'] if 'screenshot' in yml else '')
 					self.video_date_text.setText(yml['date'] if 'date' in yml else '')
@@ -371,8 +374,10 @@ class MainWindow(QMainWindow):
 					if self.video_music_text.toPlainText(): yml['music'] = self.video_music_text.toPlainText().splitlines()
 					if self.video_artist_text.toPlainText(): yml['artist'] = self.video_artist_text.toPlainText().splitlines()
 					if self.video_meta_text.toPlainText(): yml['meta'] = self.video_meta_text.toPlainText().splitlines()
-					fn_base = BASE + '/YAML/video/'
-					fn = fn_base + self.video_name_text.text() + '.md'
+					fn = self.file_find(self.video_name_text.text())
+					fn_base = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn))
+					os.makedirs(fn_base, exist_ok=True)
+					fn = fn_base + '/' + self.video_name_text.text() + '.md'
 
 		if not os.path.isfile(fn):
 			fn_tup = QFileDialog.getSaveFileName(self, "Save File", fn_base, "MD (*.md)")
