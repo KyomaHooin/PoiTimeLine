@@ -1,49 +1,31 @@
+![Toolkit](https://github.com/KyomaHooin/PoiTimeLine/blob/main/PTLToolkit.jpg?raw=true "screenshot")
+
 DESCRIPTION
 
-Early Poi spinning documentation project.
+Early Poi spinning documentation project toolkit.
 
-METADATA TOOKIT
-
-![Toolkit](https://github.com/KyomaHooin/PoiTimeLine/blob/main/PTLToolkit.jpg?raw=true "screenshot")
 
 FILE
 
 <pre>
-assets/icon/    ... artist icon files
-assets/picture/ ... artist picture files
-assets/screen/  ... video screen files
-assets/ ........... misc files
+assets/PTL/icon/    .. artist icon files
+assets/PTL/picture/ .. artist picture files
+assets/PTL/screen/  .. video screen files
+assets/PTL/ .......... misc files
 
-_data/artist/ ..... artist MD files
-_data/group/ ...... group MD files
-_data/video/ ...... video MD files
+_PTL_artist/ ......... artist MD collection
+_PTL_group/ .......... group MD collection
+_data/PTL/dir/ .,..... video MD data files
 
-html/ ............. Jekyll frontned
+PTL/ ................. Jekyll frontend
 
-PTL.py ............ Metadata Qt6 toolkit GUI
-PTLToolkit.jpg .... PTL Toolkit Screen
-README.md ......... Readme 
+PTL.py ............... Metadata Qt6 toolkit GUI
+PTLToolkit.jpg ....... PTL Toolkit Screen
+README.md ............ README 
 </pre>
 
-ARCHITECTURE
-
-<pre>
-2002|----- XXX
-    |
-2003|----- XXX
-    |
-
-[collection]
-|--[mcp]
-|----[*]lab2.avi
-|----[*]lab3.avi
-|--[TePooka]
-|----[*]rubbish.avi
-
-/video/mcp/_post/YEAR-MONTH-DAY-lab2.md
-/video/mcp/_post/YEAR-MONTH-DAY-lab3.md
-</pre>
 META
+
 <pre>
 
 Resize: mogrify -resize 320x224\! *.png
