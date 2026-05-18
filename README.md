@@ -7,6 +7,7 @@ METADATA TOOKIT
 ![Toolkit](https://github.com/KyomaHooin/PoiTimeLine/blob/main/PTLToolkit.jpg?raw=true "screenshot")
 
 FILE
+
 <pre>
 assets/icon/    ... artist icon files
 assets/picture/ ... artist picture files
@@ -25,6 +26,7 @@ README.md ......... Readme
 </pre>
 
 ARCHITECTURE
+
 <pre>
 2002|----- XXX
     |
@@ -41,7 +43,6 @@ ARCHITECTURE
 /video/mcp/_post/YEAR-MONTH-DAY-lab2.md
 /video/mcp/_post/YEAR-MONTH-DAY-lab3.md
 </pre>
-
 META
 <pre>
 
@@ -55,20 +56,19 @@ VLC:
 
 TODO
 
-https://jquery-plugins.net/building-vertical-timeline-with-css-and-javascript
-https://codyhouse.co/gem/vertical-timeline/
-
-Bm Cole UCOF - "Skitz - ft Dynmite MC nd G - We make them make noise"
-
+<pre>
 "We came whirling out of nothingness, glittering stars like dust,
 start that made a circle, where in the middle, we dance."
 
+https://jquery-plugins.net/building-vertical-timeline-with-css-and-javascript
+https://codyhouse.co/gem/vertical-timeline/
 http://www.homeofpoi.com/ubbthreads/images/users/796.jpg
 https://web.archive.org/web/20061214070131/http://www.homeofpoi.com/ubbthreads/showprofile.php?Cat=0&User=1571
 
 Tempest (Liam), Rumplestiltskin (Nathan), Phat Boy (Aiden Tempest)
 Cheshire
 UK
+</pre>
 
 SOURCE
 
