@@ -67,7 +67,6 @@ class MainWindow(QMainWindow):
 		self.actionSaveAs.triggered.connect(self.file_save)
 		self.menuSoubor.addAction(self.actionSaveAs)
 		self.actionClose = QAction("Close")
-
 		self.actionClose.setShortcut(QKeySequence("Ctrl+q"))
 		self.actionClose.triggered.connect(self.close)
 		self.menuSoubor.addAction(self.actionClose)
