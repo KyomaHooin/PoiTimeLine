@@ -4,6 +4,6 @@ name: Matt Terry
 id: '4448'
 location: AUT
 meta:
-- spherculism.com
+- www.spherculism.com
 - flowarts.io
 ...

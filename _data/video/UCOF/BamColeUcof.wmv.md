@@ -1,5 +1,6 @@
 ---
 name: BamColeUcof.wmv
+screenshot: BamColeUcof.wmv.jpg
 size: 4.5M
 duration: 03:02
 music:
