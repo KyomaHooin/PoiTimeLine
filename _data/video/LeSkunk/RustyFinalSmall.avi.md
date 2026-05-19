@@ -1,5 +1,21 @@
 ---
 name: RustyFinalSmall.avi
+screenshot: RustyFinalSmall.avi.jpg
+date: 08.03.2003
+size: 13.4M
+duration: 04:50
 music:
-- The incomparably Funky 1L
+- '1L - elektrovulse(Das Nonstop-Programm/Res Freq Recordings)'
+artist:
+- FlambeVolupte
+- '1337'
+- ANTHELION
+- NYC
+- LeSkunk
+- Nomad
+meta:
+- '"I love you more than life!"'
+- res-freq.com
+- 13378u.org
+- anthelion.net
 ...
