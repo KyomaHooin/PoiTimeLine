@@ -67,12 +67,13 @@ class MainWindow(QMainWindow):
 		self.actionSaveAs.triggered.connect(self.file_save)
 		self.menuSoubor.addAction(self.actionSaveAs)
 		self.actionClose = QAction("Close")
+
 		self.actionClose.setShortcut(QKeySequence("Ctrl+q"))
 		self.actionClose.triggered.connect(self.close)
 		self.menuSoubor.addAction(self.actionClose)
 
 		self.setMenuBar(self.menubar)
-		
+
 		# TAB
 
 		self.tab = QTabWidget(self.container)
@@ -146,6 +147,9 @@ class MainWindow(QMainWindow):
 		self.formLayout_1.setWidget(9, QFormLayout.ItemRole.LabelRole, self.artist_meta)
 		self.artist_meta_text = QTextEdit(self.formLayoutWidget_1)
 		self.formLayout_1.setWidget(9, QFormLayout.ItemRole.FieldRole, self.artist_meta_text)
+		self.cleanButton_1 = QPushButton("Clear")
+		self.cleanButton_1.clicked.connect(self.clean_tab)
+		self.formLayout_1.addRow(self.cleanButton_1)
 
 		# TAB 2
 
@@ -169,6 +173,9 @@ class MainWindow(QMainWindow):
 		self.formLayout_2.setWidget(4, QFormLayout.ItemRole.LabelRole, self.group_meta)
 		self.group_meta_text = QTextEdit(self.formLayoutWidget_2)
 		self.formLayout_2.setWidget(4, QFormLayout.ItemRole.FieldRole, self.group_meta_text)
+		self.cleanButton_2 = QPushButton("Clear")
+		self.cleanButton_2.clicked.connect(self.clean_tab)
+		self.formLayout_2.addRow(self.cleanButton_2)
 
 		# TAB 3
 
@@ -204,7 +211,6 @@ class MainWindow(QMainWindow):
 		self.formLayout_3.setWidget(7, QFormLayout.ItemRole.LabelRole, self.video_meta)
 		self.video_meta_text = QTextEdit(self.formLayoutWidget_3)
 		self.formLayout_3.setWidget(7, QFormLayout.ItemRole.FieldRole, self.video_meta_text)
-
 		self.formLayout_3.addRow(self.groupVideoWidget)
 
 		self.video_GetMetaButton = QPushButton("Get Metadata")
@@ -230,6 +236,39 @@ class MainWindow(QMainWindow):
 		self.video_GetScreenshotButton.clicked.connect(self.get_screen)
 		self.video_GetAudioButton.clicked.connect(self.get_audio)
 
+		self.cleanButton_3 = QPushButton("Clear")
+		self.cleanButton_3.clicked.connect(self.clean_tab)
+		self.formLayout_3.addRow(self.cleanButton_3)
+
+	def clean_tab(self):
+		match self.tab.currentIndex():
+			case 0:
+				self.artist_nickname_text.setText('')
+				self.artist_altname_text.setPlainText('')
+				self.artist_name_text.setText('')
+				self.artist_id_text.setText('')
+				self.artist_icon_text.setText('')
+				self.artist_picture_text.setText('')
+				self.artist_video_text.setPlainText('')
+				self.artist_location_text.setText('')
+				self.artist_group_text.setText('')
+				self.artist_meta_text.setPlainText('')
+			case  1:
+				self.group_name_text.setText('')
+				self.group_artist_text.setPlainText('')
+				self.group_location_text.setText('')
+				self.group_country_text.setText('')
+				self.group_meta_text.setPlainText('')
+			case 2:
+				self.video_name_text.setText('')
+				self.video_screenshot_text.setText('')
+				self.video_date_text.setText('')
+				self.video_size_text.setText('')
+				self.video_duration_text.setText('')
+				self.video_music_text.setPlainText('')
+				self.video_artist_text.setPlainText('')
+				self.video_meta_text.setPlainText('')
+
 	def file_find(self, name):
 		for root, dirs, files in os.walk(BASE + '/VIDEO/'):
 			if name in files:
@@ -239,7 +278,7 @@ class MainWindow(QMainWindow):
 		self.dlg = QDialog()
 		self.dlg.setWindowTitle(fn + ' - Metadata')
 		layout = QVBoxLayout() 
-		message = QLabel(text)		
+		message = QLabel(text)	
 		layout.addWidget(message)
 		self.dlg.setLayout(layout)
 		self.dlg.show()
