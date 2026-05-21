@@ -26,12 +26,13 @@ class MainWindow(QMainWindow):
 		self.player.audio_set_volume(50)
 
 		self.video_is_paused = False
-		self.filename = 'file:///home/user/Desktop/project/VIDEO/LeSkunk/SkunkWebSpin20mb.mov'
+		self.video_slider_is_pressed = False	
+		self.filename = '/home/user/Desktop/project/VIDEO/LeSkunk/SkunkWebSpin20mb.mov'
 
 		# WINDOW
 
 		self.setWindowTitle("PTL Player")
-		self.setFixedSize(QSize(800,600))
+		self.setFixedSize(QSize(1024,768))
 		self.move(750,200)
 
 		# CONTAINER
@@ -75,7 +76,7 @@ class MainWindow(QMainWindow):
 
 		self.timer = QTimer(self)
 		self.timer.setInterval(100)# millis
-		#self.timer.timeout.connect(self.update_ui)
+		self.timer.timeout.connect(self.slider_update)
 
 		# PLAY
 
@@ -96,26 +97,35 @@ class MainWindow(QMainWindow):
 			self.timer.start()
 			self.video_is_paused = False
 
+	def set_position(self):
+		self.timer.stop()
+		self.player.set_position(self.video_progress.value() / 1000.0)
+		self.timer.start()
+
 	def mspf(self):
 		return int(1000 // (self.player.get_fps() or 25))
 
 	def video_prev(self):
-		next_frame_time = self.player.get_time() + self.mspf() 
+		next_frame_time = self.player.get_time() - self.mspf() 
 		self.player.set_time(next_frame_time)
 
 	def video_next(self):
-		next_frame_time = self.player.get_time() - self.mspf()
+		next_frame_time = self.player.get_time() + self.mspf()
 		self.player.set_time(next_frame_time)
 
-	def video_screen(self):
-		print("VOUT: " + str(self.player.has_vout()))
-		self.player.video_take_snapshot(0,'/home/user/Desktop/project/debug.jpg', 0 , 0)
+	def video_screen(self, fn):
+		self.player.video_take_snapshot(0, '/home/user/Desktop/project/debug.jpg', 0 , 0)
 
 	def slider_press(self):		
-		self.slider_is_pressed = True
+		self.video_slider_is_pressed = True
 
 	def slider_release(self):
 		self.slider_is_pressed = False
+		self.set_position()
+
+	def slider_update(self):
+		if self.player.is_playing() and not self.video_slider_is_pressed:
+			self.video_progress.setValue(int(self.player.get_position() * 1000))
 
 # MAIN
 

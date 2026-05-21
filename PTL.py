@@ -345,7 +345,7 @@ class MainWindow(QMainWindow):
 					return
 
 		if yml:
-			match os.path.basename(os.path.dirname(fn[0])):
+			match os.path.basename(os.path.dirname(fn)):
 				case "artist":
 					self.artist_nickname_text.setText(yml['nickname'] if 'nickname' in yml else '')
 					self.artist_altname_text.setPlainText("\n".join(yml['altname']) if 'altname' in yml else '')
