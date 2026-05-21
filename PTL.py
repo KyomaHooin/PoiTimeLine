@@ -334,14 +334,14 @@ class MainWindow(QMainWindow):
 			case 2:
 				fn_base = BASE + '/YAML/video/'
 
-		fn = QFileDialog.getOpenFileName(self, "Open File", fn_base, "MD (*.md)")
+		fn, _ = QFileDialog.getOpenFileName(self, "Open File", fn_base, "MD (*.md)")
 
-		if os.path.isfile(fn[0]):
-			with open(fn[0], 'r') as stream:
+		if os.path.isfile(fn):
+			with open(fn, 'r') as stream:
 				try:
 					yml = safe_load(stream)
 				except:
-					print("[error] Failed to parse: " + fn[0])
+					print("[error] Failed to parse: " + fn)
 					return
 
 		if yml:
@@ -420,8 +420,8 @@ class MainWindow(QMainWindow):
 					fn = fn_base + '/' + self.video_name_text.text() + '.md'
 
 		if not os.path.isfile(fn):
-			fn_tup = QFileDialog.getSaveFileName(self, "Save File", fn_base, "MD (*.md)")
-			if os.path.splitext(fn[0]) != 'yml': fn = fn_tup[0] + '.md'
+			fn, _ = QFileDialog.getSaveFileName(self, "Save File", fn_base, "MD (*.md)")
+			if os.path.splitext(fn)[1] != '.md': fn = fn + '.md'
 
 		with open(fn, 'w') as f:
         		f.write(safe_dump(yml, sort_keys=False, explicit_start=True, explicit_end=True))
