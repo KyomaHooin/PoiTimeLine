@@ -85,7 +85,7 @@ class MainWindow(QMainWindow):
 		self.menuSoubor.addAction(self.actionSaveAs)
 		self.actionClose = QAction("Close")
 		self.actionClose.setShortcut(QKeySequence("Ctrl+q"))
-		self.actionClose.triggered.connect(self.close)
+		self.actionClose.triggered.connect(self.PTL_close)
 		self.menuSoubor.addAction(self.actionClose)
 
 		self.setMenuBar(self.menubar)
@@ -287,7 +287,7 @@ class MainWindow(QMainWindow):
 		self.top_layout.addWidget(self.videoWidget)
 
 	def video_play(self, fn):
-		if self.video_name_text.text():
+		if self.video_name_text.text() and not (self.player.is_playing() or self.video_is_paused):
 			self.media = self.vlc_instance.media_new(self.file_find(self.video_name_text.text()))
 			self.player.set_media(self.media)
 			self.player.set_xwindow(int(self.videoframe.winId()))# set video output
@@ -295,6 +295,9 @@ class MainWindow(QMainWindow):
 
 	def video_stop(self):
 		self.player.stop()
+		self.videoframe.setStyleSheet("background: black;")
+		self.video_progress.setValue(0)
+		self.video_is_paused = False
 
 	def video_play_pause(self):
 		if self.player.is_playing():
@@ -311,7 +314,8 @@ class MainWindow(QMainWindow):
 	def set_position(self):
 		self.timer.stop()
 		self.player.set_position(self.video_progress.value() / 1000.0)
-		self.timer.start()
+		if not self.video_is_paused:
+			self.timer.start()
 
 	def mspf(self):
 		return int(1000 // (self.player.get_fps() or 25))
@@ -324,14 +328,19 @@ class MainWindow(QMainWindow):
 		next_frame_time = self.player.get_time() + self.mspf()
 		self.player.set_time(next_frame_time)
 
-	def video_screen(self, fn):
-		self.player.video_take_snapshot(0, '/home/user/Desktop/project/debug.jpg', 0 , 0)
+	def video_screen(self):
+		if self.video_is_paused and self.video_name_text.text():
+			fn = self.file_find(self.video_name_text.text())
+			fn_base = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn)) + '/'
+			os.makedirs(fn_base, exist_ok=True)
+			self.player.video_take_snapshot(0, fn_base  + self.video_name_text.text() + '.jpg', 0 , 0)
 
 	def slider_press(self):		
 		self.video_slider_is_pressed = True
+		self.timer.stop()
 
 	def slider_release(self):
-		self.slider_is_pressed = False
+		self.video_slider_is_pressed = False
 		self.set_position()
 
 	def slider_update(self):
@@ -391,21 +400,6 @@ class MainWindow(QMainWindow):
 					self.get_metaDialog(self.video_name_text.text(), proc.stderr)
 				except:
 					print('[error] ffmpeg meta: ' + fn)
-
-	def get_screen(self):
-		if self.video_name_text.text():
-			fn = self.file_find(self.video_name_text.text())
-			fn_base = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn)) + '/'
-			os.makedirs(fn_base, exist_ok=True)
-
-			frame = self.video_GetScreenshotEdit.text()
-
-			if fn and frame:
-				FFMPEG_SCREEN = ['ffmpeg', '-v', 'error', '-y', '-i', fn, '-ss', frame, '-frames:v', '1', fn_base + self.video_name_text.text() + '.jpg']
-				try:
-					proc = subprocess.run(FFMPEG_SCREEN)
-				except:
-					print('[error] ffmpeg screen: ' + fn)
 
 	def get_audio(self):
 		if self.video_name_text.text():
@@ -524,6 +518,12 @@ class MainWindow(QMainWindow):
 
 		with open(fn, 'w') as f:
         		f.write(safe_dump(yml, sort_keys=False, explicit_start=True, explicit_end=True))
+
+	def PTL_close(self):
+		if self.player.is_playing():
+			self.player.pause()
+			self.player.stop()
+		self.close()
 
 # MAIN
 

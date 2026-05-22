@@ -25,6 +25,11 @@ PTL.py ............... Metadata Qt6 toolkit GUI (non-root)
 screen.jpg ........... PTL Toolkit Screen
 README.md ............ README 
 </pre>
+TODO
+<pre>
+- test get_audio()
+- wait for player,pause() / player.stop()
+</pre>
 EXTRA
 <pre>
 Resize: mogrify -resize 320x224\! *.png
