@@ -3,16 +3,17 @@
 # PTL Metadata toolkit
 #
 
-import subprocess,sys,os
+import subprocess,vlc,sys,os
 
 from yaml import safe_dump,safe_load
 
-from PyQt6.QtCore import QSize, QRect
+from PyQt6.QtCore import QSize, QRect, QTimer, Qt
 from PyQt6.QtGui import QAction, QKeySequence
 from PyQt6.QtWidgets import (
 	QApplication,
 	QMainWindow,
 	QWidget,
+	QFrame,
 	QMenuBar,
 	QMenu,
 	QFileDialog,
@@ -20,12 +21,14 @@ from PyQt6.QtWidgets import (
 	QTabWidget,
 	QFormLayout,
 	QVBoxLayout,
+	QHBoxLayout,
 	QGridLayout,
 	QGroupBox,
 	QPushButton,
 	QLineEdit,
 	QTextEdit,
-	QLabel
+	QSlider,
+	QLabel,
 )
 
 BASE = '/home/user/Desktop/project'
@@ -34,21 +37,35 @@ class MainWindow(QMainWindow):
 	def __init__(self):
 		super().__init__()
 
+		# VLC
+
+		self.vlc_instance = vlc.Instance()
+		self.player = self.vlc_instance.media_player_new()
+		self.player.audio_set_volume(50)
+
+		self.video_is_paused = False
+		self.video_slider_is_pressed = False
+
 		# WINDOW
 
 		self.setWindowTitle("PTL Metadata toolkit")
-		self.setFixedSize(QSize(341,602))
-		self.move(750,200)
+		self.setFixedSize(QSize(1400,750))
+		self.move(250,150)
 
 		# CONTAINER
 
 		self.container = QWidget()
 		self.setCentralWidget(self.container)
 
+		# TOP LAYOUT
+
+		self.top_layout = QGridLayout(self.container)
+		self.top_layout.setColumnStretch(0,1)
+		self.top_layout.setColumnStretch(1,3)
+
 		# MENU
 
 		self.menubar = QMenuBar()
-		self.menubar.setGeometry(QRect(0, 0, 341, 22))
 
 		self.menuSoubor = QMenu(self.menubar)
 		self.menuSoubor.setTitle("File")
@@ -73,10 +90,48 @@ class MainWindow(QMainWindow):
 
 		self.setMenuBar(self.menubar)
 
+		# FRAME
+
+		self.videoWidget = QWidget()	
+		self.video_layout = QVBoxLayout(self.videoWidget)
+		
+		self.videoframe = QFrame()
+		self.videoframe.setStyleSheet("background: black;")
+		self.video_layout.addWidget(self.videoframe)
+
+		# VIDEO CONTROL
+
+		self.video_control_layout = QHBoxLayout()
+		self.video_layout.addLayout(self.video_control_layout)
+
+		self.video_pause_play_button = QPushButton("Pause")
+		self.video_pause_play_button.clicked.connect(self.video_play_pause)
+		self.video_control_layout.addWidget(self.video_pause_play_button)
+		self.video_prev_button = QPushButton("Prev")
+		self.video_prev_button.clicked.connect(self.video_prev)
+		self.video_control_layout.addWidget(self.video_prev_button)
+		self.video_next_button = QPushButton("Next")
+		self.video_next_button.clicked.connect(self.video_next)
+		self.video_control_layout.addWidget(self.video_next_button)
+		self.video_screen_button = QPushButton("Screen")
+		self.video_screen_button.clicked.connect(self.video_screen)
+		self.video_control_layout.addWidget(self.video_screen_button)
+
+		self.video_progress = QSlider(Qt.Orientation.Horizontal)
+		self.video_progress.setRange(0, 1000)
+		self.video_progress.sliderPressed.connect(self.slider_press)
+		self.video_progress.sliderReleased.connect(self.slider_release)
+		self.video_control_layout.addWidget(self.video_progress)
+
+		# TIMER
+
+		self.timer = QTimer(self)
+		self.timer.setInterval(100)# millis
+		self.timer.timeout.connect(self.slider_update)
+
 		# TAB
 
 		self.tab = QTabWidget(self.container)
-		self.tab.setGeometry(QRect(10, 10, 321, 561))
 		self.tab_1 = QWidget()
 		self.tab.addTab(self.tab_1, "Artist")
 		self.tab_2 = QWidget()
@@ -86,65 +141,54 @@ class MainWindow(QMainWindow):
 
 		# TAB LAYOUT
 
-		self.formLayoutWidget_1 = QWidget(self.tab_1)
-		self.formLayoutWidget_1.setGeometry(QRect(9, 9, 301, 511))
-		self.formLayout_1 = QFormLayout(self.formLayoutWidget_1)
-		self.formLayout_1.setContentsMargins(0, 0, 0, 0)
-
-		self.formLayoutWidget_2 = QWidget(self.tab_2)
-		self.formLayoutWidget_2.setGeometry(QRect(9, 9, 301, 511))
-		self.formLayout_2 = QFormLayout(self.formLayoutWidget_2)
-		self.formLayout_2.setContentsMargins(0, 0, 0, 0)
-
-		self.formLayoutWidget_3 = QWidget(self.tab_3)
-		self.formLayoutWidget_3.setGeometry(QRect(9, 9, 301, 511))
-		self.formLayout_3 = QFormLayout(self.formLayoutWidget_3)
-		self.formLayout_3.setContentsMargins(0, 0, 0, 0)
+		self.formLayout_1 = QFormLayout(self.tab_1)
+		self.formLayout_2 = QFormLayout(self.tab_2)
+		self.formLayout_3 = QFormLayout(self.tab_3)
 
 		self.groupVideoWidget = QGroupBox()
 		self.groupVideoLayout = QGridLayout(self.groupVideoWidget)
 
 		# TAB 1
 
-		self.artist_nickname = QLabel("Nickname", self.formLayoutWidget_1)
+		self.artist_nickname = QLabel("Nickname")
 		self.formLayout_1.setWidget(0, QFormLayout.ItemRole.LabelRole, self.artist_nickname)
-		self.artist_nickname_text = QLineEdit(self.formLayoutWidget_1)
+		self.artist_nickname_text = QLineEdit()
 		self.formLayout_1.setWidget(0, QFormLayout.ItemRole.FieldRole, self.artist_nickname_text)
-		self.artist_altname = QLabel("Altname", self.formLayoutWidget_1)
+		self.artist_altname = QLabel("Altname")
 		self.formLayout_1.setWidget(1, QFormLayout.ItemRole.LabelRole, self.artist_altname)
-		self.artist_altname_text = QTextEdit(self.formLayoutWidget_1)
+		self.artist_altname_text = QTextEdit()
 		self.formLayout_1.setWidget(1, QFormLayout.ItemRole.FieldRole, self.artist_altname_text)
-		self.artist_name = QLabel("Name", self.formLayoutWidget_1)
+		self.artist_name = QLabel("Name")
 		self.formLayout_1.setWidget(2, QFormLayout.ItemRole.LabelRole, self.artist_name)
-		self.artist_name_text = QLineEdit(self.formLayoutWidget_1)
+		self.artist_name_text = QLineEdit()
 		self.formLayout_1.setWidget(2, QFormLayout.ItemRole.FieldRole, self.artist_name_text)
-		self.artist_id = QLabel("ID", self.formLayoutWidget_1)
+		self.artist_id = QLabel("ID")
 		self.formLayout_1.setWidget(3, QFormLayout.ItemRole.LabelRole, self.artist_id)
-		self.artist_id_text = QLineEdit(self.formLayoutWidget_1)
+		self.artist_id_text = QLineEdit()
 		self.formLayout_1.setWidget(3, QFormLayout.ItemRole.FieldRole, self.artist_id_text)
-		self.artist_icon = QLabel("Icon", self.formLayoutWidget_1)
+		self.artist_icon = QLabel("Icon")
 		self.formLayout_1.setWidget(4, QFormLayout.ItemRole.LabelRole, self.artist_icon)
-		self.artist_icon_text = QLineEdit(self.formLayoutWidget_1)
+		self.artist_icon_text = QLineEdit()
 		self.formLayout_1.setWidget(4, QFormLayout.ItemRole.FieldRole, self.artist_icon_text)
-		self.artist_picture = QLabel("Picture", self.formLayoutWidget_1)
+		self.artist_picture = QLabel("Picture")
 		self.formLayout_1.setWidget(5, QFormLayout.ItemRole.LabelRole, self.artist_picture)
-		self.artist_picture_text = QLineEdit(self.formLayoutWidget_1)
+		self.artist_picture_text = QLineEdit()
 		self.formLayout_1.setWidget(5, QFormLayout.ItemRole.FieldRole, self.artist_picture_text)
-		self.artist_video = QLabel("Video", self.formLayoutWidget_1)
+		self.artist_video = QLabel("Video")
 		self.formLayout_1.setWidget(6, QFormLayout.ItemRole.LabelRole, self.artist_video)
-		self.artist_video_text = QTextEdit(self.formLayoutWidget_1)
+		self.artist_video_text = QTextEdit()
 		self.formLayout_1.setWidget(6, QFormLayout.ItemRole.FieldRole, self.artist_video_text)
-		self.artist_location = QLabel("Location", self.formLayoutWidget_1)
+		self.artist_location = QLabel("Location")
 		self.formLayout_1.setWidget(7, QFormLayout.ItemRole.LabelRole, self.artist_location)
-		self.artist_location_text = QLineEdit(self.formLayoutWidget_1)
+		self.artist_location_text = QLineEdit()
 		self.formLayout_1.setWidget(7, QFormLayout.ItemRole.FieldRole, self.artist_location_text)
-		self.artist_group = QLabel("Group", self.formLayoutWidget_1)
+		self.artist_group = QLabel("Group")
 		self.formLayout_1.setWidget(8, QFormLayout.ItemRole.LabelRole, self.artist_group)
-		self.artist_group_text = QLineEdit(self.formLayoutWidget_1)
+		self.artist_group_text = QLineEdit()
 		self.formLayout_1.setWidget(8, QFormLayout.ItemRole.FieldRole, self.artist_group_text)
-		self.artist_meta = QLabel("Meta", self.formLayoutWidget_1)
+		self.artist_meta = QLabel("Meta")
 		self.formLayout_1.setWidget(9, QFormLayout.ItemRole.LabelRole, self.artist_meta)
-		self.artist_meta_text = QTextEdit(self.formLayoutWidget_1)
+		self.artist_meta_text = QTextEdit()
 		self.formLayout_1.setWidget(9, QFormLayout.ItemRole.FieldRole, self.artist_meta_text)
 		self.cleanButton_1 = QPushButton("Clear")
 		self.cleanButton_1.clicked.connect(self.clean_tab)
@@ -152,25 +196,25 @@ class MainWindow(QMainWindow):
 
 		# TAB 2
 
-		self.group_name = QLabel("Name", self.formLayoutWidget_2)
+		self.group_name = QLabel("Name")
 		self.formLayout_2.setWidget(0, QFormLayout.ItemRole.LabelRole, self.group_name)
-		self.group_name_text = QLineEdit(self.formLayoutWidget_2)
+		self.group_name_text = QLineEdit()
 		self.formLayout_2.setWidget(0, QFormLayout.ItemRole.FieldRole, self.group_name_text)
-		self.group_artist = QLabel("Artist", self.formLayoutWidget_2)
+		self.group_artist = QLabel("Artist")
 		self.formLayout_2.setWidget(1, QFormLayout.ItemRole.LabelRole, self.group_artist)
-		self.group_artist_text = QTextEdit(self.formLayoutWidget_2)
+		self.group_artist_text = QTextEdit()
 		self.formLayout_2.setWidget(1, QFormLayout.ItemRole.FieldRole, self.group_artist_text)
-		self.group_location = QLabel("Location", self.formLayoutWidget_2)
+		self.group_location = QLabel("Location")
 		self.formLayout_2.setWidget(2, QFormLayout.ItemRole.LabelRole, self.group_location)
-		self.group_location_text = QLineEdit(self.formLayoutWidget_2)
+		self.group_location_text = QLineEdit()
 		self.formLayout_2.setWidget(2, QFormLayout.ItemRole.FieldRole, self.group_location_text)
-		self.group_country = QLabel("Country", self.formLayoutWidget_2)
+		self.group_country = QLabel("Country")
 		self.formLayout_2.setWidget(3, QFormLayout.ItemRole.LabelRole, self.group_country)
-		self.group_country_text = QLineEdit(self.formLayoutWidget_2)
+		self.group_country_text = QLineEdit()
 		self.formLayout_2.setWidget(3, QFormLayout.ItemRole.FieldRole, self.group_country_text)
-		self.group_meta = QLabel("Meta", self.formLayoutWidget_2)
+		self.group_meta = QLabel("Meta")
 		self.formLayout_2.setWidget(4, QFormLayout.ItemRole.LabelRole, self.group_meta)
-		self.group_meta_text = QTextEdit(self.formLayoutWidget_2)
+		self.group_meta_text = QTextEdit()
 		self.formLayout_2.setWidget(4, QFormLayout.ItemRole.FieldRole, self.group_meta_text)
 		self.cleanButton_2 = QPushButton("Clear")
 		self.cleanButton_2.clicked.connect(self.clean_tab)
@@ -178,66 +222,121 @@ class MainWindow(QMainWindow):
 
 		# TAB 3
 
-		self.video_name = QLabel("Name", self.formLayoutWidget_3)
+		self.video_name = QLabel("Name")
 		self.formLayout_3.setWidget(0, QFormLayout.ItemRole.LabelRole, self.video_name)
-		self.video_name_text = QLineEdit(self.formLayoutWidget_3)
+		self.video_name_text = QLineEdit()
 		self.formLayout_3.setWidget(0, QFormLayout.ItemRole.FieldRole, self.video_name_text)
-		self.video_screenshot = QLabel("Screenshot", self.formLayoutWidget_3)
+		self.video_screenshot = QLabel("Screenshot")
 		self.formLayout_3.setWidget(1, QFormLayout.ItemRole.LabelRole, self.video_screenshot)
-		self.video_screenshot_text = QLineEdit(self.formLayoutWidget_3)
+		self.video_screenshot_text = QLineEdit()
 		self.formLayout_3.setWidget(1, QFormLayout.ItemRole.FieldRole, self.video_screenshot_text)
-		self.video_date = QLabel("Date", self.formLayoutWidget_3)
+		self.video_date = QLabel("Date")
 		self.formLayout_3.setWidget(2, QFormLayout.ItemRole.LabelRole, self.video_date)
-		self.video_date_text = QLineEdit(self.formLayoutWidget_3)
+		self.video_date_text = QLineEdit()
 		self.formLayout_3.setWidget(2, QFormLayout.ItemRole.FieldRole, self.video_date_text)
-		self.video_size = QLabel("Size", self.formLayoutWidget_3)
+		self.video_size = QLabel("Size")
 		self.formLayout_3.setWidget(3, QFormLayout.ItemRole.LabelRole, self.video_size)
-		self.video_size_text = QLineEdit(self.formLayoutWidget_3)
+		self.video_size_text = QLineEdit()
 		self.formLayout_3.setWidget(3, QFormLayout.ItemRole.FieldRole, self.video_size_text)
-		self.video_duration = QLabel("Duration", self.formLayoutWidget_3)
+		self.video_duration = QLabel("Duration")
 		self.formLayout_3.setWidget(4, QFormLayout.ItemRole.LabelRole, self.video_duration)
-		self.video_duration_text = QLineEdit(self.formLayoutWidget_3)
+		self.video_duration_text = QLineEdit()
 		self.formLayout_3.setWidget(4, QFormLayout.ItemRole.FieldRole, self.video_duration_text)
-		self.video_music = QLabel("Music", self.formLayoutWidget_3)
+		self.video_music = QLabel("Music")
 		self.formLayout_3.setWidget(5, QFormLayout.ItemRole.LabelRole, self.video_music)
-		self.video_music_text = QTextEdit(self.formLayoutWidget_3)
+		self.video_music_text = QTextEdit()
 		self.formLayout_3.setWidget(5, QFormLayout.ItemRole.FieldRole, self.video_music_text)
-		self.video_artist = QLabel("Artist", self.formLayoutWidget_3)
+		self.video_artist = QLabel("Artist")
 		self.formLayout_3.setWidget(6, QFormLayout.ItemRole.LabelRole, self.video_artist)
-		self.video_artist_text = QTextEdit(self.formLayoutWidget_3)
+		self.video_artist_text = QTextEdit()
 		self.formLayout_3.setWidget(6, QFormLayout.ItemRole.FieldRole, self.video_artist_text)
-		self.video_meta = QLabel("Meta", self.formLayoutWidget_3)
+		self.video_meta = QLabel("Meta")
 		self.formLayout_3.setWidget(7, QFormLayout.ItemRole.LabelRole, self.video_meta)
-		self.video_meta_text = QTextEdit(self.formLayoutWidget_3)
+		self.video_meta_text = QTextEdit()
 		self.formLayout_3.setWidget(7, QFormLayout.ItemRole.FieldRole, self.video_meta_text)
 		self.formLayout_3.addRow(self.groupVideoWidget)
 
+		self.video_PlayButton = QPushButton("Play")
+		self.video_PlayButton.clicked.connect(self.video_play)
+		self.groupVideoLayout.addWidget(self.video_PlayButton, 0, 0 , 1, 3)
+		self.video_StopButton = QPushButton("Stop")
+		self.video_StopButton.clicked.connect(self.video_stop)
+		self.groupVideoLayout.addWidget(self.video_StopButton, 0, 3, 1, 3)
 		self.video_GetMetaButton = QPushButton("Get Metadata")
-		self.groupVideoLayout.addWidget(self.video_GetMetaButton, 0, 0, 1, 5)
-		self.video_GetScreenshot = QLabel("Start")
-		self.video_GetScreenshotEdit = QLineEdit()
-		self.video_GetScreenshotButton = QPushButton("Get Screen")
-		self.groupVideoLayout.addWidget(self.video_GetScreenshot , 1, 0)
-		self.groupVideoLayout.addWidget(self.video_GetScreenshotEdit , 1, 1, 1, 3)
-		self.groupVideoLayout.addWidget(self.video_GetScreenshotButton , 1, 4)
+		self.video_GetMetaButton.clicked.connect(self.get_meta)
+		self.groupVideoLayout.addWidget(self.video_GetMetaButton, 1, 0, 1, 6)
 		self.video_GetAudioStart = QLabel("Start")
 		self.video_GetAudioStartEdit = QLineEdit()
 		self.video_GetAudioEnd = QLabel("End")
 		self.video_GetAudioEndEdit = QLineEdit()
 		self.video_GetAudioButton = QPushButton("Get Audio")
+		self.video_GetAudioButton.clicked.connect(self.get_audio)
 		self.groupVideoLayout.addWidget(self.video_GetAudioStart, 2, 0)
 		self.groupVideoLayout.addWidget(self.video_GetAudioStartEdit , 2, 1)
 		self.groupVideoLayout.addWidget(self.video_GetAudioEnd, 2, 2)
 		self.groupVideoLayout.addWidget(self.video_GetAudioEndEdit , 2, 3)
 		self.groupVideoLayout.addWidget(self.video_GetAudioButton , 2, 4)
 
-		self.video_GetMetaButton.clicked.connect(self.get_meta)
-		self.video_GetScreenshotButton.clicked.connect(self.get_screen)
-		self.video_GetAudioButton.clicked.connect(self.get_audio)
-
 		self.cleanButton_3 = QPushButton("Clear")
 		self.cleanButton_3.clicked.connect(self.clean_tab)
 		self.formLayout_3.addRow(self.cleanButton_3)
+
+		# TOP LAYOUT
+
+		self.top_layout.addWidget(self.tab)
+		self.top_layout.addWidget(self.videoWidget)
+
+	def video_play(self, fn):
+		if self.video_name_text.text():
+			self.media = self.vlc_instance.media_new(self.file_find(self.video_name_text.text()))
+			self.player.set_media(self.media)
+			self.player.set_xwindow(int(self.videoframe.winId()))# set video output
+			self.video_play_pause()
+
+	def video_stop(self):
+		self.player.stop()
+
+	def video_play_pause(self):
+		if self.player.is_playing():
+			self.player.pause()
+			self.video_pause_play_button.setText("Play")
+			self.video_is_paused = True
+			self.timer.stop()
+		else:
+			self.player.play()
+			self.video_pause_play_button.setText("Pause")
+			self.timer.start()
+			self.video_is_paused = False
+
+	def set_position(self):
+		self.timer.stop()
+		self.player.set_position(self.video_progress.value() / 1000.0)
+		self.timer.start()
+
+	def mspf(self):
+		return int(1000 // (self.player.get_fps() or 25))
+
+	def video_prev(self):
+		next_frame_time = self.player.get_time() - self.mspf() 
+		self.player.set_time(next_frame_time)
+
+	def video_next(self):
+		next_frame_time = self.player.get_time() + self.mspf()
+		self.player.set_time(next_frame_time)
+
+	def video_screen(self, fn):
+		self.player.video_take_snapshot(0, '/home/user/Desktop/project/debug.jpg', 0 , 0)
+
+	def slider_press(self):		
+		self.video_slider_is_pressed = True
+
+	def slider_release(self):
+		self.slider_is_pressed = False
+		self.set_position()
+
+	def slider_update(self):
+		if self.player.is_playing() and not self.video_slider_is_pressed:
+			self.video_progress.setValue(int(self.player.get_position() * 1000))
 
 	def clean_tab(self):
 		match self.tab.currentIndex():

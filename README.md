@@ -8,7 +8,7 @@ INSTALL
 
 <pre>
 apt-get install python3-pyqt6 python3-vlc
-<pre>
+</pre>
 
 FILE
 
