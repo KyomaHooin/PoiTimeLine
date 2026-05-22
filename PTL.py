@@ -41,7 +41,7 @@ class MainWindow(QMainWindow):
 
 		self.vlc_instance = vlc.Instance()
 		self.player = self.vlc_instance.media_player_new()
-		self.player.audio_set_volume(50)
+		self.player.audio_set_volume(60)
 
 		self.video_is_paused = False
 		self.video_slider_is_pressed = False
@@ -293,14 +293,13 @@ class MainWindow(QMainWindow):
 		seconds, _  = divmod(millis, 1000)
 		minutes, seconds = divmod(seconds, 60)
 		hours, minutes = divmod(minutes, 60)
-		return str(hours).zfill(2) + ':' +  str(minutes).zfill(2)  + ':' + str(seconds).zfill(2)
+		return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
 
 	def video_play(self):
 		if self.video_name_text.text() and not (self.player.is_playing() or self.video_is_paused):
 			self.media = self.vlc_instance.media_new(self.file_find(self.video_name_text.text()))
 			self.player.set_media(self.media)
 			self.player.set_xwindow(int(self.videoframe.winId()))# set video output
-			self.video_duration = self.player.get_length()
 			self.video_play_pause()
 			
 	def video_stop(self):
@@ -345,6 +344,7 @@ class MainWindow(QMainWindow):
 			fn_base = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn)) + '/'
 			os.makedirs(fn_base, exist_ok=True)
 			self.player.video_take_snapshot(0, fn_base  + self.video_name_text.text() + '.jpg', 0 , 0)
+			self.video_screenshot_text.setText(self.video_name_text.text() + '.jpg')
 
 	def slider_press(self):		
 		self.video_slider_is_pressed = True
