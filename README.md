@@ -5,13 +5,10 @@ DESCRIPTION
 Early Poi spinning documentation project toolkit.
 
 INSTALL
-
 <pre>
-apt-get install python3-pyqt6 python3-vlc
+apt-get install ffmpeg python3-yaml python3-pyqt6 python3-vlc
 </pre>
-
 FILE
-
 <pre>
 assets/PTL/icon/    .. artist icon files
 assets/PTL/picture/ .. artist picture files
@@ -25,12 +22,10 @@ _data/PTL/dir/ .,..... video MD data files
 PTL/ ................. Jekyll frontend
 
 PTL.py ............... Metadata Qt6 toolkit GUI (non-root)
-PTLToolkit.jpg ....... PTL Toolkit Screen
+screen.jpg ........... PTL Toolkit Screen
 README.md ............ README 
 </pre>
-
-TODO
-
+EXTRA
 <pre>
 Resize: mogrify -resize 320x224\! *.png
 
