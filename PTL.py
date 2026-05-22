@@ -97,7 +97,7 @@ class MainWindow(QMainWindow):
 		
 		self.videoframe = QFrame()
 		self.videoframe.setStyleSheet("background: black;")
-		self.video_layout.addWidget(self.videoframe)
+		self.video_layout.addWidget(self.videoframe, 1)
 
 		# VIDEO CONTROL
 
@@ -123,11 +123,14 @@ class MainWindow(QMainWindow):
 		self.video_progress.sliderReleased.connect(self.slider_release)
 		self.video_control_layout.addWidget(self.video_progress)
 
+		self.video_play_duration_text = QLabel('00:00:00')
+		self.video_control_layout.addWidget(self.video_play_duration_text)
+
 		# TIMER
 
 		self.timer = QTimer(self)
 		self.timer.setInterval(100)# millis
-		self.timer.timeout.connect(self.slider_update)
+		self.timer.timeout.connect(self.gui_update)
 
 		# TAB
 
@@ -286,17 +289,25 @@ class MainWindow(QMainWindow):
 		self.top_layout.addWidget(self.tab)
 		self.top_layout.addWidget(self.videoWidget)
 
-	def video_play(self, fn):
+	def millis_to_duration(self,millis):
+		seconds, _  = divmod(millis, 1000)
+		minutes, seconds = divmod(seconds, 60)
+		hours, minutes = divmod(minutes, 60)
+		return str(hours).zfill(2) + ':' +  str(minutes).zfill(2)  + ':' + str(seconds).zfill(2)
+
+	def video_play(self):
 		if self.video_name_text.text() and not (self.player.is_playing() or self.video_is_paused):
 			self.media = self.vlc_instance.media_new(self.file_find(self.video_name_text.text()))
 			self.player.set_media(self.media)
 			self.player.set_xwindow(int(self.videoframe.winId()))# set video output
+			self.video_duration = self.player.get_length()
 			self.video_play_pause()
-
+			
 	def video_stop(self):
 		self.player.stop()
 		self.videoframe.setStyleSheet("background: black;")
 		self.video_progress.setValue(0)
+		self.video_play_duration_text.setText("00:00:00")
 		self.video_is_paused = False
 
 	def video_play_pause(self):
@@ -342,10 +353,13 @@ class MainWindow(QMainWindow):
 	def slider_release(self):
 		self.video_slider_is_pressed = False
 		self.set_position()
+		self.video_play_duration_text.setText(self.millis_to_duration(self.player.get_time()))
 
-	def slider_update(self):
+	def gui_update(self):
 		if self.player.is_playing() and not self.video_slider_is_pressed:
 			self.video_progress.setValue(int(self.player.get_position() * 1000))
+		if self.player.is_playing():
+			self.video_play_duration_text.setText(self.millis_to_duration(self.player.get_time()))
 
 	def clean_tab(self):
 		match self.tab.currentIndex():

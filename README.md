@@ -27,8 +27,8 @@ README.md ............ README
 </pre>
 TODO
 <pre>
-- test get_audio()
-- wait for player,pause() / player.stop()
+- get_audio() testing
+- player.pause() player.stop() blocking wait
 </pre>
 EXTRA
 <pre>
