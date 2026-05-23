@@ -93,38 +93,35 @@ class MainWindow(QMainWindow):
 		# FRAME
 
 		self.videoWidget = QWidget()	
-		self.video_layout = QVBoxLayout(self.videoWidget)
+		self.video_layout = QGridLayout(self.videoWidget)
 		
 		self.videoframe = QFrame()
 		self.videoframe.setStyleSheet("background: black;")
-		self.video_layout.addWidget(self.videoframe, 1)
+		self.video_layout.addWidget(self.videoframe, 0, 0, 1, 6)
 
 		# VIDEO CONTROL
 
-		self.video_control_layout = QHBoxLayout()
-		self.video_layout.addLayout(self.video_control_layout)
-
 		self.video_pause_play_button = QPushButton("Pause")
 		self.video_pause_play_button.clicked.connect(self.video_play_pause)
-		self.video_control_layout.addWidget(self.video_pause_play_button)
+		self.video_layout.addWidget(self.video_pause_play_button, 1, 0)
 		self.video_prev_button = QPushButton("Prev")
 		self.video_prev_button.clicked.connect(self.video_prev)
-		self.video_control_layout.addWidget(self.video_prev_button)
+		self.video_layout.addWidget(self.video_prev_button, 1, 1)
 		self.video_next_button = QPushButton("Next")
 		self.video_next_button.clicked.connect(self.video_next)
-		self.video_control_layout.addWidget(self.video_next_button)
+		self.video_layout.addWidget(self.video_next_button, 1, 2)
 		self.video_screen_button = QPushButton("Screen")
 		self.video_screen_button.clicked.connect(self.video_screen)
-		self.video_control_layout.addWidget(self.video_screen_button)
+		self.video_layout.addWidget(self.video_screen_button, 1, 3)
 
 		self.video_progress = QSlider(Qt.Orientation.Horizontal)
 		self.video_progress.setRange(0, 1000)
 		self.video_progress.sliderPressed.connect(self.slider_press)
 		self.video_progress.sliderReleased.connect(self.slider_release)
-		self.video_control_layout.addWidget(self.video_progress)
+		self.video_layout.addWidget(self.video_progress, 1, 4)
 
 		self.video_play_duration_text = QLabel('00:00:00')
-		self.video_control_layout.addWidget(self.video_play_duration_text)
+		self.video_layout.addWidget(self.video_play_duration_text, 1, 5)
 
 		# TIMER
 
