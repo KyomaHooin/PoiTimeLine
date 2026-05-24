@@ -3,7 +3,7 @@
 # PTL Metadata toolkit
 #
 
-import subprocess,vlc,sys,os
+import subprocess,random,vlc,sys,os
 
 from yaml import safe_dump,safe_load
 
@@ -21,7 +21,6 @@ from PyQt6.QtWidgets import (
 	QTabWidget,
 	QFormLayout,
 	QVBoxLayout,
-	QHBoxLayout,
 	QGridLayout,
 	QGroupBox,
 	QPushButton,
@@ -172,7 +171,7 @@ class MainWindow(QMainWindow):
 		self.formLayout_1.setWidget(4, QFormLayout.ItemRole.FieldRole, self.artist_icon_text)
 		self.artist_picture = QLabel("Picture")
 		self.formLayout_1.setWidget(5, QFormLayout.ItemRole.LabelRole, self.artist_picture)
-		self.artist_picture_text = QLineEdit()
+		self.artist_picture_text = QTextEdit()
 		self.formLayout_1.setWidget(5, QFormLayout.ItemRole.FieldRole, self.artist_picture_text)
 		self.artist_video = QLabel("Video")
 		self.formLayout_1.setWidget(6, QFormLayout.ItemRole.LabelRole, self.artist_video)
@@ -228,7 +227,7 @@ class MainWindow(QMainWindow):
 		self.formLayout_3.setWidget(0, QFormLayout.ItemRole.FieldRole, self.video_name_text)
 		self.video_screenshot = QLabel("Screenshot")
 		self.formLayout_3.setWidget(1, QFormLayout.ItemRole.LabelRole, self.video_screenshot)
-		self.video_screenshot_text = QLineEdit()
+		self.video_screenshot_text = QTextEdit()
 		self.formLayout_3.setWidget(1, QFormLayout.ItemRole.FieldRole, self.video_screenshot_text)
 		self.video_date = QLabel("Date")
 		self.formLayout_3.setWidget(2, QFormLayout.ItemRole.LabelRole, self.video_date)
@@ -286,6 +285,12 @@ class MainWindow(QMainWindow):
 		self.top_layout.addWidget(self.tab)
 		self.top_layout.addWidget(self.videoWidget)
 
+	def rand_name(self):
+		rn = []
+		for i in range(3):
+			rn.append(''.join(random.choices('abcdefghijklmnopqrstuvwxyz0123456789', k=5)))
+		return '-'.join(rn)
+
 	def millis_to_duration(self,millis):
 		seconds, _  = divmod(millis, 1000)
 		minutes, seconds = divmod(seconds, 60)
@@ -339,9 +344,10 @@ class MainWindow(QMainWindow):
 		if self.video_is_paused and self.video_name_text.text():
 			fn = self.file_find(self.video_name_text.text())
 			fn_base = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn)) + '/'
+			fn = self.rand_name()
 			os.makedirs(fn_base, exist_ok=True)
-			self.player.video_take_snapshot(0, fn_base  + self.video_name_text.text() + '.jpg', 0 , 0)
-			self.video_screenshot_text.setText(self.video_name_text.text() + '.jpg')
+			self.player.video_take_snapshot(0, fn_base  + fn + '.jpg', 0 , 0)
+			self.video_screenshot_text.append(fn + '.jpg')
 
 	def slider_press(self):		
 		self.video_slider_is_pressed = True
@@ -366,7 +372,7 @@ class MainWindow(QMainWindow):
 				self.artist_name_text.setText('')
 				self.artist_id_text.setText('')
 				self.artist_icon_text.setText('')
-				self.artist_picture_text.setText('')
+				self.artist_picture_text.setPlainText('')
 				self.artist_video_text.setPlainText('')
 				self.artist_location_text.setText('')
 				self.artist_group_text.setText('')
@@ -379,7 +385,7 @@ class MainWindow(QMainWindow):
 				self.group_meta_text.setPlainText('')
 			case 2:
 				self.video_name_text.setText('')
-				self.video_screenshot_text.setText('')
+				self.video_screenshot_text.setPlainText('')
 				self.video_date_text.setText('')
 				self.video_size_text.setText('')
 				self.video_duration_text.setText('')
@@ -422,7 +428,7 @@ class MainWindow(QMainWindow):
 			frame_stop = self.video_GetAudioEndEdit.text()
 
 			if fn and frame_start and frame_stop:
-				FFMPEG_AUDIO = ['ffmpeg', '-v', 'error', '-y', '-i', fn, '-ss', frame_start, '-t', frame_stop, fn_base + self.video_name_text.text() + '.mp3']
+				FFMPEG_AUDIO = ['ffmpeg', '-v', 'error', '-y', '-i', fn, '-ss', frame_start, '-t', frame_stop, fn_base + self.rand_name() + '.mp3']
 				try:
 					proc = subprocess.run(FFMPEG_AUDIO)
 				except:
@@ -456,7 +462,7 @@ class MainWindow(QMainWindow):
 					self.artist_name_text.setText(yml['name'] if 'name' in yml else '')
 					self.artist_id_text.setText(yml['id'] if 'id' in yml else '')
 					self.artist_icon_text.setText(yml['icon'] if 'icon' in yml else '')
-					self.artist_picture_text.setText(yml['picture'] if 'picture' in yml else '')
+					self.artist_picture_text.setPlainText("\n".join(yml['picture']) if 'picture' in yml else '')
 					self.artist_video_text.setPlainText("\n".join(yml['video']) if 'video' in yml else '')
 					self.artist_location_text.setText(yml['location'] if 'location' in yml else '')
 					self.artist_group_text.setText(yml['group'] if 'group' in yml else '')
@@ -471,7 +477,7 @@ class MainWindow(QMainWindow):
 					self.tab.setCurrentIndex(1)
 				case _:
 					self.video_name_text.setText(yml['name'] if 'name' in yml else '')
-					self.video_screenshot_text.setText(yml['screenshot'] if 'screenshot' in yml else '')
+					self.video_screenshot_text.setPlainText("\n".join(yml['screenshot']) if 'screenshot' in yml else '')
 					self.video_date_text.setText(yml['date'] if 'date' in yml else '')
 					self.video_size_text.setText(yml['size'] if 'size' in yml else '')
 					self.video_duration_text.setText(yml['duration'] if 'duration' in yml else '')
@@ -491,7 +497,7 @@ class MainWindow(QMainWindow):
 					if self.artist_name_text.text(): yml['name'] = self.artist_name_text.text()
 					if self.artist_id_text.text(): yml['id'] = self.artist_id_text.text()
 					if self.artist_icon_text.text(): yml['icon'] = self.artist_icon_text.text()
-					if self.artist_picture_text.text(): yml['picture'] = self.artist_picture_text.text()
+					if self.artist_picture_text.toPlainText(): yml['picture'] = self.artist_picture_text.toPlainText().splitlines()
 					if self.artist_video_text.toPlainText(): yml['video'] = self.artist_video_text.toPlainText().splitlines()
 					if self.artist_location_text.text(): yml['location'] = self.artist_location_text.text()
 					if self.artist_group_text.text(): yml['group'] = self.artist_group_text.text()
@@ -511,7 +517,7 @@ class MainWindow(QMainWindow):
 			case 2:
 				if self.video_name_text.text():
 					yml['name'] = self.video_name_text.text()
-					if self.video_screenshot_text.text(): yml['screenshot'] = self.video_screenshot_text.text()
+					if self.video_screenshot_text.toPlainText(): yml['screenshot'] = self.video_screenshot_text.toPlainText().splitlines()
 					if self.video_date_text.text(): yml['date'] = self.video_date_text.text()
 					if self.video_size_text.text(): yml['size'] = self.video_size_text.text()
 					if self.video_duration_text.text(): yml['duration'] = self.video_duration_text.text()
