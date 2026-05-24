@@ -1,6 +1,7 @@
 ---
 name: 061203yutaaska.wmv
-screenshot: 061203yutaaska.wmv.jpg
+screenshot:
+- 7a5e8-dqw8m-cg5gj.jpg
 date: 12.06.2003
 size: 24M
 duration: 09:26

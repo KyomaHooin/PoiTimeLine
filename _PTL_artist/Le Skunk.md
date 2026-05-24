@@ -1,7 +1,8 @@
 ---
 nickname: Le Skunk
 altname:
-- Skun from Snowy
+- TaylahDV
+- Skunk from Snowy
 id: '260'
 location: NY, USA
 meta:

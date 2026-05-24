@@ -19,16 +19,20 @@ _PTL_artist/ ......... artist MD collection
 _PTL_group/ .......... group MD collection
 _data/PTL/dir/ .,..... video MD data files
 
-PTL/ ................. Jekyll frontend
+PTL/ ................. Jekyll HTML/JS frontend
 
 PTL.py ............... Metadata Qt6 toolkit GUI (non-root)
+backend.sh ........... Copy PTL toolkit structure to frontend
 screen.jpg ........... PTL Toolkit Screen
 README.md ............ README 
 </pre>
 TODO
 <pre>
-- get_audio() testing
-- player.pause() player.stop() blocking wait
+- frontend:
+  backend.sh
+  picture/video screen carousel card
+- backend:
+  player.pause() player.stop() blocking wait
 </pre>
 EXTRA
 <pre>

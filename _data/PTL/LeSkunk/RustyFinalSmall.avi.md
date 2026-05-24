@@ -1,6 +1,7 @@
 ---
 name: RustyFinalSmall.avi
-screenshot: RustyFinalSmall.avi.jpg
+screenshot:
+- dfvqy-00x7m-93pwa.jpg
 date: 08.03.2003
 size: 13.4M
 duration: 04:50
