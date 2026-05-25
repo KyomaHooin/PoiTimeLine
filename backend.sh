@@ -23,9 +23,9 @@ rsync -av --exclude '*.jpg' "$BASE/YAML/video/" "$TARGET/_data/PTL/"
 
 # concat artist + group
 
-mkdir -p "$TARGET/_PTL_artist/" 2>/dev/null
-mkdir -p "$TARGET/_PTL_group/" 2>/dev/null
+mkdir -p "$TARGET/_artist/" 2>/dev/null
+mkdir -p "$TARGET/_group/" 2>/dev/null
 
-cat "$BASE/YAML/artist/"*.md > "$TARGET/_PTL_artist/artist.md"
-cat "$BASE/YAML/group/"*.md  > "$TARGET/_PTL_group/group.md"
+cat "$BASE/YAML/artist/"*.md > "$TARGET/_artist/artist.md"
+cat "$BASE/YAML/group/"*.md  > "$TARGET/_group/group.md"
 

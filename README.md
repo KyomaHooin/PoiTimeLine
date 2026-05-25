@@ -29,7 +29,12 @@ README.md ............ README
 TODO
 <pre>
 - frontend:
-  backend.sh
+  artist_listing.html
+  group_listing.html
+  video_listing.html
+  artist.html
+  group.html
+  video.html
   picture/video screen carousel card
 - backend:
   player.pause() player.stop() blocking wait
