@@ -15,8 +15,8 @@ assets/PTL/picture/ .. artist picture files
 assets/PTL/screen/  .. video screen files
 assets/PTL/ .......... misc files
 
-_PTL_artist/ ......... artist MD collection
-_PTL_group/ .......... group MD collection
+_artist/ ......... artist MD collection
+_group/ .......... group MD collection
 _data/PTL/dir/ .,..... video MD data files
 
 PTL/ ................. Jekyll HTML/JS frontend
