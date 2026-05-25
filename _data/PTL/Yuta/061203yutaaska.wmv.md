@@ -1,7 +1,9 @@
 ---
 name: 061203yutaaska.wmv
 screenshot:
-- 7a5e8-dqw8m-cg5gj.jpg
+- 7A5E8-DQW8M-CG5GJ.jpg
+- GUAW4-N182V-ZU891.jpg
+- 5S05W-DPBCH-6X5SI.jpg
 date: 12.06.2003
 size: 24M
 duration: 09:26

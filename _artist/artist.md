@@ -83,16 +83,16 @@ name: Dominic Robinson
 nickname: Durbs
 ...
 ---
-nickname: Dyfort
-name: Daniel Dyfort
+nickname: Dyffort
+name: Josh Dyffort
 location: US
-group: Polostyx
+group: Solstix
 ...
 ---
 nickname: Enthogen
-name: Sebastian Berger
-location: DE
-group: Polostyx
+name: Valerie Ann Sealey
+location: California, US
+group: Solstix
 ...
 ---
 nickname: FluffyNapalmFiery

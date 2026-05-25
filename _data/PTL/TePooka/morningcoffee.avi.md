@@ -1,7 +1,7 @@
 ---
 name: morningcoffee.avi
 screenshot:
-- t55m2-002df-rmovl.jpg
+- T55M2-002DF-RMOVL.jpg
 size: 35.6M
 music:
 - "Your Worst Enemy \xB7 King Prawn"

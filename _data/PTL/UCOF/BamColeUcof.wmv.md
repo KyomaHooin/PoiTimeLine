@@ -1,7 +1,7 @@
 ---
 name: BamColeUcof.wmv
 screenshot:
-- 2xhmt-z2qwb-j8yj5.jpg
+- 2XHMT-Z2QWB-J8YJ5.jpg
 size: 4.5M
 duration: 03:02
 music:

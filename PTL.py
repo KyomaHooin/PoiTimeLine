@@ -288,7 +288,7 @@ class MainWindow(QMainWindow):
 	def rand_name(self):
 		rn = []
 		for i in range(3):
-			rn.append(''.join(random.choices('abcdefghijklmnopqrstuvwxyz0123456789', k=5)))
+			rn.append(''.join(random.choices('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', k=5)))
 		return '-'.join(rn)
 
 	def millis_to_duration(self,millis):

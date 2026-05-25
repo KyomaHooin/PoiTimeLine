@@ -13,6 +13,15 @@ meta:
 - filmed by Daniel Furst
 ...
 ---
+name: Solstix
+artist:
+- Dyffort
+- Enthogen
+location: US, DE
+meta:
+- solstix.com
+...
+---
 name: ToPooka
 artist:
 - Bluecat

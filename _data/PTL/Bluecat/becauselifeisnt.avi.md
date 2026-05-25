@@ -1,10 +1,10 @@
 ---
 name: becauselifeisnt.avi
 screenshot:
-- 2f8jp-4kg39-s3lt5.jpg
-- zybkx-h260e-iebu1.jpg
-- h4j8i-f5sat-kqb1q.jpg
-- 4cexc-da2fe-tpq1x.jpg
+- 2F8JP-4KG39-S3LT5.jpg
+- ZYBKX-H260E-IEBU1.jpg
+- H4J8I-F5SAT-KQB1Q.jpg
+- 4CEXC-DA2FE-TPQ1X.jpg
 date: '2003'
 size: 15.5M
 duration: 05:21

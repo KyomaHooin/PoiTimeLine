@@ -1,7 +1,7 @@
 ---
 name: ABrooklynBurn.wmv
 screenshot:
-- k31e1-l5t5q-8ky4t.jpg
+- K31E1-L5T5Q-8KY4T.jpg
 size: 9.7M
 duration: '2:54'
 artist:
