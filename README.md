@@ -29,14 +29,14 @@ README.md ............ README
 TODO
 <pre>
 - frontend:
-  artist_listing.html
-  group_listing.html
-  video_listing.html
-  artist.html
-  group.html
-  video.html
-  picture/video screen carousel card
+  artist_listing.html(icon)
+  group_listing.html(simple)
+  video_listing.html(folder)
+  artist.html(picture card)
+  group.html(simple card)
+  video.html(carousel card)
 - backend:
+  Screen preview dialog + delete()?
   player.pause() player.stop() blocking wait
 </pre>
 EXTRA
