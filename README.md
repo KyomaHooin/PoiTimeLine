@@ -34,7 +34,6 @@ TODO
   group.html(simple card)
   video.html(carousel card)
 - backend:
-  Screen preview dialog + delete()?
   player.pause() player.stop() blocking wait
 </pre>
 EXTRA

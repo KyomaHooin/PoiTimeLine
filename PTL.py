@@ -8,7 +8,7 @@ import subprocess,random,vlc,sys,os
 from yaml import safe_dump,safe_load
 
 from PyQt6.QtCore import QSize, QRect, QTimer, Qt
-from PyQt6.QtGui import QAction, QKeySequence
+from PyQt6.QtGui import QAction, QKeySequence, QPixmap
 from PyQt6.QtWidgets import (
 	QApplication,
 	QMainWindow,
@@ -21,6 +21,7 @@ from PyQt6.QtWidgets import (
 	QTabWidget,
 	QFormLayout,
 	QVBoxLayout,
+	QHBoxLayout,
 	QGridLayout,
 	QGroupBox,
 	QPushButton,
@@ -229,30 +230,33 @@ class MainWindow(QMainWindow):
 		self.formLayout_3.setWidget(1, QFormLayout.ItemRole.LabelRole, self.video_screenshot)
 		self.video_screenshot_text = QTextEdit()
 		self.formLayout_3.setWidget(1, QFormLayout.ItemRole.FieldRole, self.video_screenshot_text)
+		self.video_PreviewButton = QPushButton("Preview")
+		self.video_PreviewButton.clicked.connect(self.video_screen_preview)
+		self.formLayout_3.setWidget(2, QFormLayout.ItemRole.FieldRole, self.video_PreviewButton)
 		self.video_date = QLabel("Date")
-		self.formLayout_3.setWidget(2, QFormLayout.ItemRole.LabelRole, self.video_date)
+		self.formLayout_3.setWidget(3, QFormLayout.ItemRole.LabelRole, self.video_date)
 		self.video_date_text = QLineEdit()
-		self.formLayout_3.setWidget(2, QFormLayout.ItemRole.FieldRole, self.video_date_text)
+		self.formLayout_3.setWidget(3, QFormLayout.ItemRole.FieldRole, self.video_date_text)
 		self.video_size = QLabel("Size")
-		self.formLayout_3.setWidget(3, QFormLayout.ItemRole.LabelRole, self.video_size)
+		self.formLayout_3.setWidget(4, QFormLayout.ItemRole.LabelRole, self.video_size)
 		self.video_size_text = QLineEdit()
-		self.formLayout_3.setWidget(3, QFormLayout.ItemRole.FieldRole, self.video_size_text)
+		self.formLayout_3.setWidget(4, QFormLayout.ItemRole.FieldRole, self.video_size_text)
 		self.video_duration = QLabel("Duration")
-		self.formLayout_3.setWidget(4, QFormLayout.ItemRole.LabelRole, self.video_duration)
+		self.formLayout_3.setWidget(5, QFormLayout.ItemRole.LabelRole, self.video_duration)
 		self.video_duration_text = QLineEdit()
-		self.formLayout_3.setWidget(4, QFormLayout.ItemRole.FieldRole, self.video_duration_text)
+		self.formLayout_3.setWidget(5, QFormLayout.ItemRole.FieldRole, self.video_duration_text)
 		self.video_music = QLabel("Music")
-		self.formLayout_3.setWidget(5, QFormLayout.ItemRole.LabelRole, self.video_music)
+		self.formLayout_3.setWidget(6, QFormLayout.ItemRole.LabelRole, self.video_music)
 		self.video_music_text = QTextEdit()
-		self.formLayout_3.setWidget(5, QFormLayout.ItemRole.FieldRole, self.video_music_text)
+		self.formLayout_3.setWidget(6, QFormLayout.ItemRole.FieldRole, self.video_music_text)
 		self.video_artist = QLabel("Artist")
-		self.formLayout_3.setWidget(6, QFormLayout.ItemRole.LabelRole, self.video_artist)
+		self.formLayout_3.setWidget(7, QFormLayout.ItemRole.LabelRole, self.video_artist)
 		self.video_artist_text = QTextEdit()
-		self.formLayout_3.setWidget(6, QFormLayout.ItemRole.FieldRole, self.video_artist_text)
+		self.formLayout_3.setWidget(7, QFormLayout.ItemRole.FieldRole, self.video_artist_text)
 		self.video_meta = QLabel("Meta")
-		self.formLayout_3.setWidget(7, QFormLayout.ItemRole.LabelRole, self.video_meta)
+		self.formLayout_3.setWidget(8, QFormLayout.ItemRole.LabelRole, self.video_meta)
 		self.video_meta_text = QTextEdit()
-		self.formLayout_3.setWidget(7, QFormLayout.ItemRole.FieldRole, self.video_meta_text)
+		self.formLayout_3.setWidget(8, QFormLayout.ItemRole.FieldRole, self.video_meta_text)
 		self.formLayout_3.addRow(self.groupVideoWidget)
 
 		self.video_PlayButton = QPushButton("Play")
@@ -349,6 +353,24 @@ class MainWindow(QMainWindow):
 			self.player.video_take_snapshot(0, fn_base  + fn + '.jpg', 0 , 0)
 			self.video_screenshot_text.append(fn + '.jpg')
 
+	def video_screen_preview(self):
+		if self.video_name_text.text() and self.video_screenshot_text.toPlainText():
+			self.dlg = QDialog()
+			self.dlg.setWindowTitle(self.video_name_text.text() + ' - Screen Preview')
+			layout = QHBoxLayout()
+
+			fn = self.file_find(self.video_name_text.text())
+			fn_base = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn)) + '/'
+
+			for img in self.video_screenshot_text.toPlainText().splitlines():
+				label = QLabel()
+				px = QPixmap(fn_base + img)
+				label.setPixmap(px)
+				layout.addWidget(label)
+
+			self.dlg.setLayout(layout)
+			self.dlg.show()
+
 	def slider_press(self):		
 		self.video_slider_is_pressed = True
 		self.timer.stop()
@@ -401,8 +423,8 @@ class MainWindow(QMainWindow):
 	def get_metaDialog(self, fn, text):
 		self.dlg = QDialog()
 		self.dlg.setWindowTitle(fn + ' - Metadata')
-		layout = QVBoxLayout() 
-		message = QLabel(text)	
+		layout = QVBoxLayout()
+		message = QLabel(text)
 		layout.addWidget(message)
 		self.dlg.setLayout(layout)
 		self.dlg.show()
