@@ -29,9 +29,10 @@ README.md ............ README
 TODO
 <pre>
 - frontend:
-  artist_listing.html(icon)
-  group_listing.html(simple)
-  video_listing.html(folder)
+   Resize icon (52x52 + drop html code) + screen + picture: mogrify -resize 320x224\! *.png
+  artist_listing.html(icon) Letter row + letter listing  wrappable grid + placeholder
+  group_listing.html(simple) Letter row + Letter listing wrapable grid
+  video_listing.html(folder) -- || --
   artist.html(picture card)
   group.html(simple card)
   video.html(carousel card)
@@ -41,11 +42,8 @@ TODO
 </pre>
 EXTRA
 <pre>
-Resize: mogrify -resize 320x224\! *.png
-
 https://jquery-plugins.net/building-vertical-timeline-with-css-and-javascript
 https://codyhouse.co/gem/vertical-timeline/
-
 http://www.homeofpoi.com/ubbthreads/images/users/796.jpg
 https://web.archive.org/web/20061214070131/http://www.homeofpoi.com/ubbthreads/showprofile.php?Cat=0&User=1571
 
