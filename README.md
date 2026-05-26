@@ -30,9 +30,6 @@ TODO
 <pre>
 - frontend:
    Resize icon (52x52 + drop html code) + screen + picture: mogrify -resize 320x224\! *.png
-  artist_listing.html(icon) Letter row + letter listing  wrappable grid + placeholder
-  group_listing.html(simple) Letter row + Letter listing wrapable grid
-  video_listing.html(folder) -- || --
   artist.html(picture card)
   group.html(simple card)
   video.html(carousel card)
