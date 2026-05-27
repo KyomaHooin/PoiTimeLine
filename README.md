@@ -32,7 +32,6 @@ TODO
    Resize icon (52x52 + drop html code) + screen + picture: mogrify -resize 320x224\! *.png
   artist.html(picture card)
   group.html(simple card)
-  video.html(carousel card)
 - backend:
   player.pause() player.stop() blocking wait
 </pre>
