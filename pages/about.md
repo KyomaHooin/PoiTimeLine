@@ -1,0 +1,14 @@
+---
+title: About
+layout: default
+permalink: / 
+---
+<img width="200" src="/assets/19186867.png" alt="okarin">
+
+**Richard Bruna**
+
+昭和57年生まれ。プラハ在住。
+
+J'aime ma famille, mon frère et mes parents.
+
+stay tuned. more to come.

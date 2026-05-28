@@ -1,6 +1,6 @@
 encoding: UTF-8
 header_pages:
-        - pages/default.md
+        - pages/about.md
         - pages/tech.md
         - pages/cyber.md
         - pages/poi.md
