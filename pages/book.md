@@ -1,6 +1,6 @@
 ---
 title: Book
-layout: book
+layout: PTL
 permalink: book
 ---
 **SF, Cyberpunk & 日本語 ..**

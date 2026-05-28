@@ -1,6 +1,6 @@
 ---
 title: Sound
-layout: sound
+layout: PTL
 permalink: sound
 ---
 **Oldschool, DNB, Lounge, Jazz, Chill, Anime OST ..**

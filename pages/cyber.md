@@ -1,6 +1,6 @@
 ---
 title: Cyber
-layout: cyber
+layout: PTL
 permalink: cyber
 ---
 **Cyberpunk & Co ..**
