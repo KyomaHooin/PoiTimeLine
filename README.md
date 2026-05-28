@@ -29,9 +29,8 @@ README.md ............ README
 TODO
 <pre>
 - frontend:
+   Jekyll beta
    Resize icon (52x52 + drop html code) + screen + picture: mogrify -resize 320x224\! *.png
-  artist.html(picture card)
-  group.html(simple card)
 - backend:
   player.pause() player.stop() blocking wait
 </pre>

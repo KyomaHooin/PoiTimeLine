@@ -9,8 +9,8 @@ header_pages:
         - pages/other.md
 
 collections:
-	data:
-		output: true
+  video:
+    output: true
 
 footer: '&#960;'
 
