@@ -2,7 +2,7 @@
 
 DESCRIPTION
 
-Early Poi spinning documentation project toolkit.
+Early Poi spinning documentation project toolkit and site.
 
 INSTALL
 <pre>
@@ -15,9 +15,9 @@ assets/PTL/picture/ .. artist picture files
 assets/PTL/screen/  .. video screen files
 assets/PTL/ .......... misc files
 
-_artist/ ......... artist MD collection
-_group/ .......... group MD collection
-_data/PTL/dir/ .,..... video MD data files
+_data/artist.md ...... artist MD data file
+_data/group.md ....... group data file
+PTL/_video/ ....,..... video MD data collection
 
 PTL/ ................. Jekyll HTML/JS frontend
 

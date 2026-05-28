@@ -1,4 +1,3 @@
 ---
 tags: poi
-layout: PTL
 ---
