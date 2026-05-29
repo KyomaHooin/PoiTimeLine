@@ -40,7 +40,7 @@ defaults:
   - scope:
       path: ""
     values:
-      layout: "PTL"
+      layout: "default"
 
 footer: '&#960;'
 

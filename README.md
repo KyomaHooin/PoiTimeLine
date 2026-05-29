@@ -20,8 +20,6 @@ PTL/_artist/ ......... artist MD collection
 PTL/_group/ .......... group MD collection
 PTL/_video/ .......... video MD collection
 
-site/ ................. Jekyll HTML/JS frontend
-
 PTL.py ............... Metadata Qt6 toolkit GUI (non-root)
 backend.sh ........... Copy PTL toolkit structure to frontend
 screen.jpg ........... PTL Toolkit Screen
