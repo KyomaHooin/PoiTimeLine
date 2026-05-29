@@ -552,7 +552,6 @@ class MainWindow(QMainWindow):
 					fn = fn_base + '/' + re.sub('[. !-\'()?]', '_', os.path.splitext(self.video_name_text.text())[0]) + '.md'
 
 		if not os.path.isfile(fn):
-			print(fn)
 			fn, _ = QFileDialog.getSaveFileName(self, "Save File", fn_base, "MD (*.md)")
 			if os.path.splitext(fn)[1] != '.md': fn = fn[0] + '.md'
 
