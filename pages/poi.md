@@ -1,6 +1,6 @@
 ---
 title: Poi
-layout: PLT
+layout: default
 permalink: poi
 ---
 **Poi & Co ..**

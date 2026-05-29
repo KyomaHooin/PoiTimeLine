@@ -1,6 +1,6 @@
 ---
 title: Other
-layout: PTL
+layout: default
 permalink: other
 ---
 **Other & Co ..**

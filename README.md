@@ -10,16 +10,17 @@ apt-get install ffmpeg python3-yaml python3-pyqt6 python3-vlc
 </pre>
 FILE
 <pre>
-assets/PTL/icon/    .. artist icon files
-assets/PTL/picture/ .. artist picture files
-assets/PTL/screen/  .. video screen files
-assets/PTL/ .......... misc files
+assets/icon/    ...... artist icon files
+assets/picture/ ...... artist picture files
+assets/screen/  ...... video screen files
+assets/ .............. misc files
 
-_data/artist.md ...... artist MD data file
-_data/group.md ....... group data file
-PTL/_video/ ....,..... video MD data collection
+_data/video/set.md ... video MD data files
+PTL/_artist/ ......... artist MD collection
+PTL/_group/ .......... group MD collection
+PTL/_video/ .......... video MD collection
 
-PTL/ ................. Jekyll HTML/JS frontend
+site/ ................. Jekyll HTML/JS frontend
 
 PTL.py ............... Metadata Qt6 toolkit GUI (non-root)
 backend.sh ........... Copy PTL toolkit structure to frontend

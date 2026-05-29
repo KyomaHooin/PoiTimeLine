@@ -3,11 +3,14 @@ name: morningcoffee.avi
 screenshot:
 - T55M2-002DF-RMOVL.jpg
 size: 35.6M
+duration: 07:06
 music:
 - "Your Worst Enemy \xB7 King Prawn"
 - "Espiritu Du Carnaval \xB7 King Prawn"
 artist:
 - PKBluecatGlss
 meta:
-- '"youcnrollitfclit"www.poiintheprk.co.ukwww.tepook.org'
+- '"you can roll it f*ck it"'
+- www.poiintheprk.co.uk
+- www.tepook.org
 ...

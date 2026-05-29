@@ -1,0 +1,4 @@
+---
+name: LeSkunk
+layout: video
+...

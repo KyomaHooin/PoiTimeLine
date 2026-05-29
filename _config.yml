@@ -9,8 +9,38 @@ header_pages:
         - pages/other.md
 
 collections:
-  video:
-    output: true
+     artist:
+       output: true
+       sort_by: 'nickname'
+     group:
+       output: true
+       sort_by: 'name'
+     video:
+       output: true
+       sort_by: 'name'
+
+collections_dir: 'PTL'
+
+defaults:
+  - scope:
+      path: ""
+      type: "artist"
+    values:
+      layout: "artist"
+  - scope:
+      path: ""
+      type: "group"
+    values:
+      layout: "group"
+  - scope:
+      path: ""
+      type: "video"
+    values:
+      layout: "video"
+  - scope:
+      path: ""
+    values:
+      layout: "PTL"
 
 footer: '&#960;'
 

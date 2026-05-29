@@ -1,6 +1,6 @@
 ---
 title: Tech
-layout: PTL
+layout: default
 permalink: tech
 ---
 **Pwn2own, Howto, Note ..**

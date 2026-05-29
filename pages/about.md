@@ -1,6 +1,6 @@
 ---
 title: About
-layout: PTL
+layout: default
 permalink: / 
 ---
 <img width="200" src="/assets/19186867.png" alt="okarin">

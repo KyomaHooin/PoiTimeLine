@@ -1,4 +1,4 @@
 ---
 tags: poi
-layout: PTL
+layout: default
 ---
