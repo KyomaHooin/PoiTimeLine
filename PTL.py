@@ -3,7 +3,7 @@
 # PTL Metadata toolkit
 #
 
-import subprocess,random,vlc,sys,os
+import subprocess,random,vlc,sys,os,re
 
 from yaml import safe_dump,safe_load
 
@@ -525,7 +525,7 @@ class MainWindow(QMainWindow):
 					if self.artist_group_text.text(): yml['group'] = self.artist_group_text.text()
 					if self.artist_meta_text.toPlainText(): yml['meta'] = self.artist_meta_text.toPlainText().splitlines()
 					fn_base = BASE + '/YAML/artist/'
-					fn = fn_base + self.artist_nickname_text.text() + '.md'
+					fn = fn_base + re.sub('[. !-\'()?]', '', self.artist_nickname_text.text()) + '.md'
 			case 1:
 				if self.group_name_text.text():
 					yml['name'] = self.group_name_text.text()
@@ -534,7 +534,7 @@ class MainWindow(QMainWindow):
 					if self.group_country_text.text(): yml['country'] = self.group_country_text.text()
 					if self.group_meta_text.toPlainText(): yml['meta'] = self.group_meta_text.toPlainText().splitlines()
 					fn_base = BASE + '/YAML/group/'
-					fn = fn_base + self.group_name_text.text() + '.md'
+					fn = fn_base + re.sub('[. !-\'()?]', '', self.group_name_text.text()) + '.md'
 
 			case 2:
 				if self.video_name_text.text():
@@ -549,11 +549,12 @@ class MainWindow(QMainWindow):
 					fn = self.file_find(self.video_name_text.text())
 					fn_base = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn))
 					os.makedirs(fn_base, exist_ok=True)
-					fn = fn_base + '/' + self.video_name_text.text() + '.md'
+					fn = fn_base + '/' + re.sub('[. !-\'()?]', '_', os.path.splitext(self.video_name_text.text())[0]) + '.md'
 
 		if not os.path.isfile(fn):
+			print(fn)
 			fn, _ = QFileDialog.getSaveFileName(self, "Save File", fn_base, "MD (*.md)")
-			if os.path.splitext(fn)[1] != '.md': fn = fn + '.md'
+			if os.path.splitext(fn)[1] != '.md': fn = fn[0] + '.md'
 
 		with open(fn, 'w') as f:
         		f.write(safe_dump(yml, sort_keys=False, explicit_start=True, explicit_end=True))
