@@ -4,65 +4,112 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ブルナ・リチャード</title>
-    <link rel="stylesheet" type="text/css" href="custom.css">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ "custom.css" | relative_url }}">
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   </head>
 
   <body>
     <div class="container">
     <div class="row my-4 justify-content-center">
-    <div class="col col-lg-7 text-light font-monospace"><header>
+    <div class="col col-lg-7 text-light font-monospace">
+
+    {%- assign page_paths = site.header_pages | default: default_paths -%}
+
+    <header>
       <nav class="nav nav-pills py-1 justify-content-lg-end justify-content-center">
-             <a class="nav-link text-light my-1 active" aria-current="page" href="/">About</a>
-           
-             <a class="nav-link my-1 text-light" href="/tech">Tech</a>
-             <a class="nav-link my-1 text-light" href="/cyber">Cyber</a>
-             <a class="nav-link my-1 text-light" href="/poi">Poi</a>
-             <a class="nav-link my-1 text-light" href="/book">Book</a>
-             <a class="nav-link my-1 text-light" href="/sound">Sound</a>
-             <a class="nav-link my-1 text-light" href="/other">Other</a></nav>
+       {%- for path in page_paths -%}
+         {%- assign menu_page = site.pages | where: "path", path | first -%}
+         {%- if menu_page.title -%}
+           {%- if page.tags contains menu_page.layout or page.name contains menu_page.layout -%}
+             <a class="nav-link text-light my-1 active" aria-current="page" href="{{ menu_page.url | relative_url }}">{{ menu_page.title | escape }}</a>
+           {%- else -%}
+             <a class="nav-link my-1 text-light" href="{{ menu_page.url | relative_url }}">{{ menu_page.title | escape }}</a>
+           {%- endif -%}
+         {%- endif -%}
+       {%- endfor -%}
+      </nav>
     </header>
 
     <main class="my-4 mx-1">
 
-    <img class="img-fluid mx-auto my-4 d-block" src="assets/community.gif">
+    <img class="img-fluid mx-auto my-4 d-block" src="/PoiTimeLine/assets/community.gif">
 
-    <p class="text-light text-center h4 my-4"><u>Poi Time Line</u></p>
-    <p class="text-light text-center h5 my-2">Archive of Poi spinning era between 2001-2007.</p>
+    <p class="text-light text-center my-4"><u>Poi Time Line</u></p>
+    <p class="text-light text-center my-2">Archive of Poi spinning era between 2001-2007.</p>
    
-    <div class="row my-2">
+    <div class="row my-4 d-flex justify-content-center">
+      {%- for collection in site.collections -%}
+      {%- if collection.label != 'posts' -%}
+      <div class="col col-md-3 position-relative">
+	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-folder-fill" viewBox="0 0 16 16"><path d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z"/></svg>
+         <span class="text-light align-bottom">{{ collection.label | capitalize }}</span>
+         <a href="{{ collection.label }}" class="stretched-link"></a>
+      </div>
+      {%- endif -%}
+    {%- endfor -%}
+    </div>
+ 
+    <div class="row my-4">
 
 	<div class="col text-light" style="background-color: black;">
 
-	<p><img class="img-fluid" onerror="this.onerror=null;this.src='/assets/no-image.svg';" src="assets/PTL/image/yuta.jpg" alt="yuta.png"></p>
+	<p><img class="img-fluid" onerror="this.onerror=null;this.src='/PoiTimeLine/assets/no-image.svg';" src="{{ '/PoitimeLine/assets/image/' | append: page.picture }}" alt="{{ page.picture }}"></p>
 
-		<h4 class="my-4">Yuta</u></h4>
+		<h4 class="my-4">{{ page.nickname }}</u></h4>
 
 		<table class="table mb-4 table-dark table-borderless table-sm">
 			<tbody>
-				<tr><td class="">Name:</td><td class="py-0">Imamura Yuta</td></tr>
-				<tr><td class="">ID:</td><td class="py-0">6811</td></tr>
-				<tr><td class="">Video:</td><td class="py-0"><a href="..">Yuta</a></td></tr>
-				<tr><td class="">Location:</td><td class="py-0">Tokyo, JA</td></tr>
-				<tr><td class="">Group:</td><td class="py-0">PoiCommunity</td></tr>
-				<tr><td class="">Metadata:</td><td class="py-0"><span>poicommunity.nobody.jp</span><br><span>poicommunity.com</span><br><span>poilab.com</span><br></td></tr>
+     				{%- if page.altname -%}
+					<tr><td class="">Altname:</td><td class="py-0">{{ page.altname | join "<br>" }}</td></tr>
+     				{%- endif -%}
+     				{%- if page.name -%}
+					<tr><td class="">Name:</td><td class="py-0">{{ page.name }}</td></tr>
+     				{%- endif -%}
+     				{%- if page.id -%}
+					<tr><td class="">ID:</td><td class="py-0">{{ page.id }}</td></tr>
+     				{%- endif -%}
+     				{%- if page.video -%}
+					<tr><td class="">Video:</td><td class="py-0">
+     					{%- for video in page.video -%}
+						<a href="{{ "/PoiTimeLine/video/" | append: page.video }}">{{ page.video }}</a><br>
+     					{%- endfor -%}
+					</td></tr>
+     				{%- endif -%}
+     				{%- if page.location -%}
+					<tr><td class="">Location:</td><td class="py-0">{{ page.location }}</td></tr>
+     				{%- endif -%}
+     				{%- if page.group -%}
+						<tr><td class="">Group:</td><td class="py-0">
+     					{%- if page.group in site.group -%}
+						<span><a href="{{ "/PoiTimeLine/group/" | append: page.group }}">{{ page.group }}</a></span><br>
+     					{%- else -%}
+						<span>{{ page.group }}</span></br>
+     					{%- endif -%}
+     				{%- endif -%}
+     				{%- if page.meta -%}
+					<tr><td class="">Metadata:</td><td class="py-0">
+     					{%- for meta in page.metadata -%}
+						<span>{{ meta }}</span><br>
+     					{%- endfor -%}
+					</td></tr>
+     				{%- endif -%}
 			</tbody>
 		</table>
 	</div>
  
   </div>
 
+
     </main>
 
     <footer>
-      <div class="pi text-end" onclick="pi()">&#960;</div>
+      <div class="pi text-end" onclick="pi()">{{ site.footer }}</div>
     </footer>
    
     </div>
     </div>
     </div>
-    <script src="/bootstrap.min.js"></script>
+    <script src="/custom.js"></script>
   </body>
 </html>
-

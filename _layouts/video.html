@@ -4,134 +4,154 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ブルナ・リチャード</title>
-    <link rel="stylesheet" type="text/css" href="custom.css">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ "custom.css" | relative_url }}">
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   </head>
 
   <body>
     <div class="container">
     <div class="row my-4 justify-content-center">
-    <div class="col col-lg-7 text-light font-monospace"><header>
+    <div class="col col-lg-7 text-light font-monospace">
+
+    {%- assign page_paths = site.header_pages | default: default_paths -%}
+
+    <header>
       <nav class="nav nav-pills py-1 justify-content-lg-end justify-content-center">
-             <a class="nav-link text-light my-1 active" aria-current="page" href="/">About</a>
-           
-             <a class="nav-link my-1 text-light" href="/tech">Tech</a>
-             <a class="nav-link my-1 text-light" href="/cyber">Cyber</a>
-             <a class="nav-link my-1 text-light" href="/poi">Poi</a>
-             <a class="nav-link my-1 text-light" href="/book">Book</a>
-             <a class="nav-link my-1 text-light" href="/sound">Sound</a>
-             <a class="nav-link my-1 text-light" href="/other">Other</a></nav>
+       {%- for path in page_paths -%}
+         {%- assign menu_page = site.pages | where: "path", path | first -%}
+         {%- if menu_page.title -%}
+           {%- if page.tags contains menu_page.layout or page.name contains menu_page.layout -%}
+             <a class="nav-link text-light my-1 active" aria-current="page" href="{{ menu_page.url | relative_url }}">{{ menu_page.title | escape }}</a>
+           {%- else -%}
+             <a class="nav-link my-1 text-light" href="{{ menu_page.url | relative_url }}">{{ menu_page.title | escape }}</a>
+           {%- endif -%}
+         {%- endif -%}
+       {%- endfor -%}
+      </nav>
     </header>
 
     <main class="my-4 mx-1">
 
-    <img class="img-fluid mx-auto my-4 d-block" src="assets/community.gif">
+    <img class="img-fluid mx-auto my-4 d-block" src="/PoiTimeLine/assets/community.gif">
 
-    <p class="text-light text-center h4 my-4"><u>Poi Time Line</u></p>
-    <p class="text-light text-center h5 my-2">Archive of Poi spinning era between 2001-2007.</p>
+    <p class="text-light text-center my-4"><u>Poi Time Line</u></p>
+    <p class="text-light text-center my-2">Archive of Poi spinning era between 2001-2007.</p>
    
-    <div class="row my-2">
+    <div class="row my-4 d-flex justify-content-center">
+      {%- for collection in site.collections -%}
+      {%- if collection.label != 'posts' -%}
+      <div class="col col-md-3 position-relative">
+	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-folder-fill" viewBox="0 0 16 16"><path d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z"/></svg>
+         <span class="text-light align-bottom">{{ collection.label | capitalize }}</span>
+         <a href="{{ collection.label }}" class="stretched-link"></a>
+      </div>
+      {%- endif -%}
+    {%- endfor -%}
+    </div>
+ 
+    <div class="row my-4">
+
+    {%- assign video_source = site.name -%}
+    {%- assign carousel_id = 0 -%}
+    {%- for video_file in site.data.video.[video_source] -%}
 
 	<div class="col text-light" style="background-color: black;">
 
-		<div id="carousel_1" class="carousel slide">
+	<div id="{{ 'carousel_' | append: carousel_id }}" class="carousel slide">
 		  <div class="carousel-indicators">
-		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+		
+   		   {%- assign screenshot_id = 0 -%}
+   		   {%- for screen in video_file.screenshot -%}
+     			{%- if screenshot_id == 0 -%}
+		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ screenshot_id}}" class="active" aria-current="true" aria-label="{{ 'Slide ' | apeend: screenshot_id }}"></button>
+     			{%- else -%}
+		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ screenshot_id}}" aria-label="{{ 'Slide ' | apeend: screenshot_id }}"></button>
+     			{%- endif -%}
+   		     {%- increment screenshot_id -%}
+   		  { %- endfor -%}
 		  </div>
 		  <div class="carousel-inner">
+   		   {%- assign screenshot_file_id = 0 -%}
+   		   {%- for screen in video_file.screenshot -%}
+     			{%- if screenshot_file_id == 0 -%}
 		    <div class="carousel-item active">
-		      <img src="assets/screen/2XHMT-Z2QWB-J8YJ5.jpg" class="d-block w-100" alt="...">
+		      <img src="{{ '/PoiTimeLine/assets/screen/' | append: screen }}" class="d-block w-100" alt="...">
 		    </div>
+     			{%- else -%}
 		    <div class="carousel-item">
-		      <img src="assets/screen/2F8JP-4KG39-S3LT5.jpg" class="d-block w-100" alt="...">
+		      <img src="{{ '/PoiTimeLine/assets/screen/' | append: screen }}" class="d-block w-100" alt="...">
 		    </div>
-		    <div class="carousel-item">
-		      <img src="assets/screen/GUAW4-N182V-ZU891.jpg" class="d-block w-100" alt="...">
-		    </div>
-		  </div>
-		  <button class="carousel-control-prev" type="button" data-bs-target="#carousel_1" data-bs-slide="prev">
+     			{%- endif -%}
+   		     {%- increment screenshot_file_id -%}
+   		  { %- endfor -%}
+		 </div>
+		  <button class="carousel-control-prev" type="button" data-bs-target="{{ '#carousel_' | append: carousel_id }}" data-bs-slide="prev">
 		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 		    <span class="visually-hidden">Previous</span>
 		  </button>
-		  <button class="carousel-control-next" type="button" data-bs-target="#carousel_1" data-bs-slide="next">
+		  <button class="carousel-control-next" type="button" data-bs-target="{{ '#carousel_' | append: carousel_id }}" data-bs-slide="next">
 		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
 		    <span class="visually-hidden">Next</span>
 		  </button>
 		</div>
 
-		<h4 class="my-4">Becauselifisnt.avi</u></h4>
+		<h4 class="my-4">{{ video_file.name }}</u></h4>
 
 		<table class="table mb-4 table-dark table-borderless table-sm">
 			<tbody>
-			<tr><td class="">Date:</td><td class="py-0">2003</td></tr>
-			<tr><td class="">Size:</td><td class="py-0">15.5M</td>
-			<tr><td class="">Duraion:</td><td class="py-0">05:21</td>
-			<tr><td class="">Music:</td><td class="py-0"><a href="..">The Ruffness - Room 1</a><br>Bob Hillary & The Ruffness - Retrospective<br></td>
-			<tr><td class="">Artist:</td><td class="py-0"><a href="..">Bluecat</a>, ?</td>
-			<tr><td class="">Metadata:</td><td class="py-0"><span>www.tepooka.org</span><br><span>Room 101</span><br></td>
-			</body>	
+     				{%- if video_file.date -%}
+					<tr><td class="">Date:</td><td class="py-0">{{ video_file.date }}</td></tr>
+     				{%- endif -%}
+     				{%- if video_file.size -%}
+					<tr><td class="">Name:</td><td class="py-0">{{ video_file.size }}</td></tr>
+     				{%- endif -%}
+     				{%- if video_file.duration -%}
+					<tr><td class="">ID:</td><td class="py-0">{{ video_file.duration }}</td></tr>
+     				{%- endif -%}
+     				{%- if video_file.music -%}
+					<tr><td class="">Music:</td><td class="py-0">
+     					{%- for song in video_file.music -%}
+						<span>{{ song }}</span><br>
+     					{%- endfor -%}
+					</td></tr>
+     				{%- endif -%}
+     				{%- if video_file.artist -%}
+					<tr><td class="">Artist:</td><td class="py-0">
+     					{%- for artist in video_file.artist -%}
+     					{%- if artist in site.artist -%}
+						<span><a href="{{ "/PoiTimeLine/artist/" | append: artist }}">{{ artist }}</a></span><br>
+     					{%- else -%}
+						<span>{{ artist }}</span><br>
+     					{%- endif -%}
+     					{%- endfor -%}
+					</td></tr>
+     				{%- endif -%}
+     				{%- if video_file.meta -%}
+					<tr><td class="">Metadata:</td><td class="py-0">
+     					{%- for meta in video_file.metadata -%}
+						<span>{{ meta }}</span><br>
+     					{%- endfor -%}
+					</td></tr>
+     				{%- endif -%}
+			</tbody>
 		</table>
 	</div>
+    {%- increment carousel_id -%}
+    {%- endfor -%}
  
   </div>
-    <div class="row my-2">
-	<div class="col text-light" style="background-color: black;">
 
-		<div id="carousel_1" class="carousel slide">
-		  <div class="carousel-indicators">
-		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-		  </div>
-		  <div class="carousel-inner">
-		    <div class="carousel-item active">
-		      <img src="assets/screen/2XHMT-Z2QWB-J8YJ5.jpg" class="d-block w-100" alt="...">
-		    </div>
-		    <div class="carousel-item">
-		      <img src="assets/screen/2F8JP-4KG39-S3LT5.jpg" class="d-block w-100" alt="...">
-		    </div>
-		    <div class="carousel-item">
-		      <img src="assets/screen/GUAW4-N182V-ZU891.jpg" class="d-block w-100" alt="...">
-		    </div>
-		  </div>
-		  <button class="carousel-control-prev" type="button" data-bs-target="#carousel_1" data-bs-slide="prev">
-		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		    <span class="visually-hidden">Previous</span>
-		  </button>
-		  <button class="carousel-control-next" type="button" data-bs-target="#carousel_1" data-bs-slide="next">
-		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-		    <span class="visually-hidden">Next</span>
-		  </button>
-		</div>
-
-		<h4 class="my-4">Becauselifisnt.avi</u></h4>
-
-		<table class="table mb-4 table-dark table-borderless table-sm">
-			<tbody>
-			<tr><td class="">Date:</td><td class="py-0">2003</td></tr>
-			<tr><td class="">Size:</td><td class="py-0">15.5M</td>
-			<tr><td class="">Duraion:</td><td class="py-0">05:21</td>
-			<tr><td class="">Music:</td><td class="py-0"><a href="..">The Ruffness - Room 1</a><br>Bob Hillary & The Ruffness - Retrospective<br></td>
-			<tr><td class="">Artist:</td><td class="py-0"><a href="..">Bluecat</a>, ?</td>
-			<tr><td class="">Metadata:</td><td class="py-0"><span>www.tepooka.org</span><br><span>Room 101</span><br></td>
-			</body>	
-		</table>
-	</div>
-  </div>
 
     </main>
 
     <footer>
-      <div class="pi text-end" onclick="pi()">&#960;</div>
+      <div class="pi text-end" onclick="pi()">{{ site.footer }}</div>
     </footer>
    
     </div>
     </div>
     </div>
-    <script src="/bootstrap.min.js"></script>
+    <script src="/custom.js"></script>
   </body>
 </html>
-

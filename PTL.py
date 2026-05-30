@@ -172,7 +172,7 @@ class MainWindow(QMainWindow):
 		self.formLayout_1.setWidget(4, QFormLayout.ItemRole.FieldRole, self.artist_icon_text)
 		self.artist_picture = QLabel("Picture")
 		self.formLayout_1.setWidget(5, QFormLayout.ItemRole.LabelRole, self.artist_picture)
-		self.artist_picture_text = QTextEdit()
+		self.artist_picture_text = QLineEdit()
 		self.formLayout_1.setWidget(5, QFormLayout.ItemRole.FieldRole, self.artist_picture_text)
 		self.artist_video = QLabel("Video")
 		self.formLayout_1.setWidget(6, QFormLayout.ItemRole.LabelRole, self.artist_video)
@@ -394,7 +394,7 @@ class MainWindow(QMainWindow):
 				self.artist_name_text.setText('')
 				self.artist_id_text.setText('')
 				self.artist_icon_text.setText('')
-				self.artist_picture_text.setPlainText('')
+				self.artist_picture_text.setText('')
 				self.artist_video_text.setPlainText('')
 				self.artist_location_text.setText('')
 				self.artist_group_text.setText('')
@@ -484,7 +484,7 @@ class MainWindow(QMainWindow):
 					self.artist_name_text.setText(yml['name'] if 'name' in yml else '')
 					self.artist_id_text.setText(yml['id'] if 'id' in yml else '')
 					self.artist_icon_text.setText(yml['icon'] if 'icon' in yml else '')
-					self.artist_picture_text.setPlainText("\n".join(yml['picture']) if 'picture' in yml else '')
+					self.artist_picture_text.setText(yml['picture'] if 'picture' in yml else '')
 					self.artist_video_text.setPlainText("\n".join(yml['video']) if 'video' in yml else '')
 					self.artist_location_text.setText(yml['location'] if 'location' in yml else '')
 					self.artist_group_text.setText(yml['group'] if 'group' in yml else '')
@@ -519,7 +519,7 @@ class MainWindow(QMainWindow):
 					if self.artist_name_text.text(): yml['name'] = self.artist_name_text.text()
 					if self.artist_id_text.text(): yml['id'] = self.artist_id_text.text()
 					if self.artist_icon_text.text(): yml['icon'] = self.artist_icon_text.text()
-					if self.artist_picture_text.toPlainText(): yml['picture'] = self.artist_picture_text.toPlainText().splitlines()
+					if self.artist_picture_text.text(): yml['picture'] = self.artist_picture_text.text()
 					if self.artist_video_text.toPlainText(): yml['video'] = self.artist_video_text.toPlainText().splitlines()
 					if self.artist_location_text.text(): yml['location'] = self.artist_location_text.text()
 					if self.artist_group_text.text(): yml['group'] = self.artist_group_text.text()
@@ -552,6 +552,7 @@ class MainWindow(QMainWindow):
 					fn = fn_base + '/' + re.sub('[. !-\'()?]', '_', os.path.splitext(self.video_name_text.text())[0]) + '.md'
 
 		if not os.path.isfile(fn):
+			print(fn)
 			fn, _ = QFileDialog.getSaveFileName(self, "Save File", fn_base, "MD (*.md)")
 			if os.path.splitext(fn)[1] != '.md': fn = fn[0] + '.md'
 
