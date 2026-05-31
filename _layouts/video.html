@@ -55,7 +55,11 @@
 
 {%- assign video_source = page.name -%}
 {%- assign carousel_id = 0 -%}
-{%- for video_file in site.data.video[video_source] -%}
+{%- for video_file_hash in site.data.video[video_source] -%}
+
+<p>Debug:</p>{{ video_file_hash | jsonify }}
+
+{%- assign video_file = video_file_hash[1] -%}
 
 <div class="col text-light" style="background-color: black;">
 
@@ -97,7 +101,7 @@
 		</button>
 	</div>
 
-	<h4 class="my-4">{{ video_file.name }}</u></h4>
+	<h4 class="my-4"><u>{{ video_file.name }}</u></h4>
 
 	<table class="table mb-4 table-dark table-borderless table-sm">
 		<tbody>
