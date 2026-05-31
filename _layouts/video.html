@@ -56,9 +56,6 @@
 {%- assign video_source = page.name -%}
 {%- assign carousel_id = 0 -%}
 {%- for video_file_hash in site.data.video[video_source] -%}
-
-<p>Debug:</p>{{ video_file_hash | jsonify }}
-
 {%- assign video_file = video_file_hash[1] -%}
 
 <div class="col text-light" style="background-color: black;">
@@ -72,7 +69,7 @@
 			{%- else -%}
 			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ screenshot_id}}" aria-label="{{ 'Slide ' | apeend: screenshot_id }}"></button>
 			{%- endif -%}
-			{%- increment screenshot_id -%}
+			{%- assign screenshot_id = screenshot_id | plus: 1 -%}
 		{%- endfor -%}
 		</div>
 		<div class="carousel-inner">
@@ -87,7 +84,7 @@
 				<img src="{{ '/PoiTimeLine/assets/screen/' | append: screen }}" class="d-block w-100" alt="...">
 			</div>
 			{%- endif -%}
-			{%- increment screenshot_file_id -%}
+			{%- assign screenshot_file_id = screenshot_file_id | plus: 1 -%}
 		{%- endfor -%}
 		</div>
 
@@ -101,27 +98,27 @@
 		</button>
 	</div>
 
-	<h4 class="my-4"><u>{{ video_file.name }}</u></h4>
+	<h4 class="my-4">{{ video_file.name }}</h4>
 
 	<table class="table mb-4 table-dark table-borderless table-sm">
 		<tbody>
 		{%- if video_file.date -%}
 			<tr><td class="">Date:</td><td class="py-0">{{ video_file.date }}</td></tr>
-			{%- endif -%}
-			{%- if video_file.size -%}
-			<tr><td class="">Name:</td><td class="py-0">{{ video_file.size }}</td></tr>
-			{%- endif -%}
-			{%- if video_file.duration -%}
+		{%- endif -%}
+		{%- if video_file.size -%}
+			<tr><td class="">Size:</td><td class="py-0">{{ video_file.size }}</td></tr>
+		{%- endif -%}
+		{%- if video_file.duration -%}
 			<tr><td class="">Duraion:</td><td class="py-0">{{ video_file.duration }}</td></tr>
-			{%- endif -%}
-			{%- if video_file.music -%}
+		{%- endif -%}
+		{%- if video_file.music -%}
 			<tr><td class="">Music:</td><td class="py-0">
 				{%- for song in video_file.music -%}
 					<span>{{ song }}</span><br>
 				{%- endfor -%}
 			</td></tr>
-			{%- endif -%}
-			{%- if video_file.artist -%}
+		{%- endif -%}
+		{%- if video_file.artist -%}
 			<tr><td class="">Artist:</td><td class="py-0">
 				{%- for artist in video_file.artist -%}
 					{%- if site.artist contains artist -%}
@@ -131,19 +128,19 @@
 					{%- endif -%}
 				{%- endfor -%}
 			</td></tr>
-			{%- endif -%}
-			{%- if video_file.meta -%}
+		{%- endif -%}
+		{%- if video_file.metadata -%}
 			<tr><td class="">Metadata:</td><td class="py-0">
 				{%- for meta in video_file.metadata -%}
 					<span>{{ meta }}</span><br>
 				{%- endfor -%}
 			</td></tr>
-			{%- endif -%}
+		{%- endif -%}
 		</tbody>
 	</table>
 </div>
 
-{%- increment carousel_id -%}
+{%- assign carousel_id = carousel_id | plus: 1 -%}
 {%- endfor -%}
  
 </div>
