@@ -86,7 +86,7 @@
 			{%- endif -%}
 			{%- if page.group -%}
 				<tr><td class="">Group:</td><td class="py-0">
-				{%- if page.group in site.group -%}
+				{%- if site.group contains page.group -%}
 					<span><a href="{{ '/PoiTimeLine/group/' | append: page.group }}">{{ page.group }}</a></span><br>
 				{%- else -%}
 					<span>{{ page.group }}</span></br>
