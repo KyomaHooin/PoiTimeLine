@@ -10,25 +10,18 @@ apt-get install ffmpeg python3-yaml python3-pyqt6 python3-vlc
 </pre>
 FILE
 <pre>
-assets/icon/    ...... artist icon files
-assets/picture/ ...... artist picture files
-assets/screen/  ...... video screen files
-assets/ .............. misc files
+assets/ .......... misc files
+_data/video/ ..... YML data files
+PTL/_diretory/ ... YML collection
 
-_data/video/set.md ... video MD data files
-PTL/_artist/ ......... artist MD collection
-PTL/_group/ .......... group MD collection
-PTL/_video/ .......... video MD collection
-
-PTL.py ............... Metadata Qt6 toolkit GUI (non-root)
-backend.sh ........... Copy PTL toolkit structure to frontend
-screen.jpg ........... PTL Toolkit Screen
-README.md ............ README 
+PTL.py ........... Metadata Qt6 toolkit GUI (non-root)
+backend.sh ....... Copy PTL toolkit structure to frontend
+screen.jpg ....... PTL Toolkit Screen
+README.md ........ README 
 </pre>
 TODO
 <pre>
 - frontend:
-   Jekyll beta
    Resize icon (52x52 + drop html code) + screen + picture: mogrify -resize 320x224\! *.png
 - backend:
   player.pause() player.stop() blocking wait
