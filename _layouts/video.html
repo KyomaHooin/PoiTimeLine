@@ -53,8 +53,16 @@
  
 <div class="row my-4">
 
+<p class="text-light">DEBUG:</p>
+
 {%- assign video_source = site.name -%}
+
+<p class="text-light">{{ site.name }}</p>
+
 {%- assign carousel_id = 0 -%}
+
+<p class="text-light">{{ carousel_id }}</p>
+
 {%- for video_file in site.data.video[video_source] -%}
 
 <div class="col text-light" style="background-color: black;">
