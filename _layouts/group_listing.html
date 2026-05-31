@@ -1,82 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ site.title }}</title>
-    <link rel="stylesheet" type="text/css" href="{{ "custom.css" | relative_url }}">
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  </head>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ site.title }}</title>
+	<link rel="stylesheet" type="text/css" href="{{ "custom.css" | relative_url }}">
+	<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+</head>
 
-  <body>
-    <div class="container">
-    <div class="row my-4 justify-content-center">
-    <div class="col col-lg-7 text-light font-monospace">
+<body>
 
-    {%- assign page_paths = site.header_pages | default: default_paths -%}
+<div class="container">
+<div class="row my-4 justify-content-center">
+<div class="col col-lg-7 text-light font-monospace">
 
-    <header>
-      <nav class="nav nav-pills py-1 justify-content-lg-end justify-content-center">
-       {%- for path in page_paths -%}
-         {%- assign menu_page = site.pages | where: "path", path | first -%}
-         {%- if menu_page.title -%}
-           {% if page.tags contains menu_page.layout or page.name contains menu_page.layout %}
-             <a class="nav-link text-light my-1 active" aria-current="page" href="{{ menu_page.url | relative_url }}">{{ menu_page.title | escape }}</a>
-           {% else %}
-             <a class="nav-link my-1 text-light" href="{{ menu_page.url | relative_url }}">{{ menu_page.title | escape }}</a>
-           {%- endif -%}
-         {%- endif -%}
-       {%- endfor -%}
-      </nav>
-    </header>
+{%- assign page_paths = site.header_pages | default: default_paths -%}
 
-    <main class="my-4 mx-1">
+<header>
+	<nav class="nav nav-pills py-1 justify-content-lg-end justify-content-center">
+	{%- for path in page_paths -%}
+	{%- assign menu_page = site.pages | where: "path", path | first -%}
+	{%- if menu_page.title -%}
+		{% if page.tags contains menu_page.layout or page.name contains menu_page.layout %}
+		<a class="nav-link text-light my-1 active" aria-current="page" href="{{ menu_page.url | relative_url }}">{{ menu_page.title | escape }}</a>
+		{% else %}
+		<a class="nav-link my-1 text-light" href="{{ menu_page.url | relative_url }}">{{ menu_page.title | escape }}</a>
+		{%- endif -%}
+	{%- endif -%}
+	{%- endfor -%}
+	</nav>
+</header>
 
-    <img class="img-fluid mx-auto my-4 d-block" src="/PoiTimeLine/assets/community.gif">
+<main class="my-4 mx-1">
 
-    <p class="text-light text-center h4 my-4"><u>Poi Time Line</u></p>
-    <p class="text-light text-center h5 my-2">Archive of Poi spinning era between 2001-2007.</p>
+<img class="img-fluid mx-auto my-4 d-block" src="/PoiTimeLine/assets/community.gif">
+
+<p class="text-light text-center h4 my-4"><u>Poi Time Line</u></p>
+<p class="text-light text-center h5 my-2">Archive of Poi spinning era between 2001-2007.</p>
    
-    <div class="row my-4 d-flex justify-content-center">
-      {%- for collection in site.collections -%}
-      {%- if collection.label != 'posts' -%}
-      <div class="col col-md-3 position-relative">
-	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-folder-fill" viewBox="0 0 16 16"><path d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z"/></svg>
-         <span class="text-light h5 align-bottom">{{ collection.label | capitalize }}</span>
-         <a href="{{ collection.label }}" class="stretched-link"></a>
-      </div>
-      {%- endif -%}
-      {%- endfor -%}
-    </div>
+<div class="row my-4 d-flex justify-content-center">
+	{%- for collection in site.collections -%}
+	{%- if collection.label != 'posts' -%}
+		<div class="col col-md-3 position-relative">
+		<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-folder-fill" viewBox="0 0 16 16"><path d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z"/></svg>
+		<span class="text-light h5 align-bottom">{{ collection.label | capitalize }}</span>
+		<a href="{{ '/' | append: collection.label }}" class="stretched-link"></a>
+		</div>
+	{%- endif -%}
+	{%- endfor -%}
+</div>
  
-	<hr align="center" class="w-75">
+<hr align="center" class="w-75">
 
-	<div class="row row-cols-2 row-cols-md-3 row-gap-4 d-flex justify-content-left">
+<div class="row row-cols-2 row-cols-md-3 row-gap-4 d-flex justify-content-left">
       
-	{%- for group in site.group -%}
-           <div class="col position-relative d-flex align-items-center">
-		<svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" fill="currentColor" class="bi bi-people-fill float-start me-2" viewBox="0 0 16 16"><path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/></svg>
-               <a class="stretched-link" style="text-decoration: none;" href="{{ group.url }}">{{ group.name }}</a>
-          </div>
-       {%- endfor -%}
+{%- for group in site.group -%}
+	<div class="col position-relative d-flex align-items-center">
+	<svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" fill="currentColor" class="bi bi-people-fill float-start me-2" viewBox="0 0 16 16"><path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/></svg>
+	<a class="stretched-link" style="text-decoration: none;" href="{{ '/PoiTimeLine' | append: group.url }}">{{ group.name }}</a>
 	</div>
+	{%- endfor -%}
+</div>
 
-	<div class="my-4 text-end">
-	<a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-left-square float-end" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/></a>
-</svg>
-	</div>
+<div class="my-4 text-end">
 
-    </main>
+<a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-left-square float-end" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/></a></svg>
 
-    <footer>
-      <div class="pi text-end" onclick="pi()">{{ site.footer }}</div>
-    </footer>
-   
-    </div>
-    </div>
-    </div>
-    <script src="/custom.js"></script>
-  </body>
+</div>
+
+</main>
+
+<footer><div class="pi text-end" onclick="pi()">{{ site.footer }}</div></footer>
+
+</div>
+</div>
+</div>
+
+<script src="/custom.js"></script>
+
+</body>
+
 </html>

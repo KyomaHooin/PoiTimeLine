@@ -18,7 +18,7 @@
 {%- assign page_paths = site.header_pages | default: default_paths -%}
 
 <header>
-	<nav class="nav nav-pills py-1 justify-content-lg-end justify-content-center">
+<nav class="nav nav-pills py-1 justify-content-lg-end justify-content-center">
 	{%- for path in page_paths -%}
 	{%- assign menu_page = site.pages | where: "path", path | first -%}
 		{%- if menu_page.title -%}
@@ -29,7 +29,7 @@
 		{%- endif -%}
 		{%- endif -%}
 	{%- endfor -%}
-	</nav>
+</nav>
 </header>
 
 <main class="my-4 mx-1">
@@ -45,7 +45,7 @@
 	<div class="col col-md-3 position-relative">
 		<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-folder-fill" viewBox="0 0 16 16"><path d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z"/></svg>
 		<span class="text-light align-bottom">{{ collection.label | capitalize }}</span>
-		<a href="{{ collection.label }}" class="stretched-link"></a>
+		<a href="{{ '/' | append: collection.label }}" class="stretched-link"></a>
 	</div>
 	{%- endif -%}
 	{%- endfor -%}
@@ -55,62 +55,67 @@
 
 <div class="col text-light" style="background-color: black;">
 
-<p><img class="img-fluid" onerror="this.onerror=null;this.src='/PoiTimeLine/assets/no-image.svg';" src="{{ '/PoitimeLine/assets/image/' | append: page.picture }}" alt="{{ page.picture }}"></p>
+<p><img class="img-fluid" onerror="this.onerror=null;this.src='/PoiTimeLine/assets/no-image.svg';" src="{{ '/PoiTimeLine/assets/image/' | append: page.picture }}" alt="{{ page.picture }}"></p>
 
 		<h4 class="my-4">{{ page.nickname }}</u></h4>
 
 		<table class="table mb-4 table-dark table-borderless table-sm">
 			<tbody>
-     				{%- if page.altname -%}
-					<tr><td class="">Altname:</td><td class="py-0">{{ page.altname | join "<br>" }}</td></tr>
-     				{%- endif -%}
-     				{%- if page.name -%}
-					<tr><td class="">Name:</td><td class="py-0">{{ page.name }}</td></tr>
-     				{%- endif -%}
-     				{%- if page.id -%}
-					<tr><td class="">ID:</td><td class="py-0">{{ page.id }}</td></tr>
-     				{%- endif -%}
-     				{%- if page.video -%}
-					<tr><td class="">Video:</td><td class="py-0">
-     					{%- for video in page.video -%}
-						<a href="{{ "/PoiTimeLine/video/" | append: page.video }}">{{ page.video }}</a><br>
-     					{%- endfor -%}
-					</td></tr>
-     				{%- endif -%}
-     				{%- if page.location -%}
-					<tr><td class="">Location:</td><td class="py-0">{{ page.location }}</td></tr>
-     				{%- endif -%}
-     				{%- if page.group -%}
-						<tr><td class="">Group:</td><td class="py-0">
-     					{%- if page.group in site.group -%}
-						<span><a href="{{ "/PoiTimeLine/group/" | append: page.group }}">{{ page.group }}</a></span><br>
-     					{%- else -%}
-						<span>{{ page.group }}</span></br>
-     					{%- endif -%}
-     				{%- endif -%}
-     				{%- if page.meta -%}
-					<tr><td class="">Metadata:</td><td class="py-0">
-     					{%- for meta in page.metadata -%}
-						<span>{{ meta }}</span><br>
-     					{%- endfor -%}
-					</td></tr>
-     				{%- endif -%}
+			{%- if page.altname -%}
+				<tr><td class="">Altname:</td><td class="py-0">
+				{%- for alt in page.altname -%}
+					<span>{{ alt }}</span><br>
+				{%- endfor -%}
+				</td></tr>
+			{%- endif -%}
+			{%- if page.name -%}
+				<tr><td class="">Name:</td><td class="py-0">{{ page.name }}</td></tr>
+			{%- endif -%}
+			{%- if page.id -%}
+				<tr><td class="">ID:</td><td class="py-0">{{ page.id }}</td></tr>
+			{%- endif -%}
+			{%- if page.video -%}
+				<tr><td class="">Video:</td><td class="py-0">
+				{%- for video in page.video -%}
+					<a href="{{ '/PoiTimeLine/video/' | append: page.video }}">{{ page.video }}</a><br>
+				{%- endfor -%}
+				</td></tr>
+			{%- endif -%}
+			{%- if page.location -%}
+				<tr><td class="">Location:</td><td class="py-0">{{ page.location }}</td></tr>
+			{%- endif -%}
+			{%- if page.group -%}
+				<tr><td class="">Group:</td><td class="py-0">
+				{%- if page.group in site.group -%}
+					<span><a href="{{ '/PoiTimeLine/group/' | append: page.group }}">{{ page.group }}</a></span><br>
+				{%- else -%}
+					<span>{{ page.group }}</span></br>
+				{%- endif -%}
+				</td></tr>
+			{%- endif -%}
+			{%- if page.meta -%}
+				<tr><td class="">Metadata:</td><td class="py-0">
+				{%- for meta in page.meta -%}
+					<span>{{ meta }}</span><br>
+				{%- endfor -%}
+				</td></tr>
+			{%- endif -%}
 			</tbody>
 		</table>
-	</div>
- 
-  </div>
+</div>
 
+</div>
 
-    </main>
+<main>
 
-    <footer>
-      <div class="pi text-end" onclick="pi()">{{ site.footer }}</div>
-    </footer>
-   
-    </div>
-    </div>
-    </div>
-    <script src="/custom.js"></script>
-  </body>
+<footer><div class="pi text-end" onclick="pi()">{{ site.footer }}</div></footer>
+
+</div>
+</div>
+</div>
+
+<script src="/custom.js"></script>
+
+</body>
+
 </html>
