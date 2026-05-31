@@ -63,7 +63,7 @@
 				<tr><td class="">Artist:</td><td class="py-0">
      				{%- for artist in page.artist -%}
      				{%- if site.artist contains artist -%}
-					<span><a href="{{ "/PoiTimeLine/artist/" | append: artist }}">{{ artist }}</a></span><br>
+					<span><a href="{{ '/PoiTimeLine/artist/' | append: artist }}">{{ artist }}</a></span><br>
      				{%- else -%}
 					<span>{{ artist }}</span><br>
      				{%- endif -%}
