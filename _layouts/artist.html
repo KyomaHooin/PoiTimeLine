@@ -54,10 +54,10 @@
 <div class="row my-4">
 
 <div class="col text-light" style="background-color: black;">
-
+	{%- if page.picture -%}
 	<img class="border border-dark-subtle img-fluid" src="{{ '/PoiTimeLine/assets/image/' | append: page.picture }}" alt="{{ page.picture }}">
-
-	<h4 class="my-4">{{ page.nickname }}</u></h4>
+	{%- endif -%}
+	<h4 class="my-4">{{ page.nickname }}</h4>
 
 	<table class="table mb-4 table-dark table-borderless table-sm">
 		<tbody>
