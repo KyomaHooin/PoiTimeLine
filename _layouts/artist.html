@@ -55,53 +55,53 @@
 
 <div class="col text-light" style="background-color: black;">
 
-<p><img class="img-fluid" onerror="this.onerror=null;this.src='/PoiTimeLine/assets/no-image.svg';" src="{{ '/PoiTimeLine/assets/image/' | append: page.picture }}" alt="{{ page.picture }}"></p>
+	<img class="border border-dark-subtle img-fluid" src="{{ '/PoiTimeLine/assets/image/' | append: page.picture }}" alt="{{ page.picture }}">
 
-		<h4 class="my-4">{{ page.nickname }}</u></h4>
+	<h4 class="my-4">{{ page.nickname }}</u></h4>
 
-		<table class="table mb-4 table-dark table-borderless table-sm">
-			<tbody>
-			{%- if page.altname -%}
-				<tr><td class="">Altname:</td><td class="py-0">
-				{%- for alt in page.altname -%}
-					<span>{{ alt }}</span><br>
-				{%- endfor -%}
-				</td></tr>
+	<table class="table mb-4 table-dark table-borderless table-sm">
+		<tbody>
+		{%- if page.altname -%}
+			<tr><td class="align-top">Altname:</td><td class="align-middle py-0">
+			{%- for alt in page.altname -%}
+				<span>{{ alt }}</span><br>
+			{%- endfor -%}
+			</td></tr>
+		{%- endif -%}
+		{%- if page.name -%}
+			<tr><td class="align-top">Name:</td><td class="align-middle py-0">{{ page.name }}</td></tr>
+		{%- endif -%}
+		{%- if page.hop -%}
+			<tr><td class="align-top">ID:</td><td class="align-middle py-0">{{ page.hop }}</td></tr>
+		{%- endif -%}
+		{%- if page.video -%}
+		<tr><td class="align-top">Video:</td><td class="align-middle py-0">
+			{%- for video in page.video -%}
+				<a href="{{ '/PoiTimeLine/video/' | append: page.video }}">{{ page.video }}</a><br>
+			{%- endfor -%}
+			</td></tr>
+		{%- endif -%}
+		{%- if page.location -%}
+			<tr><td class="align-top">Location:</td><td class="align-middle py-0">{{ page.location }}</td></tr>
+		{%- endif -%}
+		{%- if page.group -%}
+			<tr><td class="align-top">Group:</td><td class="align-middle py-0">
+			{%- if site.group contains page.group -%}
+				<span><a href="{{ '/PoiTimeLine/group/' | append: page.group }}">{{ page.group }}</a></span><br>
+			{%- else -%}
+				<span>{{ page.group }}</span></br>
 			{%- endif -%}
-			{%- if page.name -%}
-				<tr><td class="">Name:</td><td class="py-0">{{ page.name }}</td></tr>
-			{%- endif -%}
-			{%- if page.hop -%}
-				<tr><td class="">ID:</td><td class="py-0">{{ page.hop }}</td></tr>
-			{%- endif -%}
-			{%- if page.video -%}
-				<tr><td class="">Video:</td><td class="py-0">
-				{%- for video in page.video -%}
-					<a href="{{ '/PoiTimeLine/video/' | append: page.video }}">{{ page.video }}</a><br>
-				{%- endfor -%}
-				</td></tr>
-			{%- endif -%}
-			{%- if page.location -%}
-				<tr><td class="">Location:</td><td class="py-0">{{ page.location }}</td></tr>
-			{%- endif -%}
-			{%- if page.group -%}
-				<tr><td class="">Group:</td><td class="py-0">
-				{%- if site.group contains page.group -%}
-					<span><a href="{{ '/PoiTimeLine/group/' | append: page.group }}">{{ page.group }}</a></span><br>
-				{%- else -%}
-					<span>{{ page.group }}</span></br>
-				{%- endif -%}
-				</td></tr>
-			{%- endif -%}
-			{%- if page.meta -%}
-				<tr><td class="">Metadata:</td><td class="py-0">
-				{%- for meta in page.meta -%}
-					<span>{{ meta }}</span><br>
-				{%- endfor -%}
-				</td></tr>
-			{%- endif -%}
-			</tbody>
-		</table>
+			</td></tr>
+		{%- endif -%}
+		{%- if page.meta -%}
+			<tr><td class="align-top">Metadata:</td><td class="align-middle py-0">
+			{%- for meta in page.meta -%}
+				<span>{{ meta }}</span><br>
+			{%- endfor -%}
+			</td></tr>
+		{%- endif -%}
+		</tbody>
+	</table>
 </div>
 
 </div>

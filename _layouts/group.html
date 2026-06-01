@@ -60,7 +60,7 @@
 		<table class="table mb-4 table-dark table-borderless table-sm">
 			<tbody>
      			{%- if page.artist -%}
-				<tr><td class="">Artist:</td><td class="py-0">
+				<tr><td class="align-top">Artist:</td><td class="align-middle py-0">
      				{%- for artist in page.artist -%}
      				{%- if site.artist contains artist -%}
 					<span><a href="{{ '/PoiTimeLine/artist/' | append: artist }}">{{ artist }}</a></span><br>
@@ -71,13 +71,13 @@
 				</td></tr>
      			{%- endif -%}
      			{%- if page.location -%}
-				<tr><td class="">Location:</td><td class="py-0">{{ page.location }}</td></tr>
+				<tr><td class="align-top">Location:</td><td class="align-middle py-0">{{ page.location }}</td></tr>
      			{%- endif -%}
      			{%- if page.country -%}
-				<tr><td class="">Country:</td><td class="py-0">{{ page.country }}</td></tr>
+				<tr><td class="align-top">Country:</td><td class="align-middle py-0">{{ page.country }}</td></tr>
      			{%- endif -%}
      			{%- if page.meta -%}
-				<tr><td class="">Metadata:</td><td class="py-0">
+				<tr><td class="align-top">Metadata:</td><td class="align-middle py-0">
      				{%- for meta in page.meta -%}
 					<span>{{ meta }}</span><br>
      				{%- endfor -%}
