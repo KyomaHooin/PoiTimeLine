@@ -55,37 +55,37 @@
 
 <div class="col text-light" style="background-color: black;">
 	{%- if page.picture -%}
-	<img class="border border-dark-subtle img-fluid" src="{{ '/PoiTimeLine/assets/picture/' | append: page.picture }}" alt="{{ page.picture }}">
+	<img class="border border-dark-subtle img-fluid mx-auto d-block" src="{{ '/PoiTimeLine/assets/picture/' | append: page.picture }}" alt="{{ page.picture }}">
 	{%- endif -%}
 	<h4 class="my-4">{{ page.nickname }}</h4>
 
-	<table class="table mb-4 table-dark table-borderless table-sm">
+	<table class="table align-top mb-4 table-dark table-borderless table-sm">
 		<tbody>
 		{%- if page.altname -%}
-			<tr><td class="align-top">Altname:</td><td class="align-middle py-0">
+			<tr><td>Altname:</td><td>
 			{%- for alt in page.altname -%}
 				<span>{{ alt }}</span><br>
 			{%- endfor -%}
 			</td></tr>
 		{%- endif -%}
 		{%- if page.name -%}
-			<tr><td class="align-top">Name:</td><td class="align-middle py-0">{{ page.name }}</td></tr>
+			<tr><td>Name:</td><td>{{ page.name }}</td></tr>
 		{%- endif -%}
 		{%- if page.hop -%}
-			<tr><td class="align-top">ID:</td><td class="align-middle py-0">{{ page.hop }}</td></tr>
+			<tr><td>ID:</td><td>{{ page.hop }}</td></tr>
 		{%- endif -%}
 		{%- if page.video -%}
-		<tr><td class="align-top">Video:</td><td class="align-middle py-0">
+		<tr><td>Video:</td><td>
 			{%- for video in page.video -%}
 				<a href="{{ '/PoiTimeLine/video/' | append: page.video }}">{{ page.video }}</a><br>
 			{%- endfor -%}
 			</td></tr>
 		{%- endif -%}
 		{%- if page.location -%}
-			<tr><td class="align-top">Location:</td><td class="align-middle py-0">{{ page.location }}</td></tr>
+			<tr><td>Location:</td><td>{{ page.location }}</td></tr>
 		{%- endif -%}
 		{%- if page.group -%}
-			<tr><td class="align-top">Group:</td><td class="align-middle py-0">
+			<tr><td>Group:</td><td>
 			{%- if site.group contains page.group -%}
 				<span><a href="{{ '/PoiTimeLine/group/' | append: page.group }}">{{ page.group }}</a></span><br>
 			{%- else -%}
@@ -94,7 +94,7 @@
 			</td></tr>
 		{%- endif -%}
 		{%- if page.meta -%}
-			<tr><td class="align-top">Metadata:</td><td class="align-middle py-0">
+			<tr><td>Metadata:</td><td>
 			{%- for meta in page.meta -%}
 				<span>{{ meta }}</span><br>
 			{%- endfor -%}

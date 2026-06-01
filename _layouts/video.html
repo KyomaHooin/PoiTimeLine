@@ -103,26 +103,26 @@
 	{%- endif -%}
 	<h4 class="my-4">{{ video_file.name }}</h4>
 
-	<table class="table mb-4 table-dark table-borderless table-sm">
+	<table class="table align-top mb-4 table-dark table-borderless table-sm">
 		<tbody>
 		{%- if video_file.date -%}
-			<tr><td class="align-top">Date:</td><td class="align-middle py-0">{{ video_file.date }}</td></tr>
+			<tr><td>Date:</td><td>{{ video_file.date }}</td></tr>
 		{%- endif -%}
 		{%- if video_file.size -%}
-			<tr><td class="align-top">Size:</td><td class="align-middle py-0">{{ video_file.size }}</td></tr>
+			<tr><td>Size:</td><td>{{ video_file.size }}</td></tr>
 		{%- endif -%}
 		{%- if video_file.duration -%}
-			<tr><td class="align-top">Duraion:</td><td class="align-middle py-0">{{ video_file.duration }}</td></tr>
+			<tr><td>Duraion:</td><td>{{ video_file.duration }}</td></tr>
 		{%- endif -%}
 		{%- if video_file.music -%}
-			<tr><td class="align-top">Music:</td><td class="align-middle py-0">
+			<tr><td>Music:</td><td>
 				{%- for song in video_file.music -%}
 					<span>{{ song }}</span><br>
 				{%- endfor -%}
 			</td></tr>
 		{%- endif -%}
 		{%- if video_file.artist -%}
-			<tr><td class="align-top">Artist:</td><td class="align-middle py-0">
+			<tr><td>Artist:</td><td>
 				{%- for artist in video_file.artist -%}
 					{%- if site.artist contains artist -%}
 						<span><a href="{{ '/PoiTimeLine/artist/' | append: artist }}">{{ artist }}</a></span><br>
@@ -133,7 +133,7 @@
 			</td></tr>
 		{%- endif -%}
 		{%- if video_file.metadata -%}
-			<tr><td class="align-top">Metadata:</td><td class="align-middle py-0">
+			<tr><td>Metadata:</td><td>
 				{%- for meta in video_file.metadata -%}
 					<span>{{ meta }}</span><br>
 				{%- endfor -%}
@@ -142,6 +142,10 @@
 		</tbody>
 	</table>
 </div>
+
+{%- if site.data.video[video_source].size > carousel_id -%}
+<hr class="opacity-50 mx-4">
+{%- endif -%}
 
 {%- assign carousel_id = carousel_id | plus: 1 -%}
 {%- endfor -%}
