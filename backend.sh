@@ -9,23 +9,28 @@ TARGET='/tmp/PoiTimeLine'
 
 # copy screen + image
 
-mkdir -p "$TARGET/assets/PTL/screen/" 2>/dev/null
-mkdir -p "$TARGET/assets/PTL/image/" 2>/dev/null
+mkdir -p "$TARGET/assets/screen/" 2>/dev/null
+mkdir -p "$TARGET/assets/image/" 2>/dev/null
 
-find "$BASE/YAML/video/" -type f -name "*.jpg" -exec cp {} "$TARGET/assets/PTL/screen/" \;
-find "$BASE/YAML/artist/" -type f -name "*.jpg" -exec cp {} "$TARGET/assets/PTL/image/" \;
+find "$BASE/YAML/video/" -type f -name "*.jpg" -exec cp {} "$TARGET/assets/screen/" \;
+find "$BASE/YAML/artist/" -type f -name "*.jpg" -exec cp {} "$TARGET/assets/image/" \;
 
-# copy video
+# copy video data file
 
-mkdir -p "$TARGET/_data/PTL/" 2>/dev/null
+mkdir -p "$TARGET/_data/video/" 2>/dev/null
 
-rsync -av --exclude '*.jpg' "$BASE/YAML/video/" "$TARGET/_data/PTL/"
+rsync -av --exclude '*.jpg' "$BASE/YAML/video/" "$TARGET/_data/video/"
+find "$TARGET/_data/video/" -type f -name "*.md" | xargs rename 's/\.md$/\.yml/' *.md
 
 # concat artist + group
 
-mkdir -p "$TARGET/_artist/" 2>/dev/null
-mkdir -p "$TARGET/_group/" 2>/dev/null
+mkdir -p "$TARGET/PTL/_artist/" 2>/dev/null
+mkdir -p "$TARGET/PTL/_group/" 2>/dev/null
 
-cat "$BASE/YAML/artist/"*.md > "$TARGET/_artist/artist.md"
-cat "$BASE/YAML/group/"*.md  > "$TARGET/_group/group.md"
+rsync -av --exclude '*.jpg' "$BASE/YAML/artist/" "$TARGET/PTL/_artist/"
+rsync -av --exclude '*.jpg' "$BASE/YAML/group/" "$TARGET/PTL/_group/"
 
+# create video collection
+#
+# /PTL/_video/name.md -> name: ... layout: video ...
+#

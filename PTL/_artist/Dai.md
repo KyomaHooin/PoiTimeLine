@@ -1,6 +1,10 @@
 ---
 nickname: Dai
-name: Dai Murata
+altname:
+- Dai Zaobab
+name: "\u6751\u7530\u5927\u77E5"
+picture: dai.jpg
 meta:
-- www.zaobab.com
+- zaobab.com
+- zaobab.wixsite.com/zaobab
 ...
