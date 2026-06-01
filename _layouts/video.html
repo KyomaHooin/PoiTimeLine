@@ -97,7 +97,8 @@
 			<span class="visually-hidden">Next</span>
 		</button>
 	</div>
-	{%- elsif video_file.screenshot.size = 1 -%}
+	{%- endif -%}
+	{%- if video_file.screenshot.size == 1 -%}
 	<img src="{{ '/PoiTimeLine/assets/screen/' | append: video_file.screenshot.first }}" class="border border-dark-subtle d-block w-100" alt="...">
 	{%- endif -%}
 	<h4 class="my-4">{{ video_file.name }}</h4>
