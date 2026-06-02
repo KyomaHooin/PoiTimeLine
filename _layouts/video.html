@@ -54,7 +54,8 @@
 <hr class="opacity-25 mx-4">
 
 <p>DEBUG START</p>
-{{ site.artist | jsonify }}
+{%- assign artist_all = site.artist | map: "nickname" -%}
+{{ assign artist_all }}
 <p>DEBUG END</p>
 
 {%- assign video_source = page.name -%}
@@ -117,7 +118,7 @@
 			<tr><td>Size:</td><td>{{ video_file.size }}</td></tr>
 		{%- endif -%}
 		{%- if video_file.duration -%}
-			<tr><td>Duraion:</td><td>{{ video_file.duration }}</td></tr>
+			<tr><td>Duraion:</td><td>{{ video_file.duration | date_to_string }}</td></tr>
 		{%- endif -%}
 		{%- if video_file.music -%}
 			<tr><td>Music:</td><td>
@@ -129,9 +130,6 @@
 		{%- if video_file.artist -%}
 			<tr><td>Artist:</td><td>
 			{%- for artist in video_file.artist -%}
-				<p>DEBUG START</p>
-				{{ artist }}
-				<p>DEBUG START</p>
 				{%- if site.artist contains artist -%}
 					<span><a href="{{ '/PoiTimeLine/artist/' | append: artist }}">{{ artist }}</a></span><br>
 				{%- else -%}
