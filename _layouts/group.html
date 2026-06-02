@@ -53,6 +53,8 @@
 
 <hr class="opacity-25 mx-4">
 
+{%- assign artist_all = site.artist | map: "nickname" -%}
+
 <div class="row my-4">
 
 	<div class="col text-light" style="background-color: black;">
@@ -64,7 +66,7 @@
      			{%- if page.artist -%}
 				<tr><td>Artist:</td><td>
      				{%- for artist in page.artist -%}
-     				{%- if site.artist contains artist -%}
+     				{%- if artist_all contains artist -%}
 					<span><a href="{{ '/PoiTimeLine/artist/' | append: artist }}">{{ artist }}</a></span><br>
      				{%- else -%}
 					<span>{{ artist }}</span><br>

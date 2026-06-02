@@ -53,10 +53,8 @@
 
 <hr class="opacity-25 mx-4">
 
-<p>DEBUG START</p>
 {%- assign artist_all = site.artist | map: "nickname" -%}
-{{ artist_all }}
-<p>DEBUG END</p>
+{%- assign group_all = site.group | map: "name" -%}
 
 {%- assign video_source = page.name -%}
 {%- assign carousel_id = 1 -%}
@@ -130,8 +128,10 @@
 		{%- if video_file.artist -%}
 			<tr><td>Artist:</td><td>
 			{%- for artist in video_file.artist -%}
-				{%- if site.artist contains artist -%}
+				{%- if artist_all contains artist -%}
 					<span><a href="{{ '/PoiTimeLine/artist/' | append: artist }}">{{ artist }}</a></span><br>
+				{%-elsif group_all contains artist -%}
+					<span><a href="{{ '/PoiTimeLine/group/' | append: artist }}">{{ artist }}</a></span><br>
 				{%- else -%}
 					<span>{{ artist }}</span><br>
 				{%- endif -%}

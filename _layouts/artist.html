@@ -55,6 +55,8 @@
 
 <div class="row my-4">
 
+{%- assign group_all = site.group | map: "name" -%}
+
 <div class="col text-light" style="background-color: black;">
 	{%- if page.picture -%}
 	<img class="border border-dark-subtle img-fluid mx-auto d-block" src="{{ '/PoiTimeLine/assets/picture/' | append: page.picture }}" alt="{{ page.picture }}">
@@ -88,7 +90,7 @@
 		{%- endif -%}
 		{%- if page.group -%}
 			<tr><td>Group:</td><td>
-			{%- if site.group contains page.group -%}
+			{%- if group_all contains page.group -%}
 				<span><a href="{{ '/PoiTimeLine/group/' | append: page.group }}">{{ page.group }}</a></span><br>
 			{%- else -%}
 				<span>{{ page.group }}</span></br>
