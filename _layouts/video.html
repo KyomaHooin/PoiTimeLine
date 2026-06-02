@@ -53,6 +53,10 @@
 
 <hr class="opacity-25 mx-4">
 
+<p>DEBUG START</p>
+{{ site.artist | jsonify }}
+<p>DEBUG END</p>
+
 {%- assign video_source = page.name -%}
 {%- assign carousel_id = 1 -%}
 {%- for video_file_hash in site.data.video[video_source] -%}
@@ -117,29 +121,30 @@
 		{%- endif -%}
 		{%- if video_file.music -%}
 			<tr><td>Music:</td><td>
-				{%- for song in video_file.music -%}
-					<span>{{ song }}</span><br>
-				{%- endfor -%}
+			{%- for song in video_file.music -%}
+				<span>{{ song }}</span><br>
+			{%- endfor -%}
 			</td></tr>
 		{%- endif -%}
 		{%- if video_file.artist -%}
 			<tr><td>Artist:</td><td>
-				{{ video_file.artist | jsonify }}
-				{{ site.artist | jsonify }}
-				{%- for artist in video_file.artist -%}
-					{%- if site.artist contains artist -%}
-						<span><a href="{{ '/PoiTimeLine/artist/' | append: artist }}">{{ artist }}</a></span><br>
-					{%- else -%}
-						<span>{{ artist }}</span><br>
-					{%- endif -%}
-				{%- endfor -%}
+			{%- for artist in video_file.artist -%}
+				<p>DEBUG START</p>
+				{{ artist }}
+				<p>DEBUG START</p>
+				{%- if site.artist contains artist -%}
+					<span><a href="{{ '/PoiTimeLine/artist/' | append: artist }}">{{ artist }}</a></span><br>
+				{%- else -%}
+					<span>{{ artist }}</span><br>
+				{%- endif -%}
+			{%- endfor -%}
 			</td></tr>
 		{%- endif -%}
 		{%- if video_file.metadata -%}
 			<tr><td>Metadata:</td><td>
-				{%- for meta in video_file.metadata -%}
-					<span>{{ meta }}</span><br>
-				{%- endfor -%}
+			{%- for meta in video_file.metadata -%}
+				<span>{{ meta }}</span><br>
+			{%- endfor -%}
 			</td></tr>
 		{%- endif -%}
 		</tbody>

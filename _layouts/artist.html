@@ -79,7 +79,7 @@
 		{%- if page.video -%}
 		<tr><td>Video:</td><td>
 			{%- for video in page.video -%}
-				<a href="{{ '/PoiTimeLine/video/' | append: page.video }}">{{ page.video }}</a><br>
+				<a href="{{ '/PoiTimeLine/video/' | append: video }}">{{ video }}</a><br>
 			{%- endfor -%}
 			</td></tr>
 		{%- endif -%}
