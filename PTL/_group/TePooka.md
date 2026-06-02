@@ -1,5 +1,5 @@
 ---
-name: ToPooka
+name: TePooka
 artist:
 - Bluecat
 - Tree
