@@ -13,7 +13,7 @@
 
 <div class="container">
 <div class="row my-4 justify-content-center">
-<div class="col col-lg-7 text-light font-monospace">
+<div class="col col-md-10 col-lg-7 text-light font-monospace">
 
 {%- assign page_paths = site.header_pages | default: default_paths -%}
 
@@ -51,6 +51,8 @@
 	{%- endfor -%}
 </div>
 
+<hr class="opacity-25 mx-4">
+
 {%- assign video_source = page.name -%}
 {%- assign carousel_id = 1 -%}
 {%- for video_file_hash in site.data.video[video_source] -%}
@@ -64,9 +66,9 @@
 		{%- assign screenshot_id = 1 -%}
 		{%- for screen in video_file.screenshot -%}
 			{%- if screenshot_id == 1 -%}
-			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ screenshot_id}}" class="active" aria-current="true" aria-label="{{ 'Slide ' | append: screenshot_id }}"></button>
+			<button type="button" data-bs-target="#{{ 'carousel_' | append: carousel_id }}" data-bs-slide-to="{{ screenshot_id}}" class="active" aria-current="true" aria-label="{{ 'Slide ' | append: screenshot_id }}"></button>
 			{%- else -%}
-			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ screenshot_id}}" aria-label="{{ 'Slide ' | append: screenshot_id }}"></button>
+			<button type="button" data-bs-target="#{{ 'carousel_' | append: carousel_id }}" data-bs-slide-to="{{ screenshot_id}}" aria-label="{{ 'Slide ' | append: screenshot_id }}"></button>
 			{%- endif -%}
 			{%- assign screenshot_id = screenshot_id | plus: 1 -%}
 		{%- endfor -%}
@@ -76,11 +78,11 @@
 		{%- for screen in video_file.screenshot -%}
 			{%- if screenshot_file_id == 1 -%}
 			<div class="carousel-item active">
-				<img src="{{ '/PoiTimeLine/assets/screen/' | append: screen }}" class="border border-dark-subtle d-block w-100" alt="...">
+				<img src="{{ '/PoiTimeLine/assets/screen/' | append: screen }}" class="d-block w-100" alt="...">
 			</div>
 			{%- else -%}
 			<div class="carousel-item">
-				<img src="{{ '/PoiTimeLine/assets/screen/' | append: screen }}" class="border border-dark-subtle d-block w-100" alt="...">
+				<img src="{{ '/PoiTimeLine/assets/screen/' | append: screen }}" class="d-block w-100" alt="...">
 			</div>
 			{%- endif -%}
 			{%- assign screenshot_file_id = screenshot_file_id | plus: 1 -%}
@@ -100,7 +102,7 @@
 	{%- if video_file.screenshot.size == 1 -%}
 	<img src="{{ '/PoiTimeLine/assets/screen/' | append: video_file.screenshot.first }}" class="border border-dark-subtle d-block w-100" alt="...">
 	{%- endif -%}
-	<h4 class="my-4">{{ video_file.name }}</h4>
+	<h4 class="my-4"><u>{{ video_file.name }}</u></h4>
 
 	<table class="table align-top mb-4 table-dark table-borderless table-sm">
 		<tbody>

@@ -13,7 +13,7 @@
 
 <div class="container">
 <div class="row my-4 justify-content-center">
-<div class="col col-lg-7 text-light font-monospace">
+<div class="col col-md-10 col-lg-7 text-light font-monospace">
 
 {%- assign page_paths = site.header_pages | default: default_paths -%}
 
@@ -50,12 +50,14 @@
 	{%- endif -%}
 	{%- endfor -%}
 </div>
- 
+
+<hr class="opacity-25 mx-4">
+
 <div class="row my-4">
 
 	<div class="col text-light" style="background-color: black;">
 
-		<h4 class="my-4">{{ page.name }}</h4>
+		<h4 class="my-4"><u>{{ page.name }}</u></h4>
 
 		<table class="table align-top mb-4 table-dark table-borderless table-sm">
 			<tbody>
