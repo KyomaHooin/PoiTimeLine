@@ -100,7 +100,7 @@
 	</div>
 	{%- endif -%}
 	{%- if video_file.screenshot.size == 1 -%}
-	<img src="{{ '/PoiTimeLine/assets/screen/' | append: video_file.screenshot.first }}" class="border border-dark-subtle d-block w-100" alt="...">
+	<img src="{{ '/PoiTimeLine/assets/screen/' | append: video_file.screenshot.first }}" class="d-block w-100" alt="...">
 	{%- endif -%}
 	<h4 class="my-4"><u>{{ video_file.name }}</u></h4>
 
@@ -144,10 +144,6 @@
 	</table>
 </div>
 </div>
-
-{%- if site.data.video[video_source].size > carousel_id -%}
-<hr class="opacity-50 mx-4">
-{%- endif -%}
 
 {%- assign carousel_id = carousel_id | plus: 1 -%}
 {%- endfor -%}

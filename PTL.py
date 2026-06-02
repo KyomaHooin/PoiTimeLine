@@ -542,7 +542,7 @@ class MainWindow(QMainWindow):
 					if self.video_screenshot_text.toPlainText(): yml['screenshot'] = self.video_screenshot_text.toPlainText().splitlines()
 					if self.video_date_text.text(): yml['date'] = self.video_date_text.text()
 					if self.video_size_text.text(): yml['size'] = self.video_size_text.text()
-					if self.video_duration_text.text(): yml['duration'] = '!!str ' + self.video_duration_text.text()
+					if self.video_duration_text.text(): yml['duration'] = self.video_duration_text.text()
 					if self.video_music_text.toPlainText(): yml['music'] = self.video_music_text.toPlainText().splitlines()
 					if self.video_artist_text.toPlainText(): yml['artist'] = self.video_artist_text.toPlainText().splitlines()
 					if self.video_meta_text.toPlainText(): yml['meta'] = self.video_meta_text.toPlainText().splitlines()
