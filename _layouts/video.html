@@ -55,7 +55,7 @@
 
 <p>DEBUG START</p>
 {%- assign artist_all = site.artist | map: "nickname" -%}
-{{ assign artist_all }}
+{{ artist_all }}
 <p>DEBUG END</p>
 
 {%- assign video_source = page.name -%}
@@ -118,7 +118,7 @@
 			<tr><td>Size:</td><td>{{ video_file.size }}</td></tr>
 		{%- endif -%}
 		{%- if video_file.duration -%}
-			<tr><td>Duraion:</td><td>{{ video_file.duration | date_to_string }}</td></tr>
+			<tr><td>Duraion:</td><td>{{ video_file.duration }}</td></tr>
 		{%- endif -%}
 		{%- if video_file.music -%}
 			<tr><td>Music:</td><td>
