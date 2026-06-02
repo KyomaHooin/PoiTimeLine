@@ -124,6 +124,8 @@
 		{%- endif -%}
 		{%- if video_file.artist -%}
 			<tr><td>Artist:</td><td>
+				{{ video_file.artist | jsonify }}
+				{{ site.artist | jsonify }}
 				{%- for artist in video_file.artist -%}
 					{%- if site.artist contains artist -%}
 						<span><a href="{{ '/PoiTimeLine/artist/' | append: artist }}">{{ artist }}</a></span><br>
