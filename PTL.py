@@ -501,7 +501,7 @@ class MainWindow(QMainWindow):
 					self.video_name_text.setText(yml['name'] if 'name' in yml else '')
 					self.video_screenshot_text.setPlainText("\n".join(yml['screenshot']) if 'screenshot' in yml else '')
 					self.video_date_text.setText(yml['date'] if 'date' in yml else '')
-					self.video_size_text.setText(yml['filesize'] if 'size' in yml else '')
+					self.video_size_text.setText(yml['filesize'] if 'filesize' in yml else '')
 					self.video_duration_text.setText(yml['duration'] if 'duration' in yml else '')
 					self.video_music_text.setPlainText("\n".join(yml['music']) if 'music' in yml else '')
 					self.video_artist_text.setPlainText("\n".join(yml['artist']) if 'artist' in yml else '')
