@@ -69,9 +69,9 @@
 		{%- assign screenshot_id = 1 -%}
 		{%- for screen in video_file.screenshot -%}
 			{%- if screenshot_id == 1 -%}
-			<button type="button" data-bs-target="{{ '#carousel_' | append: carousel_id }}" data-bs-slide-to="{{ screenshot_id}}" class="active" aria-current="true" aria-label="{{ 'Slide ' | append: screenshot_id }}"></button>
+			<button type="button" data-bs-target="{{ 'carousel_' | append: carousel_id }}" data-bs-slide-to="{{ screenshot_id}}" class="active" aria-current="true" aria-label="{{ 'Slide ' | append: screenshot_id }}"></button>
 			{%- else -%}
-			<button type="button" data-bs-target="{{ '#carousel_' | append: carousel_id }}" data-bs-slide-to="{{ screenshot_id}}" aria-label="{{ 'Slide ' | append: screenshot_id }}"></button>
+			<button type="button" data-bs-target="{{ 'carousel_' | append: carousel_id }}" data-bs-slide-to="{{ screenshot_id}}" aria-label="{{ 'Slide ' | append: screenshot_id }}"></button>
 			{%- endif -%}
 			{%- assign screenshot_id = screenshot_id | plus: 1 -%}
 		{%- endfor -%}
