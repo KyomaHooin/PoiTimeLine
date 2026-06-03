@@ -5,7 +5,7 @@
 
 import subprocess,random,vlc,sys,os,re
 
-from yaml import safe_dump,safe_load
+from yaml import safe_dump,safe_load,add_implicit_resolver
 
 from PyQt6.QtCore import QSize, QRect, QTimer, Qt
 from PyQt6.QtGui import QAction, QKeySequence, QPixmap
@@ -501,7 +501,7 @@ class MainWindow(QMainWindow):
 					self.video_name_text.setText(yml['name'] if 'name' in yml else '')
 					self.video_screenshot_text.setPlainText("\n".join(yml['screenshot']) if 'screenshot' in yml else '')
 					self.video_date_text.setText(yml['date'] if 'date' in yml else '')
-					self.video_size_text.setText(yml['size'] if 'size' in yml else '')
+					self.video_size_text.setText(yml['filesize'] if 'size' in yml else '')
 					self.video_duration_text.setText(yml['duration'] if 'duration' in yml else '')
 					self.video_music_text.setPlainText("\n".join(yml['music']) if 'music' in yml else '')
 					self.video_artist_text.setPlainText("\n".join(yml['artist']) if 'artist' in yml else '')
@@ -541,7 +541,7 @@ class MainWindow(QMainWindow):
 					yml['name'] = self.video_name_text.text()
 					if self.video_screenshot_text.toPlainText(): yml['screenshot'] = self.video_screenshot_text.toPlainText().splitlines()
 					if self.video_date_text.text(): yml['date'] = self.video_date_text.text()
-					if self.video_size_text.text(): yml['size'] = self.video_size_text.text()
+					if self.video_size_text.text(): yml['filesize'] = self.video_size_text.text()
 					if self.video_duration_text.text(): yml['duration'] = self.video_duration_text.text()
 					if self.video_music_text.toPlainText(): yml['music'] = self.video_music_text.toPlainText().splitlines()
 					if self.video_artist_text.toPlainText(): yml['artist'] = self.video_artist_text.toPlainText().splitlines()
@@ -552,12 +552,11 @@ class MainWindow(QMainWindow):
 					fn = fn_base + '/' + re.sub('[. !-\'()?]', '_', os.path.splitext(self.video_name_text.text())[0]) + '.md'
 
 		if not os.path.isfile(fn):
-			print(fn)
 			fn, _ = QFileDialog.getSaveFileName(self, "Save File", fn_base, "MD (*.md)")
 			if os.path.splitext(fn)[1] != '.md': fn = fn[0] + '.md'
 
 		with open(fn, 'w') as f:
-        		f.write(safe_dump(yml, sort_keys=False, explicit_start=True, explicit_end=True))
+			f.write(safe_dump(yml, sort_keys=False, explicit_start=True, explicit_end=True))
 
 	def PTL_close(self):
 		if self.player.is_playing():
