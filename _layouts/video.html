@@ -69,9 +69,9 @@
 		{%- assign screenshot_id = 1 -%}
 		{%- for screen in video_file.screenshot -%}
 			{%- if screenshot_id == 1 -%}
-			<button type="button" data-bs-target="{{ 'carousel_' | append: carousel_id }}" data-bs-slide-to="{{ screenshot_id}}" class="active" aria-current="true" aria-label="{{ 'Slide ' | append: screenshot_id }}"></button>
+			<button type="button" data-bs-target="{{ '#carousel_' | append: carousel_id }}" data-bs-slide-to="{{ screenshot_id}}" class="active" aria-current="true" aria-label="{{ 'Slide ' | append: screenshot_id }}"></button>
 			{%- else -%}
-			<button type="button" data-bs-target="{{ 'carousel_' | append: carousel_id }}" data-bs-slide-to="{{ screenshot_id}}" aria-label="{{ 'Slide ' | append: screenshot_id }}"></button>
+			<button type="button" data-bs-target="{{ '#carousel_' | append: carousel_id }}" data-bs-slide-to="{{ screenshot_id}}" aria-label="{{ 'Slide ' | append: screenshot_id }}"></button>
 			{%- endif -%}
 			{%- assign screenshot_id = screenshot_id | plus: 1 -%}
 		{%- endfor -%}
@@ -92,11 +92,11 @@
 		{%- endfor -%}
 		</div>
 
-		<button class="carousel-control-prev" type="button" data-bs-target="{{ 'carousel_' | append: carousel_id }}" data-bs-slide="prev">
+		<button class="carousel-control-prev" type="button" data-bs-target="{{ '#carousel_' | append: carousel_id }}" data-bs-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 			<span class="visually-hidden">Previous</span>
 		</button>
-		<button class="carousel-control-next" type="button" data-bs-target="{{ 'carousel_' | append: carousel_id }}" data-bs-slide="next">
+		<button class="carousel-control-next" type="button" data-bs-target="{{ '#carousel_' | append: carousel_id }}" data-bs-slide="next">
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span class="visually-hidden">Next</span>
 		</button>
