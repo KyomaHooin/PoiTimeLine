@@ -20,7 +20,6 @@ find "$BASE/YAML/artist/" -type f -name "*.jpg" -exec cp {} "$TARGET/assets/imag
 mkdir -p "$TARGET/_data/video/" 2>/dev/null
 
 rsync -av --exclude '*.jpg' "$BASE/YAML/video/" "$TARGET/_data/video/"
-find "$TARGET/_data/video/" -type f -name "*.md" | xargs rename 's/\.md$/\.yml/' *.md
 
 # concat artist + group
 

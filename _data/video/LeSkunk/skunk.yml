@@ -1,6 +1,0 @@
----
-name: skunk.mov
-filesize: 1.7M
-artist:
-- Le Skunk
-...

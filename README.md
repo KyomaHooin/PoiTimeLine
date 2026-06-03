@@ -10,9 +10,9 @@ apt-get install ffmpeg python3-yaml python3-pyqt6 python3-vlc
 </pre>
 FILE
 <pre>
-assets/ .......... misc files
-_data/video/ ..... YML data files
-PTL/_diretory/ ... YML collection
+assets/ .......... icon,spnashot, image assets
+_data/video/ ..... JSON data files
+PTL/_diretory/ ... YML collections
 
 PTL.py ........... Metadata Qt6 toolkit GUI (non-root)
 backend.sh ....... Copy PTL toolkit structure to frontend
