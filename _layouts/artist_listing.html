@@ -55,7 +55,7 @@
 
 <div class="row row-cols-2 row-cols-md-3 row-gap-4 d-flex justify-content-left">
 	{%- for artist in site.artist -%}
-	<div class="col position-relative align-items-center">
+	<div class="col position-relative d-flex align-items-center">
 		{%- if artist.icon -%}
 		<img class="float-start me-2" width="52" height="52" src="{{ '/PoiTimeLine/assets/icon/' | append: artist.icon }}">
 		{% else %}
