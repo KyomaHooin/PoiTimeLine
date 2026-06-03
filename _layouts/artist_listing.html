@@ -59,7 +59,7 @@
 		{%- if artist.icon -%}
 		<img class="float-start me-2" width="52" height="52" src="{{ '/PoiTimeLine/assets/icon/' | append: artist.icon }}">
 		{% else %}
-		<svg xmlns="http://www.w3.org/2000/svg"  width="52" height="52" fill="currentColor" class="bi bi-person-fill float-start flex-shrink-0 me-2" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/></svg>
+		<svg xmlns="http://www.w3.org/2000/svg"  width="32" height="32" fill="currentColor" class="bi bi-person-fill float-start flex-shrink-0 me-2" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/></svg>
 		{%- endif -%}
 		<a class="stretched-link text-break" style="text-decoration: none;" href="{{ '/PoiTimeLine/artist/' | append: artist.slug }}">{{ artist.nickname }}</a>
 	</div>
