@@ -467,7 +467,7 @@ class MainWindow(QMainWindow):
 				fn_base = BASE + '/YAML/video/'
 
 		match self.tab.currentIndex():
-			case [0,1]:
+			case 0 | 1:
 				fn, _ = QFileDialog.getOpenFileName(self, "Open File", fn_base, "MD (*.md)")
 			case 2:
 				fn, _ = QFileDialog.getOpenFileName(self, "Open File", fn_base, "JSON (*.json)")
@@ -476,7 +476,7 @@ class MainWindow(QMainWindow):
 			with open(fn, 'r') as stream:
 				try:
 					match self.tab.currentIndex():
-						case [0,1]:
+						case 0 | 1:
 							data = safe_load(stream)
 						case 2:
 							data = json.load(stream)
@@ -533,7 +533,7 @@ class MainWindow(QMainWindow):
 					if self.artist_group_text.text(): data['group'] = self.artist_group_text.text()
 					if self.artist_meta_text.toPlainText(): data['meta'] = self.artist_meta_text.toPlainText().splitlines()
 					fn_base = BASE + '/YAML/artist/'
-					fn = fn_base + re.sub('[. !-\'()?]', '', self.artist_nickname_text.text()) + '.md'
+					fn = fn_base + re.sub(r'[\'\-!?. \[\]\]\(\)]', '', self.artist_nickname_text.text()) + '.md'
 			case 1:
 				if self.group_name_text.text():
 					data['name'] = self.group_name_text.text()
@@ -542,7 +542,7 @@ class MainWindow(QMainWindow):
 					if self.group_country_text.text(): data['country'] = self.group_country_text.text()
 					if self.group_meta_text.toPlainText(): data['meta'] = self.group_meta_text.toPlainText().splitlines()
 					fn_base = BASE + '/YAML/group/'
-					fn = fn_base + re.sub('[. !-\'()?]', '', self.group_name_text.text()) + '.md'
+					fn = fn_base + re.sub(r'[\'\-!?. \[\]\]\(\)]', '', self.group_name_text.text()) + '.md'
 
 			case 2:
 				if self.video_name_text.text():
@@ -557,11 +557,11 @@ class MainWindow(QMainWindow):
 					fn = self.file_find(self.video_name_text.text())
 					fn_base = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn))
 					os.makedirs(fn_base, exist_ok=True)
-					fn = fn_base + '/' + re.sub('[. !-\'()?]', '_', os.path.splitext(self.video_name_text.text())[0]) + '.json'
+					fn = fn_base + '/' + re.sub(r'[\'\-!?. \[\]\]\(\)]', '_', os.path.splitext(self.video_name_text.text())[0]) + '.json'
 
 		if not os.path.isfile(fn):
 			match self.tab.currentIndex():
-				case [0,1]:
+				case 0 | 1:
 					fn, _ = QFileDialog.getSaveFileName(self, "Save File", fn_base, "MD (*.md)")
 					if os.path.splitext(fn)[1] != '.md': fn = fn + '.md'
 				case 2:
@@ -571,7 +571,7 @@ class MainWindow(QMainWindow):
 		with open(fn, 'w') as f:
 			try:
 				match self.tab.currentIndex():
-					case [0,1]:
+					case 0 | 1:
 						f.write(safe_dump(data, sort_keys=False, explicit_start=True, explicit_end=True))
 					case 2:
 						json.dump(data, f, indent=4)
