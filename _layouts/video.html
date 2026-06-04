@@ -65,17 +65,6 @@
 <div class="col text-light" style="background-color: black;">
 	{%- if video_file.screenshot.size > 1 -%}
 	<div id="{{ 'carousel_' | append: carousel_id }}" class="carousel slide">
-		<div class="carousel-indicators">
-		{%- assign screenshot_id = 0 -%}
-		{%- for screen in video_file.screenshot -%}
-			{%- if screenshot_id == 0 -%}
-			<button type="button" data-bs-target="{{ 'carouselIndicator_' | append: carousel_id }}" data-bs-slide-to="{{ screenshot_id}}" class="active" aria-current="true" aria-label="{{ 'Slide ' | append: screenshot_id }}"></button>
-			{%- else -%}
-			<button type="button" data-bs-target="{{ 'carouselIndicatior_' | append: carousel_id }}" data-bs-slide-to="{{ screenshot_id}}" aria-label="{{ 'Slide ' | append: screenshot_id }}"></button>
-			{%- endif -%}
-			{%- assign screenshot_id = screenshot_id | plus: 1 -%}
-		{%- endfor -%}
-		</div>
 		<div class="carousel-inner">
 		{%- assign screenshot_file_id = 1 -%}
 		{%- for screen in video_file.screenshot -%}
