@@ -419,6 +419,7 @@ class MainWindow(QMainWindow):
 		for root, dirs, files in os.walk(BASE + '/VIDEO/'):
 			if name in files:
 				return os.path.join(root, name)
+		return ''
 
 	def get_metaDialog(self, fn, text):
 		self.dlg = QDialog()
