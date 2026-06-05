@@ -1,3 +1,0 @@
----
-name: AnthelionFireVideoDSL06b.mov
-...
