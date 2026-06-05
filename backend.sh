@@ -10,10 +10,10 @@ TARGET='/tmp/PoiTimeLine'
 # copy screen + image
 
 mkdir -p "$TARGET/assets/screen/" 2>/dev/null
-mkdir -p "$TARGET/assets/image/" 2>/dev/null
+mkdir -p "$TARGET/assets/picture/" 2>/dev/null
 
 find "$BASE/YAML/video/" -type f -name "*.jpg" -exec cp {} "$TARGET/assets/screen/" \;
-find "$BASE/YAML/artist/" -type f -name "*.jpg" -exec cp {} "$TARGET/assets/image/" \;
+find "$BASE/YAML/artist/" -type f -name "*.jpg" -exec cp {} "$TARGET/assets/picture/" \;
 
 # copy video data file
 
