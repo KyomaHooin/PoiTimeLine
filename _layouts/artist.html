@@ -57,9 +57,11 @@
 
 {%- assign group_all = site.group | map: "name" -%}
 
-{{ assign match = site.group | where: "name", "A.N.T.H.E.L.I.O.N" | first }}
-{{ match.id }}
-{{ match.slug }}
+{{ assign boo = site.group | where: "name", "A.N.T.H.E.L.I.O.N" | first }}
+
+{{ boo.jsonify }}
+[{ boo.id }}
+{{ boo.slug }}
 
 <div class="col text-light" style="background-color: black;">
 	{%- if page.picture -%}
