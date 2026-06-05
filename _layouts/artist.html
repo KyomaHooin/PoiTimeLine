@@ -59,8 +59,8 @@
 
 {{ assign boo = site.group | where: "name", "A.N.T.H.E.L.I.O.N" | first }}
 
-{{ boo.jsonify }}
-[{ boo.id }}
+{{ boo | jsonify }}
+{{ boo.id }}
 {{ boo.slug }}
 
 <div class="col text-light" style="background-color: black;">
