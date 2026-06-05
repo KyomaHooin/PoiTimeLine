@@ -57,11 +57,31 @@
 
 {%- assign group_all = site.group | map: "name" -%}
 
-{%- assign boo = site.group | where: "name", "A.N.T.H.E.L.I.O.N" -%}
+<p>DEBUG:</p>
+{%- assign boo = site.group | where: "name", "TePooka" -%}
 
 {{ boo | jsonify }}
 {{ boo.id }}
 {{ boo.slug }}
+
+<p>DEBUG:</p>
+{%- assign foo = site.group | where: "name", "TePooka" | first -%}
+
+{{ foo | jsonify }}
+{{ foo.id }}
+{{ foo.slug }}
+
+<p>DEBUG:</p>
+{%- if group_all contains "A.N.T.H.E.L.I.O.N" -%} 
+
+{%- assign foobar = site.group | where: "name", "A.N.T.H.E.L.I.ON" | first -%}
+
+{{ foobar | jsonify }}
+{{ foobar.id }}
+{{ foobar.slug }}
+
+{%- endif -%}
+
 
 <div class="col text-light" style="background-color: black;">
 	{%- if page.picture -%}
