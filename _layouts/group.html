@@ -67,7 +67,8 @@
 				<tr><td>Artist:</td><td>
      				{%- for artist in page.artist -%}
      				{%- if artist_all contains artist -%}
-					<span><a href="{{ '/PoiTimeLine/artist/' | append: artist }}">{{ artist }}</a></span><br>
+					{%- assign artist_match = site.artist | where: "nickname", artist | first -%}
+					<span><a href="{{ '/PoiTimeLine/artist/' | append: artist_match.slug }}">{{ artist }}</a></span><br>
      				{%- else -%}
 					<span>{{ artist }}</span><br>
      				{%- endif -%}

@@ -118,9 +118,11 @@
 			<tr><td>Artist:</td><td>
 			{%- for artist in video_file.artist -%}
 				{%- if artist_all contains artist -%}
-					<span><a href="{{ '/PoiTimeLine/artist/' | append: artist }}">{{ artist }}</a></span><br>
+					{%- assign artist_match = site.artist | where: "nickname", artist | first -%}
+					<span><a href="{{ '/PoiTimeLine/artist/' | append: artist_match.slug }}">{{ artist }}</a></span><br>
 				{%-elsif group_all contains artist -%}
-					<span><a href="{{ '/PoiTimeLine/group/' | append: artist }}">{{ artist }}</a></span><br>
+					{%- assign group_match = site.group | where: "name", artist | first -%}
+					<span><a href="{{ '/PoiTimeLine/group/' | append: group_match.slug }}">{{ artist }}</a></span><br>
 				{%- else -%}
 					<span>{{ artist }}</span><br>
 				{%- endif -%}
