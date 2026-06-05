@@ -30,6 +30,9 @@ rsync -av --exclude '*.jpg' "$BASE/YAML/artist/" "$TARGET/PTL/_artist/"
 rsync -av --exclude '*.jpg' "$BASE/YAML/group/" "$TARGET/PTL/_group/"
 
 # create video collection
-#
-# /PTL/_video/name.md -> name: ... layout: video ...
-#
+
+mkdir -p "$TARGET/PTL/_video/" 2>/dev/null
+
+find "$BASE/YAML/video/" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; \
+| xargs -iDIR bash -c "echo -e '---\nname: DIR\nlayout: video\n...' >  $TARGET/PTL/_video/DIR.md"
+
