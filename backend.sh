@@ -1,32 +1,28 @@
 #!/bin/bash
 #
-# Copy PTL tooolkit structure to Jekyll frontend structure
+# Copy PTL tooolkit structure to Jekyll frontend
 #
 
 BASE='/home/user/Desktop/project'
 
 TARGET='/tmp/PoiTimeLine'
 
-# copy screen + image
+# copy video snapshots and artist images
 
 mkdir -p "$TARGET/assets/screen/" 2>/dev/null
 mkdir -p "$TARGET/assets/picture/" 2>/dev/null
 
 find "$BASE/YAML/video/" -type f -name "*.jpg" -exec cp {} "$TARGET/assets/screen/" \;
-find "$BASE/YAML/artist/" -type f -name "*.jpg" -exec cp {} "$TARGET/assets/picture/" \;
+find "$BASE/YAML/artist/" -type f -name "*.jpg" -o -name "*.jpeg" -o -name "*.png"  -exec cp {} "$TARGET/assets/picture/" \;
 
-# copy video data file
+# copy video, artist and group data
 
 mkdir -p "$TARGET/_data/video/" 2>/dev/null
-
-rsync -av --exclude '*.jpg' "$BASE/YAML/video/" "$TARGET/_data/video/"
-
-# concat artist + group
-
 mkdir -p "$TARGET/PTL/_artist/" 2>/dev/null
 mkdir -p "$TARGET/PTL/_group/" 2>/dev/null
 
-rsync -av --exclude '*.jpg' "$BASE/YAML/artist/" "$TARGET/PTL/_artist/"
+rsync -av --exclude '*.jpg' "$BASE/YAML/video/" "$TARGET/_data/video/"
+rsync -av --exclude '*.jpg' --exclude '*.jpeg' --exclude '*.png' "$BASE/YAML/artist/" "$TARGET/PTL/_artist/"
 rsync -av --exclude '*.jpg' "$BASE/YAML/group/" "$TARGET/PTL/_group/"
 
 # create video collection
