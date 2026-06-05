@@ -57,7 +57,7 @@
 
 {%- assign group_all = site.group | map: "name" -%}
 
-{{ assign boo = site.group | where: "name", "A.N.T.H.E.L.I.O.N" }}
+{%- assign boo = site.group | where: "name", "A.N.T.H.E.L.I.O.N" -%}
 
 {{ boo | jsonify }}
 {{ boo.id }}
