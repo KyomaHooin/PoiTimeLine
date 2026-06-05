@@ -56,8 +56,10 @@
 <div class="row my-4">
 
 {%- assign group_all = site.group | map: "name" -%}
-{{ site.group | where: "name", "A.N.T.H.E.L.I.O.N" | first | jsonify }}
-{{ site.group | where: "name", "A.N.T.H.E.L.I.O.N" | jsonify }}
+
+{{ assign match = site.group | where: "name", "A.N.T.H.E.L.I.O.N" | first }}
+{{ match.id }}
+{{ match.slug }}
 
 <div class="col text-light" style="background-color: black;">
 	{%- if page.picture -%}
