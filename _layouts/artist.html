@@ -56,6 +56,8 @@
 <div class="row my-4">
 
 {%- assign group_all = site.group | map: "name" -%}
+{{ site.group | where: "name", "A.N.T.H.E.L.I.O.N" | first | jsonify }}
+{{ site.group | where: "name", "A.N.T.H.E.L.I.O.N" | jsonify }}
 
 <div class="col text-light" style="background-color: black;">
 	{%- if page.picture -%}
@@ -91,7 +93,7 @@
 		{%- if page.group -%}
 			<tr><td>Group:</td><td>
 			{%- if group_all contains page.group -%}
-				<span><a href="{{ '/PoiTimeLine/group/' | append: page.group }}">{{ page.group }}</a></span><br>
+				<span><a href="{{ site.group | where: "name", page.group | first | prepend: '/PoiTimeLine/group/' }}">{{ page.group }}</a></span><br>
 			{%- else -%}
 				<span>{{ page.group }}</span></br>
 			{%- endif -%}
