@@ -534,7 +534,7 @@ class MainWindow(QMainWindow):
 					if self.artist_group_text.text(): data['group'] = self.artist_group_text.text()
 					if self.artist_meta_text.toPlainText(): data['meta'] = self.artist_meta_text.toPlainText().splitlines()
 					fn_base = BASE + '/YAML/artist/'
-					fn = fn_base + re.sub(r'[\'\-!?. \[\]\]\(\)]', '', self.artist_nickname_text.text()) + '.md'
+					fn = fn_base + re.sub(r'[\'\-!?.+ \[\]\]\(\)]', '', self.artist_nickname_text.text()) + '.md'
 			case 1:
 				if self.group_name_text.text():
 					data['name'] = self.group_name_text.text()
@@ -543,7 +543,7 @@ class MainWindow(QMainWindow):
 					if self.group_country_text.text(): data['country'] = self.group_country_text.text()
 					if self.group_meta_text.toPlainText(): data['meta'] = self.group_meta_text.toPlainText().splitlines()
 					fn_base = BASE + '/YAML/group/'
-					fn = fn_base + re.sub(r'[\'\-!?. \[\]\]\(\)]', '', self.group_name_text.text()) + '.md'
+					fn = fn_base + re.sub(r'[\'\-!?.+ \[\]\]\(\)]', '', self.group_name_text.text()) + '.md'
 
 			case 2:
 				if self.video_name_text.text():
@@ -558,7 +558,7 @@ class MainWindow(QMainWindow):
 					fn = self.file_find(self.video_name_text.text())
 					fn_base = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn))
 					os.makedirs(fn_base, exist_ok=True)
-					fn = fn_base + '/' + re.sub(r'[\'\-!?. \[\]\]\(\)]', '_', os.path.splitext(self.video_name_text.text())[0]) + '.json'
+					fn = fn_base + '/' + re.sub(r'[\'\-!?.+ \[\]\]\(\)]', '_', os.path.splitext(self.video_name_text.text())[0]) + '.json'
 
 		if not os.path.isfile(fn):
 			match self.tab.currentIndex():
