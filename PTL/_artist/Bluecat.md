@@ -6,6 +6,7 @@ altname:
 name: Robert Thorburn
 hop: 3686 (1582)
 icon: 3686.jpg
+picture: bluecat.jpg
 video:
 - Bluecat
 - TePooka
