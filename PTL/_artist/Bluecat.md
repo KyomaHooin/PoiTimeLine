@@ -10,7 +10,7 @@ picture: bluecat.jpg
 video:
 - Bluecat
 - TePooka
-location: Edinburgh, Scotland
+location: everywhere
 group: TePooka
 meta:
 - robthorburn.co.uk

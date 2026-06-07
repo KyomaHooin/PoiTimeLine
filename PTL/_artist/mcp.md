@@ -1,7 +1,7 @@
 ---
 nickname: mcp
 altname:
-- Michel Caden Pike
+- Michel Caden PikeThe Flying Watter Muppet
 name: Meghan Claire Pike
 hop: '4704'
 icon: 4704.jpg
