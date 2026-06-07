@@ -18,6 +18,8 @@
 <header>
 <nav class="nav nav-pills py-1 justify-content-lg-end justify-content-center">
 	{%- for path in site.header_pages -%}
+		{%- if path == 'about' -%}
+			<a class="nav-link text-light my-1 active" aria-current="page" href="/">{{ path | capitalize }}</a>
 		{%- if path == 'poi' -%}
 			<a class="nav-link text-light my-1 active" aria-current="page" href="{{ '/' | append: path  }}">{{ path | capitalize }}</a>
 		{% else %}

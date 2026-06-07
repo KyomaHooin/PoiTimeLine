@@ -29,7 +29,7 @@ defaults:
     values:
       layout: "artist"
   - scope:
-      path: ""
+      path: "/group"
       type: "group"
     values:
       layout: "group"
