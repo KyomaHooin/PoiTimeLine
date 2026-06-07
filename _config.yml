@@ -1,12 +1,13 @@
 encoding: UTF-8
+
 header_pages:
-        - pages/about.md
-        - pages/tech.md
-        - pages/cyber.md
-        - pages/poi.md
-        - pages/book.md
-        - pages/sound.md
-        - pages/other.md
+        - about
+        - tech
+        - cyber
+        - poi
+        - book
+        - sound
+        - other
 
 collections:
      artist:
