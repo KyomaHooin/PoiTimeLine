@@ -56,9 +56,7 @@
 
 <div class="col text-light" style="background-color: black;">
 	{%- if page.picture -%}
-	<div style="height: 350px;">
-		<img class="img-fluid mh-100 d-flex flex-grow-1" src="{{ '/PoiTimeLine/assets/picture/' | append: page.picture }}" alt="{{ page.picture }}">
-	</div>
+	<img style="max-height: 350px;" class="img-fluid d-flex flex-grow-1" src="{{ '/PoiTimeLine/assets/picture/' | append: page.picture }}" alt="{{ page.picture }}">
 	{%- endif -%}
 	<h4 class="my-4"><u>{{ page.nickname }}</u></h4>
 
