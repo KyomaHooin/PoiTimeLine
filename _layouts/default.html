@@ -19,9 +19,9 @@
 <nav class="nav nav-pills py-1 justify-content-lg-end justify-content-center">
 	{%- for path in site.header_pages -%}
 		{%- if path == 'about' -%}
-			<a class="nav-link text-light my-1 active" aria-current="page" href="/">{{ path | capitalize }}</a>
+			<a class="nav-link my-1 text-light" href="/">{{ path | capitalize }}</a>
 		{%- elsif == 'poi' -%}
-			<a class="nav-link text-light my-1 active" aria-current="page" href="{{ '/' | append: path  }}">{{ path | capitalize }}</a>
+			<a class="nav-link my-1 text-light active" aria-current="page" href="{{ '/' | append: path  }}">{{ path | capitalize }}</a>
 		{% else %}
 			<a class="nav-link my-1 text-light" href="{{ '/' | append: path }}">{{ path | capitalize }}</a>
 		{%- endif -%}
