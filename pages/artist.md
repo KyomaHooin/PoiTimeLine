@@ -1,4 +1,4 @@
 ---
 layout: artist_listing
-pemalink: artist
+permalink: artist
 ---

@@ -20,7 +20,7 @@
 	{%- for path in site.header_pages -%}
 		{%- if path == 'about' -%}
 			<a class="nav-link my-1 text-light" href="/">{{ path | capitalize }}</a>
-		{%- elsif == 'poi' -%}
+		{%- elsif path == 'poi' -%}
 			<a class="nav-link my-1 text-light active" aria-current="page" href="{{ '/' | append: path  }}">{{ path | capitalize }}</a>
 		{% else %}
 			<a class="nav-link my-1 text-light" href="{{ '/' | append: path }}">{{ path | capitalize }}</a>
