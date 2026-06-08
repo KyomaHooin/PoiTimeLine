@@ -31,7 +31,7 @@
 
 <main class="my-4 mx-1">
 
-<img class="img-fluid mx-auto my-4 d-block" src="/PoiTimeLine/assets/community.gif">
+<img class="img-fluid mx-auto my-4 d-block" src="{{ '/assets/community.gif' | relative_url}}">
 
 <p class="text-light text-center my-4"><u>Poi Time Line</u></p>
 <p class="text-light text-center my-2">Archive of Poi spinning era between 2001-2007.</p>
@@ -42,7 +42,7 @@
 	<div class="col col-md-3 position-relative">
 		<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-folder-fill" viewBox="0 0 16 16"><path d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z"/></svg>
 		<span class="text-light align-bottom">{{ collection.label | capitalize }}</span>
-		<a href="{{ '/PoiTimeLine/' | append: collection.label | append: '/' }}" class="stretched-link"></a>
+		<a href="{{ collection.label | relative_url | append: '/' }}" class="stretched-link"></a>
 	</div>
 	{%- endif -%}
 	{%- endfor -%}
@@ -54,11 +54,11 @@
 	{%- for artist in site.artist -%}
 	<div class="col position-relative d-flex align-items-center">
 		{%- if artist.icon -%}
-		<img class="float-start me-2" width="52" height="52" src="{{ '/PoiTimeLine/assets/icon/' | append: artist.icon }}">
+		<img class="float-start me-2" width="52" height="52" src="{{ '/assets/icon/' | relative_url | append: artist.icon }}">
 		{% else %}
 		<div class="d-flex align-items-center justify-content-center flex-shrink-0 me-2" style="width: 52px; height: 52px;"><svg xmlns="http://www.w3.org/2000/svg"  width="32" height="32" fill="currentColor" class="bi bi-person-fill float-start" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/></svg></div>
 		{%- endif -%}
-		<a class="stretched-link text-break" style="text-decoration: none;" href="{{ '/PoiTimeLine/artist/' | append: artist.slug }}">{{ artist.nickname }}</a>
+		<a class="stretched-link text-break" style="text-decoration: none;" href="{{ '/artist/' | relative_url | append: artist.slug }}">{{ artist.nickname }}</a>
 	</div>
 	{%- endfor -%}
 </div>
