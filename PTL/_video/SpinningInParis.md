@@ -1,0 +1,4 @@
+---
+name: SpinningInParis
+layout: video
+...

@@ -1,4 +1,4 @@
 ---
-name: SpinninginParis
+name: Meenik
 layout: video
 ...

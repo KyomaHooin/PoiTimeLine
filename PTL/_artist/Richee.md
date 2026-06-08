@@ -1,10 +1,10 @@
 ---
 nickname: Richee
-name: RichrdBrun
+name: Richard Bruna
 hop: '1284'
 icon: 1284.jpg
-location: Czechi
-group: TriboFuego
+location: Czechia
+group: Tribo Fuego
 meta:
 - kyomhooin.github.io
 ...
