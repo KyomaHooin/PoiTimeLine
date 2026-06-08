@@ -31,7 +31,7 @@
 
 <main class="my-4 mx-1">
 
-<img class="img-fluid mx-auto my-4 d-block" src="/PoiTimeLine/assets/community.gif">
+<a href="{{ relative_url }}"><img class="img-fluid mx-auto my-4 d-block" src="{{ '/assets/community.gif' | relative_url }}"></a>
 
 <p class="text-light text-center my-4"><u>Poi Time Line</u></p>
 <p class="text-light text-center my-2">Archive of Poi spinning era between 2001-2007.</p>
@@ -42,7 +42,7 @@
 		<div class="col col-md-3 position-relative">
 		<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-folder-fill" viewBox="0 0 16 16"><path d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z"/></svg>
 		<span class="text-light align-bottom">{{ collection.label | capitalize }}</span>
-		<a href="{{ '/PoiTimeLine/' | append: collection.label | append: '/' }}" class="stretched-link"></a>
+		<a href="{{ collection.label | relative_url | append: '/' }}" class="stretched-link"></a>
 		</div>
 	{%- endif -%}
 	{%- endfor -%}
@@ -54,7 +54,7 @@
 {%- for group in site.group -%}
 	<div class="col position-relative d-flex align-items-center">
 	<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-people-fill float-start flex-shrink-0 me-2" viewBox="0 0 16 16"><path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/></svg>
-	<a class="stretched-link text-break" style="text-decoration: none;" href="{{ '/PoiTimeLine/group/' | append: group.slug }}">{{ group.name }}</a>
+	<a class="stretched-link text-break" style="text-decoration: none;" href="{{ '/group/' | relative_url | append: group.slug }}">{{ group.name }}</a>
 	</div>
 {%- endfor -%}
 </div>
