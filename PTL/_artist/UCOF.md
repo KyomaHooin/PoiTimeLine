@@ -1,8 +1,9 @@
 ---
 nickname: UCOF
 altname:
-- United Chains Of FireUmbiliciform Crater On Face
-name: Jonathan a. k.
+- United Chains Of Fire
+- Umbiliciform Crater On Face
+name: Jonathan ?.
 hop: '1881'
 icon: 1881.jpg
 picture: jak_2001.jpg
