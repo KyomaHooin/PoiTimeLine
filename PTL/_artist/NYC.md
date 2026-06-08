@@ -1,6 +1,6 @@
 ---
 nickname: NYC
-name: Matt Morgano
+name: Matthew Morgano
 hop: '552'
 icon: 552.jpg
 video:
