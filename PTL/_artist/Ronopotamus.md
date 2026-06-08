@@ -1,6 +1,7 @@
 ---
 nickname: Ronopotamus
-name: Roanan McLaughlin
+name: "R\xF3nan McLoughlin"
 hop: '946'
 icon: 946.gif
+picture: ronan.png
 ...
