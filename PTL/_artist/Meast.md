@@ -1,9 +1,8 @@
 ---
-nickname: Imakokode
-hop: '19049'
-icon: 19049.jpg
+nickname: Meast
+name: Romain Marguaritte
 video:
-- BCC
+- Meast
 location: Paris, FR
 group: Burn Crew Concept
 ...
