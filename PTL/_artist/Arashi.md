@@ -5,8 +5,10 @@ altname:
 name: '?'
 hop: '1678'
 icon: 1678.jpg
+video:
+- Arashi
 location: ustin,TX,US
-group: SngreDelSol
+group: Sangre Del Sol
 meta:
-- sangredelsol.com
+- sangredelsol.us
 ...
