@@ -2,7 +2,7 @@
 
 DESCRIPTION
 
-Early Poi spinning documentation project toolkit and site.
+Early Poi spinning documentation project Qt6 toolkit and Jekyll site.
 
 INSTALL
 <pre>
@@ -10,21 +10,19 @@ apt-get install ffmpeg python3-yaml python3-pyqt6 python3-vlc
 </pre>
 FILE
 <pre>
-assets/ .......... icon,spnashot, image assets
-_data/video/ ..... JSON data files
-PTL/_diretory/ ... YML collections
-
-PTL.py ........... Metadata Qt6 toolkit GUI (non-root)
-backend.sh ....... Copy PTL toolkit structure to frontend
-screen.jpg ....... PTL Toolkit Screen
-README.md ........ README 
+PTL/ .......... YML collections
+assets/ ....... icon,spnashot, image assets
+_data/video ... JSON data files
+PTL.py ........ Metadata Qt6 toolkit GUI (non-root)
+backend.sh .... Copy toolkit data to website structure.
+screen.jpg .... Qt6 toolkit screen
 </pre>
 TODO
 <pre>
-- frontend:
-   Resize icon (52x52 + drop html code) + screen + picture: mogrify -resize 320x224\! *.png
-- backend:
-  player.pause() player.stop() blocking wait
+frontend:
+- mogrify -resize 320x224\! *.png
+backend:
+- player.pause() player.stop() blocking wait
 </pre>
 EXTRA
 <pre>

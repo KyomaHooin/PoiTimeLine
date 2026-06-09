@@ -55,8 +55,10 @@
 
 {%- assign video_source = page.name -%}
 {%- assign carousel_id = 1 -%}
+
 {%- for video_file_hash in site.data.video[video_source] -%}
 {%- assign video_file = video_file_hash[1] -%}
+{%- if video_file.screenshot >= 1 -%}
 
 <div class="row my-4">
 <div class="col text-light" style="background-color: black;">
@@ -138,6 +140,64 @@
 </div>
 </div>
 
+{%- endif -%}
+{%- assign carousel_id = carousel_id | plus: 1 -%}
+{%- endfor -%}
+
+{%- for video_file_hash in site.data.video[video_source] -%}
+{%- assign video_file = video_file_hash[1] -%}
+{%- unless video_file.screenshot >= 1 -%}
+
+<div class="row my-4">
+<div class="col text-light" style="background-color: black;">
+	<h4 class="my-4"><u>{{ video_file.name }}</u></h4>
+
+	<table class="table w-auto align-top mb-4 table-dark table-borderless table-sm">
+		<tbody>
+		{%- if video_file.date -%}
+			<tr><td>Date:</td><td>{{ video_file.date }}</td></tr>
+		{%- endif -%}
+		{%- if video_file.filesize -%}
+			<tr><td>Size:</td><td>{{ video_file.filesize }}</td></tr>
+		{%- endif -%}
+		{%- if video_file.duration -%}
+			<tr><td>Duraion:</td><td>{{ video_file.duration }}</td></tr>
+		{%- endif -%}
+		{%- if video_file.music -%}
+			<tr><td>Music:</td><td>
+			{%- for song in video_file.music -%}
+				<span>{{ song }}</span><br>
+			{%- endfor -%}
+			</td></tr>
+		{%- endif -%}
+		{%- if video_file.artist -%}
+			<tr><td>Artist:</td><td>
+			{%- for artist in video_file.artist -%}
+				{%- if artist_all contains artist -%}
+					{%- assign artist_match = site.artist | where: "nickname", artist | first -%}
+					<span><a href="{{ '/artist/' | relative_url | append: artist_match.slug }}">{{ artist }}</a></span><br>
+				{%-elsif group_all contains artist -%}
+					{%- assign group_match = site.group | where: "name", artist | first -%}
+					<span><a href="{{ '/group/' | relative_url | append: group_match.slug }}">{{ artist }}</a></span><br>
+				{%- else -%}
+					<span>{{ artist }}</span><br>
+				{%- endif -%}
+			{%- endfor -%}
+			</td></tr>
+		{%- endif -%}
+		{%- if video_file.meta -%}
+			<tr><td>Meta:</td><td>
+			{%- for meta in video_file.meta -%}
+				<span>{{ meta }}</span><br>
+			{%- endfor -%}
+			</td></tr>
+		{%- endif -%}
+		</tbody>
+	</table>
+</div>
+</div>
+
+{%- endunless -%}
 {%- assign carousel_id = carousel_id | plus: 1 -%}
 {%- endfor -%}
 

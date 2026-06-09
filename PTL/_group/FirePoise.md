@@ -1,5 +1,5 @@
 ---
-name: FirePoise
+name: Fire Poise
 artist:
 - Clare Palmer
 - Lisa Dunne

@@ -1,7 +1,6 @@
 ---
 nickname: Le Skunk
 altname:
-- TaylahDV
 - Skunk from Snowy
 name: Dan ?
 hop: '260'
