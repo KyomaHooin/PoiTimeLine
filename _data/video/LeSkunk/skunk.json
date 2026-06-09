@@ -1,7 +1,17 @@
 {
     "name": "skunk.mov",
-    "filesize": "1.7M",
+    "screenshot": [
+        "AJBKM-ORQXI-BLDVL.jpg",
+        "T3PKE-0PNYG-C8TGC.jpg",
+        "MBA3S-3C092-TTZB4.jpg"
+    ],
+    "date": "11.01.2001",
+    "duration": "01:59",
     "artist": [
         "Le Skunk"
+    ],
+    "meta": [
+        "FlambeVolupte",
+        "Skun From Snowy NYC"
     ]
 }

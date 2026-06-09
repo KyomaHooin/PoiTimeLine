@@ -3,6 +3,7 @@ nickname: UCOF
 altname:
 - United Chains Of Fire
 - Umbiliciform Crater On Face
+- 'Untimely Calculations Often Fail   '
 name: Jonathan ?.
 hop: '1881'
 icon: 1881.jpg

@@ -5,5 +5,6 @@ hop: '829'
 icon: 829.jpg
 picture: drew.jpg
 meta:
+- "You can go the ball.."
 - www.ministryofmanipulation.com
 ...
