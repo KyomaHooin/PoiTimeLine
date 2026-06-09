@@ -568,25 +568,27 @@ class MainWindow(QMainWindow):
 					fn_base = BASE + '/YAML/video/' + os.path.basename(os.path.dirname(fn))
 					os.makedirs(fn_base, exist_ok=True)
 					fn = fn_base + '/' + re.sub(r'[\'\-!?.+ \[\]\]\(\)]+', '', os.path.splitext(self.video_name_text.text())[0]) + '.json'
-		if not os.path.isfile(fn):
-			match self.tab.currentIndex():
-				case 0 | 1:
-					fn, _ = QFileDialog.getSaveFileName(self, "Save File", fn_base, "MD (*.md)")
-					if os.path.splitext(fn)[1] != '.md': fn = fn + '.md'
-				case 2:
-					fn, _ = QFileDialog.getSaveFileName(self, "Save File", fn_base, "JSON (*.json)")
-					if os.path.splitext(fn)[1] != '.json': fn = fn + '.json'
 
-		with open(fn, 'w') as f:
-			try:
+		if fn:
+			if not os.path.isfile(fn):
 				match self.tab.currentIndex():
 					case 0 | 1:
-						f.write(safe_dump(data, sort_keys=False, explicit_start=True, explicit_end=True))
+						fn, _ = QFileDialog.getSaveFileName(self, "Save File", fn_base, "MD (*.md)")
+						if os.path.splitext(fn)[1] != '.md': fn = fn + '.md'
 					case 2:
-						json.dump(data, f, indent=4)
-			except:
-				print("[error] Failed to write: " + fn)
-				return
+						fn, _ = QFileDialog.getSaveFileName(self, "Save File", fn_base, "JSON (*.json)")
+						if os.path.splitext(fn)[1] != '.json': fn = fn + '.json'
+		if data:
+			with open(fn, 'w') as f:
+				try:
+					match self.tab.currentIndex():
+						case 0 | 1:
+							f.write(safe_dump(data, sort_keys=False, explicit_start=True, explicit_end=True))
+						case 2:
+							json.dump(data, f, indent=4)
+				except:
+					print("[error] Failed to write: " + fn)
+					return
 
 	def PTL_close(self):
 		if self.player.is_playing():
