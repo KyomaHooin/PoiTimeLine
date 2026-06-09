@@ -58,7 +58,7 @@
 
 {%- for video_file_hash in site.data.video[video_source] -%}
 {%- assign video_file = video_file_hash[1] -%}
-{%- if video_file.screenshot >= 1 -%}
+{%- if video_file.screenshot.size >= 1 -%}
 
 <div class="row my-4">
 <div class="col text-light" style="background-color: black;">
@@ -89,6 +89,7 @@
 			<span class="visually-hidden">Next</span>
 		</button>
 	</div>
+	{%- assign carousel_id = carousel_id | plus: 1 -%}
 	{%- endif -%}
 	{%- if video_file.screenshot.size == 1 -%}
 	<img src="{{ '/assets/screen/' | relative_url |  append: video_file.screenshot.first }}" class="d-block w-100" alt="...">
@@ -141,12 +142,11 @@
 </div>
 
 {%- endif -%}
-{%- assign carousel_id = carousel_id | plus: 1 -%}
 {%- endfor -%}
 
 {%- for video_file_hash in site.data.video[video_source] -%}
 {%- assign video_file = video_file_hash[1] -%}
-{%- unless video_file.screenshot >= 1 -%}
+{%- unless video_file.screenshot.size >= 1 -%}
 
 <div class="row my-4">
 <div class="col text-light" style="background-color: black;">
@@ -198,7 +198,6 @@
 </div>
 
 {%- endunless -%}
-{%- assign carousel_id = carousel_id | plus: 1 -%}
 {%- endfor -%}
 
 </main>
