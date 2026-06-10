@@ -21,7 +21,10 @@ TODO
 <pre>
 frontend:
 - mogrify -resize 320x224\! *.png
+- artist list natural_sort
+- timeline
 backend:
+- horizontal scroll to snapshot preview
 - player.pause() player.stop() blocking wait
 </pre>
 EXTRA

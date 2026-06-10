@@ -1,4 +1,4 @@
 ---
 nickname: Poiboy
-name: sfmor
+name: Asaf Mor
 ...
