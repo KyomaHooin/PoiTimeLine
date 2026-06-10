@@ -1,0 +1,4 @@
+---
+name: Arashi
+layout: video
+...
