@@ -6,7 +6,7 @@ icon: 818.gif
 picture: meenik.png
 video:
 - Meenik
-location: Ontario, CA
+location: Vencouver, CA
 meta:
 - www.playpoi.com
 ...

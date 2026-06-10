@@ -6,4 +6,5 @@ picture: bender_2002.jpg
 location: Melbourne, AUT
 meta:
 - www.billa.cjb.net
+- www.spinferno.com
 ...

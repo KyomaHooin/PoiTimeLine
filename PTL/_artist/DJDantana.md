@@ -5,6 +5,7 @@ altname:
 name: Daniel Tyler
 hop: '4448'
 location: Stillwater, OK, US
+group: Flaming Sphere
 meta:
 - www.flamingsphere.homestead.com
 ...

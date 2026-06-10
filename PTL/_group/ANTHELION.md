@@ -10,5 +10,5 @@ artist:
 location: Boston, MA
 country: US
 meta:
-- filmed by Daniel Furst
+- filming by Daniel Furst
 ...
