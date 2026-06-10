@@ -1,4 +1,4 @@
 ---
-name: MagstheJedi
+name: DanielTyler
 layout: video
 ...

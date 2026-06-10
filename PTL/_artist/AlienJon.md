@@ -1,4 +1,4 @@
 ---
 nickname: Alien Jon
-name: Jon
+name: Jon Everett
 ...

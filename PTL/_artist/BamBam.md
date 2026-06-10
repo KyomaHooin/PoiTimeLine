@@ -1,0 +1,4 @@
+---
+nickname: BamBam
+name: Lisa
+...
