@@ -21,7 +21,7 @@ mkdir -p "$TARGET/_data/video/" 2>/dev/null
 mkdir -p "$TARGET/PTL/_artist/" 2>/dev/null
 mkdir -p "$TARGET/PTL/_group/" 2>/dev/null
 
-rsync -av --exclude '*.jpg' "$BASE/YAML/video/" "$TARGET/_data/video/"
+rsync -av --exclude '*.jpg' --exclude '*.mp3' "$BASE/YAML/video/" "$TARGET/_data/video/"
 rsync -av --exclude '*.jpg' --exclude '*.jpeg' --exclude '*.png' "$BASE/YAML/artist/" "$TARGET/PTL/_artist/"
 rsync -av --exclude '*.jpg' "$BASE/YAML/group/" "$TARGET/PTL/_group/"
 
