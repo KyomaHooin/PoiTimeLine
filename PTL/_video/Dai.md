@@ -1,0 +1,4 @@
+---
+name: Dai
+layout: video
+...
