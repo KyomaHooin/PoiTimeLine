@@ -4,9 +4,9 @@ artist:
 - "Kl\xE1ra \u010Cern\xE1"
 - "Jan Spurn\xFD"
 - "Miroslav L\xEDba"
-- "Jaroslav Jel\xEDnek"
 - "Hana Kub\xE1tov\xE1"
 - "Ji\u0159\xED Bab\u016Frek"
+- Richee
 - "Tereza \u0158eh\xE1kov\xE1"
 - "Lucie Tryskomy\u0161"
 - "Kor\xE1lek"

@@ -1,13 +1,22 @@
 {
     "name": "howto.avi",
     "screenshot": [
-        "4HKHX-9HC93-QPN1U.jpg"
+        "4HKHX-9HC93-QPN1U.jpg",
+        "P2RME-5QJXA-2CW68.jpg",
+        "UX07G-5E8UY-PJB8C.jpg",
+        "UBTUO-I8GRN-AKVP3.jpg"
     ],
     "date": "?",
     "filesize": "32.9M",
     "duration": "04:44",
+    "music": [
+        "Radiohead - Exit Music (For A Film)"
+    ],
     "artist": [
         "Bluecat",
         "PK"
+    ],
+    "meta": [
+        "www.poiinthepark.co.uk"
     ]
 }
