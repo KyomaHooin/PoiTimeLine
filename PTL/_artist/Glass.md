@@ -6,7 +6,7 @@ icon: 829.jpg
 picture: drew.jpg
 video:
 - Glass
-- Bluecat
+- TePooka
 meta:
 - '"You can go the ball.."'
 - www.ministryofmanipulation.com
