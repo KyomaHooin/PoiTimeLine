@@ -1,10 +1,11 @@
 ---
 nickname: UCOF
 altname:
-- United Chains Of Fire
 - Umbiliciform Crater On Face
-- 'Untimely Calculations Often Fail   '
-name: Jonathan ?.
+- Untimely Calculations Often Fail
+- Under Control Or Failure
+- Unbeaten Champion Of Fighting
+name: Jonathan ?
 hop: '1881'
 icon: 1881.jpg
 picture: jak_2001.jpg

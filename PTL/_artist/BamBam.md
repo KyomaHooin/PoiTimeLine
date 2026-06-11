@@ -1,4 +1,7 @@
 ---
 nickname: BamBam
-name: Lisa
+name: Lisa ?
+video:
+- UCOF
+- Simian
 ...

@@ -11,7 +11,7 @@ video:
 - Bluecat
 - TePooka
 location: everywhere
-group: TePooka
+group: Te Pooka
 meta:
 - robthorburn.co.uk
 - www.tepooka.org
