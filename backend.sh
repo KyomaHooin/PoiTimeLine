@@ -13,7 +13,7 @@ mkdir -p "$TARGET/assets/screen/" 2>/dev/null
 mkdir -p "$TARGET/assets/picture/" 2>/dev/null
 
 find "$BASE/YAML/video/" -type f -name "*.jpg" | xargs -iSNAP bash -c "cp SNAP $TARGET/assets/screen/"
-find "$BASE/YAML/artist/" -type f -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" | xargs -iPIC bash -c "cp PIC $TARGET/assets/picture/"
+rsync -av "$BASE/YAML/artist/" --exclude "*.md" "$TARGET/assets/picture/"
 
 # copy video, artist and group data
 

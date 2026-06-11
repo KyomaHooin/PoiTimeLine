@@ -10,17 +10,19 @@ apt-get install ffmpeg python3-yaml python3-pyqt6 python3-vlc
 </pre>
 FILE
 <pre>
-PTL/ .......... YML collections
-assets/ ....... icon,spnashot, image assets
-_data/video ... JSON data files
-PTL.py ........ Metadata Qt6 toolkit GUI (non-root)
-backend.sh .... Copy toolkit data to website structure.
-screen.jpg .... Qt6 toolkit screen
+PTL/ ........... YML collections
+assets/ ........ icon,spnashot, image assets
+_data/video/ ... JSON data files
+
+PTL.py ......... Metadata Qt6 toolkit GUI (non-root)
+backend.sh ..... Copy toolkit data to website structure.
+screen.jpg ..... Qt6 toolkit screen
 </pre>
 TODO
 <pre>
 frontend:
-- mogrify -resize 320x224\! *.png
+- 4448 ID collision
+- carousel placeholder
 - artist list natural_sort
 - timeline
 backend:
