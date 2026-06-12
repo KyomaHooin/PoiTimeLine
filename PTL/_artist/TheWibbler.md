@@ -6,5 +6,6 @@ picture: matt-terry.jpg
 location: AU
 meta:
 - www.spherculism.com
+- www.spherculism.net
 - flowarts.io
 ...
