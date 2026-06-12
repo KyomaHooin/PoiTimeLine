@@ -6,5 +6,5 @@ icon: 5315.jpg
 picture: rovo_2016.jpg
 group: Sangre Del Sol
 meta:
-- https://theoddpropshop.com
+- theoddpropshop.com
 ...

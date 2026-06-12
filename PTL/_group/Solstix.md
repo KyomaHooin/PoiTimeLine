@@ -6,4 +6,5 @@ artist:
 location: US, DE
 meta:
 - solstix.com
+- solstix.de
 ...
