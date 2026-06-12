@@ -2,6 +2,8 @@
 name: Rubber Heart
 artist:
 - The Antti
-- Suemella
+- Tommi Suomela
 country: FI
+meta:
+- www.rubberheart.com
 ...

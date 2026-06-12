@@ -8,6 +8,6 @@ artist:
 location: OK
 country: USA
 meta:
-- a division of Wildfre Entertainment
+- division of Wildfire Entertainment
 - www.flamingsphere.homestead.com
 ...

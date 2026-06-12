@@ -9,7 +9,7 @@ video:
 location: FI
 group: Rubber Heart
 meta:
-- www.rubberheart.com
-- rubberheat.fi
+- antti.rubberheart.com
+- rubberheart.fi
 - hp.ms/agon
 ...
