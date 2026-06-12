@@ -3,7 +3,7 @@ nickname: DJ Dantana
 altname:
 - Wrap Master Funk
 name: Daniel Tyler
-hop: '4448'
+hop: '523'
 video:
 - DanielTyler
 location: Stillwater, OK, US
