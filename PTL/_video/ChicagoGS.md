@@ -1,0 +1,4 @@
+---
+name: ChicagoGS
+layout: video
+...
