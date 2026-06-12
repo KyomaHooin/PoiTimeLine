@@ -1,5 +1,5 @@
 ---
 nickname: Yo
-name: Lili Yo
+name: Lilia Yotova
 group: Divinitas
 ...

@@ -6,5 +6,6 @@ icon: 1284.jpg
 location: Prague, CZ
 group: Tribo Fuego
 meta:
-- kyomhooin.github.io
+- kyomahooin.github.io
+- valur.us
 ...

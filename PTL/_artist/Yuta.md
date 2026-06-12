@@ -6,7 +6,7 @@ icon: 6811.jpg
 picture: yuta.jpg
 video:
 - Yuta
-location: Tokyo, JP
+location: "\u5BAE\u5D0E\u5E02, Tokyo, JP"
 meta:
 - poicommunity.nobody.jp
 - www.poicommunity.com

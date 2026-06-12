@@ -2,7 +2,7 @@
 
 DESCRIPTION
 
-Early Poi spinning documentation project Qt6 toolkit and Jekyll site.
+Early Poi spinning documentation project.
 
 INSTALL
 <pre>
@@ -11,17 +11,16 @@ apt-get install ffmpeg python3-yaml python3-pyqt6 python3-vlc
 FILE
 <pre>
 PTL/ ........... YML collections
-assets/ ........ HOP icons,snapshots, images
+assets/ ........ HOP icons, snapshots, images
 _data/video/ ... JSON data files
 
 PTL.py ......... Metadata Qt6 toolkit GUI (non-root)
-backend.sh ..... Copy toolkit data to website structure.
+backend.sh ..... Copy toolkit data to website structure
 screen.jpg ..... Qt6 toolkit screen
 </pre>
 TODO
 <pre>
 frontend:
-- 4448 ID collision
 - carousel placeholder
 - artist list natural_sort
 - timeline
