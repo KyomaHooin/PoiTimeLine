@@ -11,7 +11,7 @@ apt-get install ffmpeg python3-yaml python3-pyqt6 python3-vlc
 FILE
 <pre>
 PTL/ ........... YML collections
-assets/ ........ icon,spnashot, image assets
+assets/ ........ HOP icons,snapshots, images
 _data/video/ ... JSON data files
 
 PTL.py ......... Metadata Qt6 toolkit GUI (non-root)
@@ -27,7 +27,7 @@ frontend:
 - timeline
 backend:
 - detect "\r\n"
-- horizontal scroll to snapshot preview
+- snapshot preview horizontal scroll
 - player.pause() player.stop() blocking wait
 </pre>
 EXTRA
@@ -37,8 +37,6 @@ https://codyhouse.co/gem/vertical-timeline/
 http://www.homeofpoi.com/ubbthreads/images/users/796.jpg
 https://web.archive.org/web/20061214070131/http://www.homeofpoi.com/ubbthreads/showprofile.php?Cat=0&User=1571
 https://aha-music.com/upload
-
-Tempest (Liam), Rumplestiltskin (Nathan), Phat Boy (Aiden Tempest) Cheshire UK
 </pre>
 
 SOURCE
