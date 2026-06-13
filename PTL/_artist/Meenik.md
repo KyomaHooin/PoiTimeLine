@@ -7,6 +7,7 @@ picture: meenik.png
 video:
 - Meenik
 - Yuta
+- Spherculist
 location: Vencouver, CA
 meta:
 - www.playpoi.com
