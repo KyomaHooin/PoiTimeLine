@@ -5,6 +5,7 @@ altname:
 name: Joseph Donyo
 hop: '72'
 icon: 72.jpg
+picture: nomad.jpg
 video:
 - Nomad
 - LeSkunk

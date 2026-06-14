@@ -25,6 +25,7 @@ frontend:
 - artist list natural_sort
 - timeline
 backend:
+- group image
 - detect "\r\n"
 - snapshot preview horizontal scroll
 - player.pause() player.stop() blocking wait
