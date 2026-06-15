@@ -25,6 +25,8 @@ frontend:
 - artist list natural_sort
 - timeline
 backend:
+- date from SW version
+- "black and blue" permission
 - group image
 - detect "\r\n"
 - snapshot preview horizontal scroll
