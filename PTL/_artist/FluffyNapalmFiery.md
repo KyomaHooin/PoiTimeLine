@@ -1,5 +1,5 @@
 ---
-nickname: FluffyNapalmFiery
+nickname: Fluffy Napalm Fiery
 altname:
 - FNF
 name: Ros Vitkovich

@@ -1,0 +1,4 @@
+---
+name: Play
+layout: video
+...
