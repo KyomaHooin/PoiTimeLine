@@ -425,6 +425,8 @@ class MainWindow(QMainWindow):
 				self.video_music_text.setPlainText('')
 				self.video_artist_text.setPlainText('')
 				self.video_meta_text.setPlainText('')
+				self.video_GetAudioStartEdit.setText('00:00:00')
+				self.video_GetAudioEndEdit.setText('00:00:00')
 
 	def file_find(self, name):
 		for root, dirs, files in os.walk(BASE + '/VIDEO/'):
