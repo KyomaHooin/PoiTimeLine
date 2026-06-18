@@ -22,13 +22,14 @@ TODO
 <pre>
 frontend:
 - carousel placeholder
+- carousel helper arrows position
 - artist list natural_sort
 - timeline
 backend:
 - date from SW version
 - "black and blue" permission
 - group image
-- detect "\r\n"
+- detect "\r\n" "\n"
 - snapshot preview horizontal scroll
 - player.pause() player.stop() blocking wait
 </pre>
