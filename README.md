@@ -13,9 +13,7 @@ FILE
 PTL/ ........... YML collections
 assets/ ........ HOP icons, snapshots, images
 _data/video/ ... JSON data files
-
 PTL.py ......... Metadata Qt6 toolkit GUI (non-root)
-backend.sh ..... Copy toolkit data to website structure
 screen.jpg ..... Qt6 toolkit screen
 </pre>
 TODO
