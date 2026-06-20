@@ -9,6 +9,7 @@ picture: nomad.jpg
 video:
 - Nomad
 - LeSkunk
+- SpinningInParis
 location: Paris, FR, Somerville, MA, USA
 group: A.N.T.H.E.L.I.O.N
 meta:
