@@ -14,7 +14,6 @@ PTL/ ........... YML collections
 assets/ ........ HOP icons, snapshots, images
 _data/video/ ... JSON data files
 PTL.py ......... Metadata Qt6 toolkit GUI (non-root)
-screen.jpg ..... Qt6 toolkit screen
 </pre>
 TODO
 <pre>
@@ -33,11 +32,10 @@ backend:
 </pre>
 EXTRA
 <pre>
-https://jquery-plugins.net/building-vertical-timeline-with-css-and-javascript
-https://codyhouse.co/gem/vertical-timeline/
 http://www.homeofpoi.com/ubbthreads/images/users/796.jpg
 https://web.archive.org/web/20061214070131/http://www.homeofpoi.com/ubbthreads/showprofile.php?Cat=0&User=1571
 https://aha-music.com/upload
+https://songfinder.gg/
 </pre>
 
 SOURCE
