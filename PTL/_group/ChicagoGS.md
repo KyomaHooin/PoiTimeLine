@@ -1,6 +1,7 @@
 ---
 name: Chicago GS
 artist:
+- Amith
 - Myron
 - Scootch
 - Bryan
