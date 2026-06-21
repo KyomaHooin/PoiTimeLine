@@ -94,7 +94,7 @@
 	{%- if video_file.screenshot.size == 1 -%}
 	<img src="{{ '/assets/screen/' | relative_url |  append: video_file.screenshot.first }}" class="d-block w-100" alt="...">
 	{%- endif -%}
-	<h4 class="my-4"><u>{{ video_file.name }}</u></h4>
+	<h4 class="my-4 text-break"><u>{{ video_file.name }}</u></h4>
 
 	<table class="table w-auto align-top mb-4 table-dark table-borderless table-sm">
 		<tbody>
@@ -150,7 +150,7 @@
 
 <div class="row my-2">
 <div class="col text-light" style="background-color: black;">
-	<h4 class="my-4"><u>{{ video_file.name }}</u></h4>
+	<h4 class="my-4 text-break"><u>{{ video_file.name }}</u></h4>
 
 	<table class="table w-auto align-top mb-4 table-dark table-borderless table-sm">
 		<tbody>
