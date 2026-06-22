@@ -26,7 +26,7 @@ backend:
 - date from SW version
 - "black and blue" permission
 - group image
-- detect "\r\n" "\n"
+- detect "\r\n", "\n", " "
 - snapshot preview horizontal scroll
 - player.pause() player.stop() blocking wait
 </pre>
