@@ -5,6 +5,7 @@ artist:
 - Jedi White
 - Billy
 - Tyler Smith
+- Dio
 location: OK
 country: USA
 meta:
