@@ -7,6 +7,9 @@ name: Meghan Claire Pike
 hop: '4704'
 icon: 4704.jpg
 picture: mcp.jpg
+video:
+- mcp
+- UberEvent
 meta:
 - www.stafftutorials.co.uk
 - mcp.firestaff.net

@@ -10,6 +10,7 @@ picture: bluecat.jpg
 video:
 - Bluecat
 - TePooka
+- UberEvent
 location: everywhere
 group: Te Pooka
 meta:
