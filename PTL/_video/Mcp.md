@@ -1,4 +1,0 @@
----
-name: Mcp
-layout: video
-...
