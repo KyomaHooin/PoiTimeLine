@@ -1,0 +1,4 @@
+---
+name: SpinnachSession
+layout: video
+...

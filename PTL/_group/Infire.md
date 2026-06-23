@@ -1,7 +1,7 @@
 ---
 name: Infire
 artist:
-- Werner
+- Werner Pankart
 - Claudia
 - Fratl
 - Laura
