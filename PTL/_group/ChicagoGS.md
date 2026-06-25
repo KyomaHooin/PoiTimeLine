@@ -5,8 +5,10 @@ artist:
 - Myron
 - Scootch
 - Bryan
-- Wayne
-- Wes
-- Will
+- Wayne(tamwoof21)
+- Wes(mixinluv2u)
+- Will(William Shih)
 - MadRaverRai
+meta:
+- glowsticking.org
 ...
