@@ -21,7 +21,6 @@ frontend:
 - carousel placeholder
 - carousel helper arrows position
 - artist list natural_sort
-- timeline
 backend:
 - date from SW version
 - "black and blue" permission
