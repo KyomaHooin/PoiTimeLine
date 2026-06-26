@@ -60,12 +60,14 @@
 
 {%- for video_file_hash in site.data.video -%}
 {%- assign video_file = video_file_hash[1] -%}
+	{{ video_file.name }}
+	{{ video_file.date }}
 	{%- if video_file.date contains '2001' -%}
 		{%- assign ttone = ttone | plus: 1 -%}
 	{%- elsif video_file.date contains '2002' -%}
 		{%- assign tttwo = tttwo | plus: 1 -%}
 	{%- elsif video_file.date contains '2003' -%}
-		{%- assign ttthree = tthree | plus: 1 -%}
+		{%- assign ttthree = ttthree | plus: 1 -%}
 	{%- elsif video_file.date contains '2004' -%}
 		{%- assign ttfour = ttfour | plus: 1 -%}
 	{%- elsif video_file.date contains '2005' -%}
