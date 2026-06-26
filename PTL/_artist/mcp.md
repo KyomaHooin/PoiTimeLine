@@ -10,6 +10,7 @@ picture: mcp.jpg
 video:
 - mcp
 - UberEvent
+- Play
 meta:
 - www.stafftutorials.co.uk
 - mcp.firestaff.net

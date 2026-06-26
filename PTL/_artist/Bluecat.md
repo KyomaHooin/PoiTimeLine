@@ -11,6 +11,7 @@ video:
 - Bluecat
 - TePooka
 - UberEvent
+- Play
 location: everywhere
 group: Te Pooka
 meta:

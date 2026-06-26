@@ -8,6 +8,7 @@ icon: 1055.jpg
 video:
 - FNF
 - Oli
+- Play
 meta:
 - www.inspinerate.com
 ...
