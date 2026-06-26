@@ -60,7 +60,7 @@
 
 {%- for video_file_hash in site.data.video -%}
 {%- assign video_file = video_file_hash[1] -%}
-	{{ video_file.name }}
+	<p>{{ video_file }}</p>
 	{{ video_file.date }}
 	{%- if video_file.date contains '2001' -%}
 		{%- assign ttone = ttone | plus: 1 -%}
