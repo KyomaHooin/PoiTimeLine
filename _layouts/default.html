@@ -59,8 +59,11 @@
 {%- assign ttseven = 0 -%}
 
 {%- for video_file_dir in site.data.video -%}
+	{{ video_file_dir }}
 {%- for video_file_hash in video_file_dir -%}
-{%- assign video_file = video_file_hash[1] -%}
+	{{ video_file_hash }}
+	{%- assign video_file = video_file_hash[1] -%}
+	{{ video_file }}
 	{%- if video_file.date contains '2001' -%}
 		{%- assign ttone = ttone | plus: 1 -%}
 	{%- elsif video_file.date contains '2002' -%}
