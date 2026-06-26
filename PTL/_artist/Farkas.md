@@ -2,7 +2,7 @@
 nickname: Farkas
 name: Linda Farkas
 location: HU
-group: firebirds.hu
+group: Magma Firetheater
 meta:
-- Magma Firetheater
+- firebirds.hu
 ...
