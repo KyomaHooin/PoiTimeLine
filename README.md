@@ -18,14 +18,12 @@ PTL.py ......... Metadata Qt6 toolkit GUI (non-root)
 TODO
 <pre>
 frontend:
-- carousel placeholder
-- carousel helper arrows position
+- carousel/image placeholder
 - artist list natural_sort
 backend:
 - date from SW version
-- "black and blue" permission
-- group image
-- detect "\r\n", "\n", " "
+- group image ?
+- detect "\r\n", "\n", " ", ""
 - snapshot preview horizontal scroll
 - player.pause() player.stop() blocking wait
 </pre>
