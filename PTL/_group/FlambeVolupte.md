@@ -2,7 +2,7 @@
 name: Flambe Volupte
 artist:
 - Le Skunk
-- Heatha Featha
+- Heatha Featha (Heather Sprance)
 - ICoN
 - Denise Denise
 - Reagan
