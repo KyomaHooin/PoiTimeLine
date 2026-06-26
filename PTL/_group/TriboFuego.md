@@ -21,7 +21,7 @@ artist:
 - 0johnny0
 - Zubr
 - Alef
-location: Prague
+location: Praha
 country: CZ
 meta:
 - tribofuego.org
