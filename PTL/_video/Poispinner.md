@@ -1,4 +1,0 @@
----
-name: Poispinner
-layout: video
-...
