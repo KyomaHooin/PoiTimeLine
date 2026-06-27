@@ -17,7 +17,7 @@ artist:
 - Lil Stringer(Mauricio)
 - Illuzion(Jesse)
 - Lil Rigbs (Jay Jay)
-location: San Antonio
+location: San Antonio, TX
 country: US
 meta:
 - www.stringepeople.com
