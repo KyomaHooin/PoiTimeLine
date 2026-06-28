@@ -8,7 +8,7 @@ hop: '4889'
 icon: 4889.jpg
 video:
 - Benjamen
-location: adelaide
+location: Adelaide, AU
 meta:
 - www.soton-firespinning.co.uk
 ...

@@ -1,5 +1,8 @@
 ---
 nickname: PK
+altname:
+- Trait of One Eleven Two
+- Lambretta
 name: John Walklate
 hop: '1107'
 icon: 1107.gif
@@ -12,5 +15,4 @@ location: Edinburg, Scotland
 meta:
 - poiinthepark.biz
 - poiinthepark.co.uk
-- Lambretta
 ...

@@ -14,7 +14,7 @@ artist:
 - Leo
 - Aero (Adrian)
 - Litez (Raymond)
-- Lil Stringer(Mauricio)
+- Lil Stringer (Mauricio)
 - Illuzion(Jesse)
 - Lil Rigbs (Jay Jay)
 location: San Antonio, TX
