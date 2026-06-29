@@ -34,7 +34,7 @@
 <a href="{{ '/' | relative_url }}"><img class="img-fluid mx-auto my-4 d-block" src="{{ '/assets/community.gif' | relative_url }}" alt="community.gif"></a>
 
 <p class="text-light text-center my-4"><u>Poi Time Line</u></p>
-<p class="text-light text-center my-2">Archive of Poi spinning era between 2001-2007.</p>
+<p class="text-light text-center my-2">Archive of Poi spinning era between 2001-2006.</p>
 
 <div class="row my-4 d-flex justify-content-center">
 	{%- for collection in site.collections -%}
@@ -56,7 +56,6 @@
 {%- assign tt_four = 0 -%}
 {%- assign tt_five = 0 -%}
 {%- assign tt_six = 0 -%}
-{%- assign tt_seven = 0 -%}
 
 {%- for video_file_dir in site.data.video -%}
 {%- for video_file_hash in video_file_dir[1] -%}
@@ -73,8 +72,6 @@
 		{%- assign tt_five = tt_five | plus: 1 -%}
 	{%- elsif video_file.date contains '2006' -%}
 		{%- assign tt_six = tt_six | plus: 1 -%}
-	{%- elsif video_file.date contains '2007' -%}
-		{%- assign tt_seven = tt_seven | plus: 1 -%}
 	{%- endif -%}
 {%- endfor -%}
 {%- endfor -%}
@@ -110,11 +107,6 @@
 	<div class="squared"></div>
 {%- endfor -%}
 </div>
-<div class="col p-1 d-flex flex-wrap-reverse gap-1 align-content-start justify-content-center">
-{%- for i in (1..tt_seven) -%}
-	<div class="squared"></div>
-{%- endfor -%}
-</div>
 </div>
 
 <div class="row mb-5 mx-1 mx-md-4 d-flex justify-content-center">
@@ -124,7 +116,6 @@
 	<div class="col px-1 text-light text-center">2004</div>
 	<div class="col px-1 text-light text-center">2005</div>
 	<div class="col px-1 text-light text-center">2006</div>
-	<div class="col px-1 text-light text-center">2007</div>
 </div>
 
 <p class="text-light text-left my-2">DISCLAIMER: This archive is not complete and may include mistakes. No trick or promo videos. For contact please use Github <a target="_blank" href="https://github.com/KyomaHooin/PoiTimeLine/issues">issues</a>.</p>
