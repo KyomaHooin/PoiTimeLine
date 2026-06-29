@@ -1,7 +1,8 @@
 ---
-nickname: Enthogen
+nickname: Entheogen
 name: Valerie Ann Sealey
-picture: enthogen.jpg
+hop: '17375'
+picture: entheogen.jpg
 location: California, US
 group: Solstix
 ...

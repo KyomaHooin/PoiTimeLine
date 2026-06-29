@@ -1,5 +1,5 @@
 ---
-nickname: Moore
+nickname: Zan
 name: Zan Moore
 hop: '13383'
 location: US

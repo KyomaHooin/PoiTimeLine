@@ -2,7 +2,7 @@
 name: Solstix
 artist:
 - Dyffort
-- Enthogen
+- Entheogen
 location: US, DE
 meta:
 - solstix.com

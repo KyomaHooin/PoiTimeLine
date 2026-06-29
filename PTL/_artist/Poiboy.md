@@ -1,7 +1,7 @@
 ---
 nickname: Poiboy
 altname:
-- _poiboy_
+- _Poiboy_
 name: Asaf Mor
 hop: '6552'
 location: Raanana, Israel
