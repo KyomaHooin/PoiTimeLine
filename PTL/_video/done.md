@@ -1,4 +1,0 @@
----
-name: done
-layout: video
-...

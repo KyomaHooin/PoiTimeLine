@@ -2,7 +2,7 @@
 nickname: Le Skunk
 altname:
 - Skunk from Snowy
-name: Dan ?
+name: Dan ? (Daniel Holler)
 hop: '260'
 picture: skunk_claire_2014.jpg
 video:
