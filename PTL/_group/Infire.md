@@ -10,4 +10,5 @@ artist:
 country: AT
 meta:
 - www.infire.at
+- www.fieryarts.net
 ...
