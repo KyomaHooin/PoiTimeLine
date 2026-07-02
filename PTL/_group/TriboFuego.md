@@ -2,18 +2,18 @@
 name: Tribo Fuego
 artist:
 - "Kl\xE1ra \u010Cern\xE1"
-- "Jan Spurn\xFD"
-- "Miroslav L\xEDba"
-- "Hana Kub\xE1tov\xE1"
-- "Ji\u0159\xED Bab\u016Frek"
+- "Dr\xE1tek (Jan Spurn\xFD)"
+- "Glum (Miroslav L\xEDba)"
+- "Mionka (Hana Kub\xE1tov\xE1)"
+- "Tule\u0148 (Ji\u0159\xED Bab\u016Frek)"
 - Richee
-- "Tereza \u0158eh\xE1kov\xE1"
-- "Lucie Tryskomy\u0161"
-- "Kor\xE1lek"
+- "Tess (Tereza \u0158eh\xE1kov\xE1)"
+- "Tryskomy\u0161 (Lucie)"
+- "Kor\xE1lek (Michal)"
 - Smeries
 - Kiess
-- "David Sla\u010D\xE1lek"
-- "Linda Mykol\xE1\u0161kov\xE1"
+- "TRaven (David Sla\u010D\xE1lek)"
+- "Lindu\u0161ka (Linda Mykol\xE1\u0161kov\xE1)"
 - Rad
 - Jazzz
 - Mower
