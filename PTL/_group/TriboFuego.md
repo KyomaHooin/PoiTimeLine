@@ -1,7 +1,7 @@
 ---
 name: Tribo Fuego
 artist:
-- "Kl\xE1ra \u010Cern\xE1"
+- "Amaeba (Kl\xE1ra \u010Cern\xE1)"
 - "Dr\xE1tek (Jan Spurn\xFD)"
 - "Glum (Miroslav L\xEDba)"
 - "Mionka (Hana Kub\xE1tov\xE1)"
@@ -12,7 +12,7 @@ artist:
 - "Kor\xE1lek (Michal)"
 - Smeries
 - Kiess
-- "TRaven (David Sla\u010D\xE1lek)"
+- "T-Raven (David Sla\u010D\xE1lek)"
 - "Lindu\u0161ka (Linda Mykol\xE1\u0161kov\xE1)"
 - Rad
 - Jazzz
