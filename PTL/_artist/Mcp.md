@@ -12,7 +12,10 @@ video:
 - UberEvent
 - Play
 meta:
+- www.firestaff-tutorials.co.uk
 - www.stafftutorials.co.uk
 - mcp.firestaff.net
+- lab.firestaff.net
+- mcp.tepookatoys.com
 - void.printf.net/~meghan/
 ...
