@@ -1,7 +1,25 @@
 {
     "name": "leed2-large.wmv",
+    "screenshot": [
+        "TBEMO-MYLQA-WRE9M.jpg",
+        "IBA8N-NDRY7-FCNUM.jpg",
+        "W0IJA-0VO4I-CCP39.jpg",
+        "YN1DX-MOXHI-4VV71.jpg",
+        "L3UL1-NR3LV-FSU1T.jpg"
+    ],
     "filesize": "227.3M",
     "duration": "28:12",
+    "music": [
+        "Deltron 3030 - Things You Can Do",
+        "Beethoven - Symphony No. 9 in D Minor",
+        "Jacques Brel - La valse \u00e0 Mille temps",
+        "Balkan Beat Box - Adir Adirim",
+        "Steinski - Greatest Man Alive",
+        "Red Snapper - In Deep",
+        "Monkey Mafia - Make Jah Music",
+        "RJD2 - Ghostwriter",
+        "Cheeyboys - Mashup"
+    ],
     "artist": [
         "mcp",
         "chronos",
