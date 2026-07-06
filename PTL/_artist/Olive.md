@@ -1,6 +1,6 @@
 ---
 nickname: Olive
-name: Olive Mason
+name: Olivier Masson
 hop: '8139'
 icon: 8139.jpg
 video:
