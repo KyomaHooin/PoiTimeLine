@@ -6,6 +6,7 @@ icon: 5439.gif
 picture: antti.jpg
 video:
 - RubberHeart
+- mcp
 - UberEvent
 location: "J\xE4rvenp\xE4\xE4, FI"
 group: Rubber Heart

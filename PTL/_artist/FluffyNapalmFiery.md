@@ -8,7 +8,10 @@ icon: 1055.jpg
 video:
 - FNF
 - Oli
+- mcp
+- Sandy
 - Play
+- TePooka
 meta:
 - www.inspinerate.com
 ...

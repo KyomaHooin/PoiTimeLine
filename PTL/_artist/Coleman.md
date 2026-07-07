@@ -5,7 +5,7 @@ hop: '2914'
 icon: 2914.jpg
 video:
 - Coleman
-- Simain
+- Simian
 - UCOF
 - TePooka
 meta:

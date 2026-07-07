@@ -9,9 +9,14 @@ icon: 3686.jpg
 picture: bluecat.jpg
 video:
 - Bluecat
-- TePooka
-- UberEvent
+- mcp
+- Sandy
+- Spherculist
 - Play
+- TePooka
+- Falmouth
+- UberEvent
+- SpinnachSession
 location: everywhere
 group: Te Pooka
 meta:

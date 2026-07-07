@@ -5,6 +5,8 @@ altname:
 hop: '9643'
 video:
 - Sandy
+- FNF
+- mcp
 meta:
 - inspinerate.com
 ...
