@@ -1,5 +1,7 @@
 ---
 nickname: Yuta
+altname:
+- "Imamura Y\u016Bta"
 name: "\u4ECA\u6751\u52C7\u592A"
 hop: '6811'
 icon: 6811.jpg
