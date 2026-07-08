@@ -2,6 +2,7 @@
 nickname: PK
 altname:
 - Trait of One Eleven Two
+- Poi'd and insane
 - Lambretta
 name: John Walklate
 hop: '1107'

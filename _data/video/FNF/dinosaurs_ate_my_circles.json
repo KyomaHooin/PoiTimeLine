@@ -1,7 +1,6 @@
 {
     "name": "dinosaurs_ate_my_circles.avi",
     "screenshot": [
-        "2FN45-4JH2E-LLG77.jpg",
         "V503K-J94NJ-1MV8H.jpg",
         "A06N3-IT9KT-FM3I0.jpg",
         "65YFR-8Q5FG-W9FAC.jpg",
@@ -21,5 +20,8 @@
     "artist": [
         "Oli",
         "Fluffy Napalm Fiery"
+    ],
+    "meta": [
+        "Dinosaurs Ate Our Circles"
     ]
 }

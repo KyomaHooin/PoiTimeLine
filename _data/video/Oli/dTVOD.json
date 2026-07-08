@@ -1,7 +1,6 @@
 {
     "name": "dTVOD.avi",
     "screenshot": [
-        "6MJNY-DRRY9-VZCEX.jpg",
         "NGI6K-TWA5C-V1TOO.jpg",
         "FKZFR-TZ38H-GN3M0.jpg"
     ],
@@ -14,5 +13,8 @@
     "artist": [
         "Oli",
         "Fluffy Napalm Fiery"
+    ],
+    "meta": [
+        "sending signals to spaceships"
     ]
 }

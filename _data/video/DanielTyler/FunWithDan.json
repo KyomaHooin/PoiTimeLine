@@ -1,8 +1,7 @@
 {
     "name": "FunWithDan.wmv",
     "screenshot": [
-        "DR5FI-ZAQCP-DWVHE.jpg",
-        "608JI-QM3LX-AHD5V.jpg"
+        "DR5FI-ZAQCP-DWVHE.jpg"
     ],
     "filesize": "3.5M",
     "duration": "02:09",
@@ -12,5 +11,8 @@
     ],
     "artist": [
         "DJ Dantana"
+    ],
+    "meta": [
+        "\"Dantana, where did you get those awesome moves?\""
     ]
 }

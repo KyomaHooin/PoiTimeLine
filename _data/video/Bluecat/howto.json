@@ -1,10 +1,8 @@
 {
     "name": "howto.avi",
     "screenshot": [
-        "4HKHX-9HC93-QPN1U.jpg",
         "P2RME-5QJXA-2CW68.jpg",
-        "UX07G-5E8UY-PJB8C.jpg",
-        "UBTUO-I8GRN-AKVP3.jpg"
+        "UX07G-5E8UY-PJB8C.jpg"
     ],
     "date": "?",
     "filesize": "32.9M",
@@ -17,6 +15,8 @@
         "PK"
     ],
     "meta": [
+        "\"how to make friends and influence lemmings\"",
+        "\"when cats are blue and rasclats are smug....\"",
         "www.poiinthepark.co.uk"
     ]
 }
