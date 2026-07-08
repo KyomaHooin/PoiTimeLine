@@ -2,6 +2,7 @@
 nickname: Dai
 altname:
 - Dai Zaobab
+- Murata Dai
 name: "\u6751\u7530\u5927\u77E5"
 picture: dai.jpg
 video:
