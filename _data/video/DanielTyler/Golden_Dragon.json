@@ -1,7 +1,6 @@
 {
     "name": "Golden_Dragon.wmv",
     "screenshot": [
-        "U8FPX-KTD3K-IDWAK.jpg",
         "JL2GG-B1CO8-YZ2E6.jpg",
         "3G93I-D0MMW-EDMRA.jpg",
         "3CX7P-1M54I-V463A.jpg"
@@ -10,5 +9,8 @@
     "duration": "06:48",
     "artist": [
         "DJ Dantana"
+    ],
+    "meta": [
+        "An adaptation of the original play, \"Golden Drgon\""
     ]
 }
