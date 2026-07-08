@@ -1,7 +1,6 @@
 {
     "name": "POWTribute.wmv",
     "screenshot": [
-        "SUPAY-3HGDK-O54CX.jpg",
         "56ZE2-1UMQI-MM3BK.jpg",
         "7WTKQ-2TFLZ-C1V4N.jpg"
     ],
@@ -12,5 +11,8 @@
     ],
     "artist": [
         "DJ Dantana"
+    ],
+    "meta": [
+        "A Tribute To Our P.O.W.s Woldrwide"
     ]
 }

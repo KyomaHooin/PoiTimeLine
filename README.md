@@ -19,20 +19,11 @@ TODO
 <pre>
 frontend:
 - carousel/image placeholder
-- artist list natural_sort
+- artist/video list natural_sort
 backend:
-- date from SW version
 - group image ?
-- detect "\r\n", "\n", " ", ""
 - snapshot preview horizontal scroll
 - player.pause() player.stop() blocking wait
-</pre>
-EXTRA
-<pre>
-http://www.homeofpoi.com/ubbthreads/images/users/796.jpg
-https://web.archive.org/web/20061214070131/http://www.homeofpoi.com/ubbthreads/showprofile.php?Cat=0&User=1571
-https://aha-music.com/upload
-https://songfinder.gg/
 </pre>
 
 SOURCE

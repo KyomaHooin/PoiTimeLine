@@ -1,7 +1,6 @@
 {
     "name": "Roi_lowres.avi",
     "screenshot": [
-        "T85ZA-G3MPZ-T3N1T.jpg",
         "XEFHV-06CQH-WXQ61.jpg"
     ],
     "date": "14.04.2006",
@@ -9,5 +8,9 @@
     "duration": "04:20",
     "artist": [
         "The Antti"
+    ],
+    "meta": [
+        "1st prize, Finnish Youth Circus Association's Circusfestival",
+        "Rovaniemi, Finland"
     ]
 }
