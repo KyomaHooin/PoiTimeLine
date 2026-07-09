@@ -1,5 +1,5 @@
 ---
-name: Tekno Turtes
+name: Tekno Turtles
 artist:
 - Bomb (Eric)
 - Shok (Christain Linares)

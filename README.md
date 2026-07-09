@@ -13,7 +13,7 @@ FILE
 PTL/ ........... YML collections
 assets/ ........ HOP icons, snapshots, images
 _data/video/ ... JSON data files
-PTL.py ......... Metadata Qt6 toolkit GUI (non-root)
+PTL.py ......... Qt6 GUI Metadata toolkit (non-root)
 </pre>
 TODO
 <pre>
@@ -21,9 +21,9 @@ frontend:
 - carousel/image placeholder
 - artist/video list natural_sort
 backend:
-- group image ?
-- snapshot preview horizontal scroll
-- player.pause() player.stop() blocking wait
+- group image(?)
+- snapshot preview horizontal scrollbar
+- player.pause() + player.stop() blocking wait
 </pre>
 
 SOURCE

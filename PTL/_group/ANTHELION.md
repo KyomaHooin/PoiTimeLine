@@ -1,7 +1,7 @@
 ---
 name: A.N.T.H.E.L.I.O.N
 artist:
-- Peregrine(Katie Bertsche)
+- Peregrine (Katie Bertsche)
 - Samiya
 - Anisa
 - Nomad
