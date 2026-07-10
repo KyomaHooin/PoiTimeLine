@@ -8,7 +8,7 @@ picture: skunk_claire_2014.jpg
 video:
 - LeSkunk
 location: NY, USA
-group: Flambe Volupte
+group: '1337'
 meta:
 - danzfunk.com/fire/
 ...

@@ -9,4 +9,5 @@ video:
 - TePooka
 - UberEvent
 location: NY, USA
+group: '1337'
 ...

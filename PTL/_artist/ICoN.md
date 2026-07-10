@@ -7,5 +7,4 @@ picture: icon_2006.jpg
 video:
 - LeSkunk
 location: Philadelphia, PA, USA
-group: Flambe Volupte
 ...
