@@ -2,7 +2,10 @@
 name: Fenfire
 artist:
 - bastl
-- Marcus
+- Markus Liszt
+- Christiane
+- Florian
+- Sonya
 location: Vienna
 country: AT
 meta:
