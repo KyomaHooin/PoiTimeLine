@@ -14,6 +14,6 @@ video:
 - PK
 location: Edinburg, Scotland
 meta:
-- poiinthepark.biz
+- poiinthepark.net
 - poiinthepark.co.uk
 ...
