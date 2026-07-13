@@ -1,6 +1,6 @@
 ---
 nickname: Strugz
-name: Mark ?
+name: Mark Strugnell
 hop: '1571'
 icon: 1571.jpg
 video:
