@@ -1,4 +1,4 @@
 ---
-name: Derry
+name: Jo
 layout: video
 ...
