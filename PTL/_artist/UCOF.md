@@ -1,10 +1,5 @@
 ---
 nickname: UCOF
-altname:
-- Umbiliciform Crater On Face
-- Untimely Calculations Often Fail
-- Under Control Or Failure
-- Unbeaten Champion Of Fighting
 name: Jonathan ?
 hop: '1881'
 icon: 1881.jpg
