@@ -6,6 +6,9 @@ artist:
 - Billy
 - Tyler Smith
 - Dio
+- Hal
+- Mistress Aurora
+- Daitenshi
 location: OK
 country: USA
 meta:
