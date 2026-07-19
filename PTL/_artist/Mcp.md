@@ -5,7 +5,7 @@ altname:
 - The Flying Watter Muppet
 name: Meghan Claire Pike
 hop: '4704'
-icon: mcp.jpg
+icon: 4704.jpg
 picture: mcp.jpg
 video:
 - mcp
