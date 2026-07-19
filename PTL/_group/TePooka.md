@@ -3,6 +3,7 @@ name: Te Pooka
 artist:
 - Bluecat
 - Tree
+- Steve Cousins
 location: Edinbugh, Scotland
 country: UK
 meta:
