@@ -1,6 +1,6 @@
 ---
 nickname: Meenik
-name: Nick Woolsay
+name: Nick Woolsey
 hop: '818'
 icon: 818.gif
 picture: meenik.png
@@ -9,7 +9,7 @@ video:
 - Yuta
 - Spherculist
 - Falmouth
-location: Vencouver, CA
+location: Vancouver, CA
 meta:
 - www.playpoi.com
 ...
