@@ -12,7 +12,7 @@ video:
 - PK
 - Bluecat
 - TePooka
-location: Edinburg, Scotland
+location: Edinburgh, Scotland
 meta:
 - poiinthepark.net
 - poiinthepark.co.uk
