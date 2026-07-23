@@ -4,7 +4,7 @@ name: Dave Knox
 hop: '1516'
 video:
 - Knoxious
-- TePooka
 - UberEvent
+- PoiInThePark
 group: Flame OZ
 ...

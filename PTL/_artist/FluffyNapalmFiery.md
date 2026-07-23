@@ -11,7 +11,7 @@ video:
 - mcp
 - Sandy
 - Play
-- TePooka
+- PoiInThePark
 meta:
 - www.inspinerate.com
 ...

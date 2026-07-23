@@ -11,7 +11,7 @@ picture: PK.png
 video:
 - PK
 - Bluecat
-- TePooka
+- PoiInThePark
 location: Edinburgh, Scotland
 meta:
 - poiinthepark.net

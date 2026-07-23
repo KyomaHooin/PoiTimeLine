@@ -1,4 +1,4 @@
 ---
-name: PoiinThePark
+name: PoiInThePark
 layout: video
 ...

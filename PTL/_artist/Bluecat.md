@@ -16,6 +16,7 @@ video:
 - TePooka
 - Falmouth
 - UberEvent
+- PoiInThePark
 - SpinnachSession
 location: everywhere
 group: Te Pooka

@@ -6,8 +6,8 @@ icon: 552.jpg
 video:
 - LeSkunk
 - mcp
-- TePooka
 - UberEvent
+- PoiInThePark
 location: NY, USA
 group: '1337'
 ...
