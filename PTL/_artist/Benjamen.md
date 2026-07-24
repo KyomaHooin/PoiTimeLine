@@ -8,6 +8,7 @@ hop: '4889'
 icon: 4889.jpg
 video:
 - Benjamen
+- PoiInThePark
 location: Adelaide, AU
 meta:
 - www.soton-firespinning.co.uk
