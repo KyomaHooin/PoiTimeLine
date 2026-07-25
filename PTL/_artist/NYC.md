@@ -3,10 +3,10 @@ nickname: NYC
 hop: '552'
 icon: 552.jpg
 video:
-- LeSkunk
+- Le Skunk
 - mcp
 - UberEvent
-- PoiInThePark
+- Poi in the Park
 location: NY, USA
 group: '1337'
 ...

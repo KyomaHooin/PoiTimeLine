@@ -18,6 +18,7 @@ PTL.py ......... Qt6 GUI Metadata toolkit (non-root)
 TODO
 <pre>
 frontend:
+- video name spacing
 - carousel/image placeholder
 - artist/video list natural_sort
 backend:

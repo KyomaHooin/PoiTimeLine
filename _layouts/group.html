@@ -60,31 +60,31 @@
 
 		<table class="table w-auto align-top mb-4 table-dark table-borderless table-sm">
 			<tbody>
-     			{%- if page.artist -%}
+			{%- if page.artist -%}
 				<tr><td>Artist:</td><td>
-     				{%- for artist in page.artist -%}
-     				{%- if artist_all contains artist -%}
+				{%- for artist in page.artist -%}
+				{%- if artist_all contains artist -%}
 					{%- assign artist_match = site.artist | where: "nickname", artist | first -%}
 					<span><a href="{{ '/artist/' | relative_url | append: artist_match.slug }}">{{ artist }}</a></span><br>
-     				{%- else -%}
+				{%- else -%}
 					<span>{{ artist }}</span><br>
-     				{%- endif -%}
-     				{%- endfor -%}
+				{%- endif -%}
+				{%- endfor -%}
 				</td></tr>
-     			{%- endif -%}
-     			{%- if page.location -%}
+			{%- endif -%}
+			{%- if page.location -%}
 				<tr><td>Location:</td><td>{{ page.location }}</td></tr>
-     			{%- endif -%}
-     			{%- if page.country -%}
+			{%- endif -%}
+			{%- if page.country -%}
 				<tr><td>Country:</td><td>{{ page.country }}</td></tr>
-     			{%- endif -%}
-     			{%- if page.meta -%}
+			{%- endif -%}
+			{%- if page.meta -%}
 				<tr><td>Meta:</td><td>
-     				{%- for meta in page.meta -%}
+				{%- for meta in page.meta -%}
 					<span>{{ meta }}</span><br>
-     				{%- endfor -%}
+				{%- endfor -%}
 				</td></tr>
-     			{%- endif -%}
+			{%- endif -%}
 			</tbody>
 		</table>
 	</div>
