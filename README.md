@@ -18,7 +18,6 @@ PTL.py ......... Qt6 GUI Metadata toolkit (non-root)
 TODO
 <pre>
 frontend:
-- update video altname in profiles
 - carousel/image placeholder
 - artist/video list natural_sort
 backend:

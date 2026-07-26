@@ -9,7 +9,7 @@ video:
 - Sandy
 - Play
 - Falmouth
-- PoiInThePark
+- Poi in the Park
 location: Harrow, London, UK
 group: United Chains Of Fire
 meta:

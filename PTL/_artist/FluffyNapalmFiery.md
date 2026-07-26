@@ -11,7 +11,7 @@ video:
 - mcp
 - Sandy
 - Play
-- PoiInThePark
+- Poi in the Park
 meta:
 - www.inspinerate.com
 ...

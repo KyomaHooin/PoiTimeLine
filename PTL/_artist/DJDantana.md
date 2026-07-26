@@ -5,7 +5,7 @@ altname:
 name: Daniel Tyler
 hop: '523'
 video:
-- DanielTyler
+- Daniel Tyler
 location: Stillwater, OK, US
 group: Flaming Sphere
 meta:

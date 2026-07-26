@@ -7,8 +7,8 @@ hop: '1678'
 icon: 1678.jpg
 video:
 - Arashi
-- UberEvent
 - Falmouth
+- "\xDCber Event"
 location: Austin, TX, US
 group: Sangre Del Sol
 meta:

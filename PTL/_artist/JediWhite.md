@@ -5,7 +5,7 @@ altname:
 name: John T. Smith
 hop: '561'
 video:
-- DanielTyler
+- Daniel Tyler
 location: Stillwater, OK, US
 group: Flaming Sphere
 ...

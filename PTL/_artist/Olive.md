@@ -6,6 +6,6 @@ icon: 8139.jpg
 video:
 - mcp
 - Spherculist
-- UberEvent
+- "\xDCber Event"
 location: FR
 ...

@@ -5,6 +5,6 @@ hop: '320'
 icon: 320.gif
 picture: Cassandra_1008.jpg
 video:
-- SpinningInParis
+- Spinning in Paris
 location: Paris, FR
 ...

@@ -6,5 +6,5 @@ video:
 - UCOF
 - Simian
 - Coleman
-- PoiInThePark
+- Poi in the Park
 ...

@@ -5,11 +5,11 @@ hop: '829'
 icon: 829.jpg
 picture: drew.jpg
 video:
-- Glass
+- "Gl\xE5ss"
 - Play
 - Falmouth
-- PoiInThePark
-- SpinningInParis
+- Poi in the Park
+- Spinning in Paris
 meta:
 - '"You can go the ball.."'
 - www.ministryofmanipulation.com

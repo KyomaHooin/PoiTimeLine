@@ -13,11 +13,11 @@ video:
 - Sandy
 - Spherculist
 - Play
-- TePooka
+- Te Pooka
 - Falmouth
-- UberEvent
-- PoiInThePark
-- SpinnachSession
+- "\xDCber Event"
+- Poi in the Park
+- Spinnach Session
 location: everywhere
 group: Te Pooka
 meta:

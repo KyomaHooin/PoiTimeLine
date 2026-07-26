@@ -4,7 +4,7 @@ name: Romain Marguaritte
 video:
 - Meast
 - mcp
-- UberEvent
+- "\xDCber Event"
 location: Paris, FR
 group: Burn Crew Concept
 meta:

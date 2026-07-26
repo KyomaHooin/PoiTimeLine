@@ -6,7 +6,7 @@ name: Dan ? (Daniel Holler)
 hop: '260'
 picture: skunk_claire_2014.jpg
 video:
-- LeSkunk
+- Le Skunk
 location: NY, USA
 group: '1337'
 meta:

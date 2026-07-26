@@ -7,6 +7,6 @@ video:
 - Durbs
 - mcp
 - Falmouth
-- UberEvent
+- "\xDCber Event"
 group: Burnt Toast
 ...

@@ -7,8 +7,8 @@ name: Ben ?
 hop: '4889'
 icon: 4889.jpg
 video:
-- Benjamen
-- PoiInThePark
+- Ben-ja-men
+- Poi inthe Park
 location: Adelaide, AU
 meta:
 - www.soton-firespinning.co.uk

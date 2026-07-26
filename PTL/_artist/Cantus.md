@@ -4,6 +4,6 @@ name: Jay Fraggle
 hop: '464'
 icon: 464.jpg
 video:
-- PoiInThePark
+- Poi in the Park
 location: Cheshire, UK
 ...

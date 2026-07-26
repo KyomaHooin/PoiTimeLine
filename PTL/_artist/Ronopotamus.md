@@ -6,5 +6,5 @@ icon: 946.gif
 picture: ronan.png
 video:
 - mcp
-- UberEvent
+- "\xDCber Event"
 ...

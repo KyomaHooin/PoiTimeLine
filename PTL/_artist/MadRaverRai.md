@@ -2,7 +2,7 @@
 nickname: MadRaverRai
 name: Rai Sarion
 video:
-- ChicagoGS
+- Chicago GS
 group: Chicago GS
 meta:
 - www.glowsticking.com

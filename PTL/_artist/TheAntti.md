@@ -5,9 +5,9 @@ hop: '5439'
 icon: 5439.gif
 picture: antti.jpg
 video:
-- RubberHeart
+- Rubber Heart
 - mcp
-- UberEvent
+- "\xDCber Event"
 location: "J\xE4rvenp\xE4\xE4, FI"
 group: Rubber Heart
 meta:

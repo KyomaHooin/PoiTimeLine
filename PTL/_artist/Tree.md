@@ -2,6 +2,6 @@
 nickname: Tree
 name: Katrina Jane Stewart
 video:
-- TePooka
+- Te Pooka
 group: Te Pooka
 ...

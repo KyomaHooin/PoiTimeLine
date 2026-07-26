@@ -2,5 +2,5 @@
 nickname: 2bags
 video:
 - Falmouth
-- PoiInThePark
+- Poi in the Park
 ...

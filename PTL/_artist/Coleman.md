@@ -7,7 +7,7 @@ video:
 - Coleman
 - Simian
 - UCOF
-- PoiInThePark
+- Poi in the Park
 meta:
 - www.colewalker.org
 ...

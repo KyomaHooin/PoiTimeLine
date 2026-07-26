@@ -11,7 +11,7 @@ picture: PK.png
 video:
 - PK
 - Bluecat
-- PoiInThePark
+- Poi in the Park
 location: Edinburgh, Scotland
 meta:
 - poiinthepark.net

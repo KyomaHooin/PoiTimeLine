@@ -14,7 +14,7 @@ video:
 - Spherculist
 - Play
 - Falmouth
-- UberEvent
+- "\xDCber Event"
 meta:
 - www.firestaff-tutorials.co.uk
 - www.stafftutorials.co.uk

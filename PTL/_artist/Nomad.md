@@ -8,8 +8,8 @@ icon: 72.jpg
 picture: nomad.jpg
 video:
 - Nomad
-- LeSkunk
-- SpinningInParis
+- Le Skunk
+- Spinning in Paris
 location: Paris, FR, Somerville, MA, USA
 group: A.N.T.H.E.L.I.O.N
 meta:

@@ -7,7 +7,7 @@ name: David Vago
 hop: '4840'
 icon: 4840.gif
 video:
-- WhitePoiRaven
+- White Poi Raven
 - mcp
 location: Bratislava, SK
 meta:
