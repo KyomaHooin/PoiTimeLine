@@ -1,0 +1,4 @@
+---
+name: misc
+layout: video
+...
