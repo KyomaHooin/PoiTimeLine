@@ -5,7 +5,7 @@ picture: steve.jpg
 video:
 - Steve
 - Te Pooka
-- Spinnach Sessions
+- Spinach Sessions
 group: Te Pooka
 meta:
 - stevecousins.net

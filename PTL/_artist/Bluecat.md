@@ -17,7 +17,7 @@ video:
 - Falmouth
 - "\xDCber Event"
 - Poi in the Park
-- Spinnach Sessions
+- Spinach Sessions
 location: everywhere
 group: Te Pooka
 meta:
