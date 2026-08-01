@@ -1,5 +1,5 @@
 ---
 name: ThreeLostInFire
-name: Three Lost in Fire
+altname: Three Lost in Fire
 layout: video
 ...
