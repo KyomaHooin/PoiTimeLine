@@ -18,6 +18,7 @@ PTL.py ......... Qt6 GUI Metadata toolkit (non-root)
 TODO
 <pre>
 frontend:
+- carousel/image mx-xxl-4
 - carousel/image placeholder
 - artist/video list natural_sort
 backend:
