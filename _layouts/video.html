@@ -63,7 +63,7 @@
 <div class="row my-4">
 <div class="col text-light" style="background-color: black;">
 	{%- if video_file.screenshot.size > 1 -%}
-	<div id="{{ 'carousel_' | append: carousel_id }}" class="carousel slide">
+	<div id="{{ 'carousel_' | append: carousel_id }}" class="carousel slide mx-xxl-4">
 		<div class="carousel-inner">
 		{%- assign screenshot_file_id = 1 -%}
 		{%- for screen in video_file.screenshot -%}
@@ -92,7 +92,7 @@
 	{%- assign carousel_id = carousel_id | plus: 1 -%}
 	{%- endif -%}
 	{%- if video_file.screenshot.size == 1 -%}
-	<img src="{{ '/assets/screen/' | relative_url |  append: video_file.screenshot.first }}" class="d-block w-100" alt="...">
+	<img src="{{ '/assets/screen/' | relative_url |  append: video_file.screenshot.first }}" class="d-block w-100 px-xxl-4" alt="...">
 	{%- endif -%}
 	<h4 class="my-4 text-break"><u>{{ video_file.name }}</u></h4>
 
