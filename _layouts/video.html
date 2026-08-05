@@ -60,8 +60,8 @@
 {%- assign video_file = video_file_hash[1] -%}
 {%- if video_file.screenshot.size >= 1 -%}
 
-<div class="row m-4">
-<div class="col p-0 text-light" style="background-color: black;">
+<div class="row my-4 mx-xxl-4">
+<div class="col p-xxl-0 text-light" style="background-color: black;">
 	{%- if video_file.screenshot.size > 1 -%}
 	<div id="{{ 'carousel_' | append: carousel_id }}" class="carousel slide">
 		<div class="carousel-inner">
@@ -92,7 +92,7 @@
 	{%- assign carousel_id = carousel_id | plus: 1 -%}
 	{%- endif -%}
 	{%- if video_file.screenshot.size == 1 -%}
-	<img src="{{ '/assets/screen/' | relative_url |  append: video_file.screenshot.first }}" class="d-block w-100 px-xxl-4" alt="...">
+	<img src="{{ '/assets/screen/' | relative_url |  append: video_file.screenshot.first }}" class="d-block w-100" alt="...">
 	{%- endif -%}
 	<h4 class="my-4 text-break"><u>{{ video_file.name }}</u></h4>
 
@@ -148,7 +148,7 @@
 {%- assign video_file = video_file_hash[1] -%}
 {%- unless video_file.screenshot.size >= 1 -%}
 
-<div class="row my-2 mx-4">
+<div class="row my-2 mx-xxl-4">
 <div class="col p-0 text-light" style="background-color: black;">
 	<h4 class="my-4 text-break"><u>{{ video_file.name }}</u></h4>
 
