@@ -61,7 +61,7 @@
 {%- if video_file.screenshot.size >= 1 -%}
 
 <div class="row my-4 mx-xxl-4">
-<div class="col p-xxl-0 text-light" style="background-color: black;">
+<div class="col p-xxl-0 text-light">
 	{%- if video_file.screenshot.size > 1 -%}
 	<div id="{{ 'carousel_' | append: carousel_id }}" class="carousel slide">
 		<div class="carousel-inner">
@@ -149,7 +149,7 @@
 {%- unless video_file.screenshot.size >= 1 -%}
 
 <div class="row my-2 mx-xxl-4">
-<div class="col p-0 text-light" style="background-color: black;">
+<div class="col p-0 text-light">
 	<h4 class="my-4 text-break"><u>{{ video_file.name }}</u></h4>
 
 	<table class="table w-auto align-top mb-4 table-dark table-borderless table-sm">
