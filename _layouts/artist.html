@@ -55,7 +55,7 @@
 {%- assign group_all = site.group | map: "name" -%}
 {%- assign video_all = site.video | map: "altname" -%}
 
-<div class="col p-xxl-0 text-light" style="background-color: black;">
+<div class="col p-xxl-0 text-light">
 	{%- if page.picture -%}
 	<img style="max-height: 350px;" class="img-fluid d-flex flex-grow-1" src="{{ '/assets/picture/' | relative_url | append: page.picture }}" alt="{{ page.picture }}">
 	{%- endif -%}
