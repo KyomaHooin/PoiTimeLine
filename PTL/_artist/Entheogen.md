@@ -6,6 +6,6 @@ icon: 17375.jpg
 picture: entheogen.jpg
 video:
 - mcp
-location: California, US
+location: Oakland, California, US, Berlin, DE
 group: Solstix
 ...
