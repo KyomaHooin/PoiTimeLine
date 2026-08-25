@@ -8,7 +8,7 @@ hop: '4889'
 icon: 4889.jpg
 video:
 - Ben-ja-men
-- Poi inthe Park
+- Poi in the Park
 location: Adelaide, AU
 meta:
 - www.soton-firespinning.co.uk
