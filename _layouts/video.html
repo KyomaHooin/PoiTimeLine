@@ -92,7 +92,7 @@
 	{%- assign carousel_id = carousel_id | plus: 1 -%}
 	{%- endif -%}
 	{%- if video_file.screenshot.size == 1 -%}
-	<img src="{{ '/assets/screen/' | relative_url |  append: video_file.screenshot.first }}" class="d-block w-100" alt="...">
+	<img src="{{ '/assets/screen/' | relative_url |  append: video_file.screenshot.first }}" class="d-block w-100" alt="{{ video_file.screenshot.first }}">
 	{%- endif -%}
 	<div class="h4 my-4 text-break"><u>{{ video_file.name }}</u></div>
 
