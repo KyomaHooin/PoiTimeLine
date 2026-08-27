@@ -11,6 +11,6 @@ video:
 - Poi in the Park
 - Spinning in Paris
 meta:
-- '"You can go the ball.."'
+- '"You can go to the ball..."'
 - www.ministryofmanipulation.com
 ...
