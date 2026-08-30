@@ -21,6 +21,7 @@ frontend:
 - carousel/image placeholder
 - artist/video list natural_sort
 backend:
+- remove hard-coded paths (YAML,VIDEO)
 - snapshot preview horizontal scrollbar
 - player.pause() + player.stop() blocking / wait
 </pre>
