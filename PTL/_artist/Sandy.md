@@ -6,8 +6,8 @@ hop: '9643'
 icon: 9643.jpg
 video:
 - Sandy
-- FNF
 - mcp
+- Fluffy Napalm Fairy
 meta:
 - inspinerate.com
 ...
