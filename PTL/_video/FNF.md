@@ -1,4 +1,0 @@
----
-name: FNF
-layout: video
-...
