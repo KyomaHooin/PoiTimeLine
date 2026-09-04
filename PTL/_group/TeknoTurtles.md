@@ -2,7 +2,7 @@
 name: Tekno Turtles
 artist:
 - Bomb (Eric)
-- Shok (Christain Linares)
+- Shok (Christian Linares)
 - Maze
 - Matrix (Joey)
 - Lil Ditty (Chris)
