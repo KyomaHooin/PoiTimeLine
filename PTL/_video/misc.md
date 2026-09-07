@@ -1,4 +1,0 @@
----
-name: misc
-layout: video
-...
