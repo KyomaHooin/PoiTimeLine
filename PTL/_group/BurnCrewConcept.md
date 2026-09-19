@@ -1,5 +1,6 @@
 ---
 name: Burn Crew Concept
+logo: bcc.png
 artist:
 - Air One
 - Anthor
