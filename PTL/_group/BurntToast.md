@@ -1,5 +1,6 @@
 ---
 name: Burnt Toast
+logo: burnt_toast.jpg
 artist:
 - Durbs
 - Strugz
