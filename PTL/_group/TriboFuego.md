@@ -1,5 +1,6 @@
 ---
 name: Tribo Fuego
+logo: tribo.jpg
 artist:
 - "Amaeba (Kl\xE1ra \u010Cern\xE1)"
 - "Dr\xE1tek (Jan Spurn\xFD)"
