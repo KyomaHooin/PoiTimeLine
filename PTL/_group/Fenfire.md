@@ -1,5 +1,6 @@
 ---
 name: Fenfire
+logo: fenfire.jpg
 artist:
 - bastl
 - Markus Liszt
