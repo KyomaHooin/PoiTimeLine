@@ -1,5 +1,6 @@
 ---
 name: Tekno Turtles
+logo: stringe.jpg
 artist:
 - Bomb (Eric)
 - Shok (Christian Linares)
