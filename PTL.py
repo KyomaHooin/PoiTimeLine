@@ -415,8 +415,8 @@ class MainWindow(QMainWindow):
 				self.artist_group_text.setText('')
 				self.artist_meta_text.setPlainText('')
 			case  1:
-				self.group_logo_text.setText('')
 				self.group_name_text.setText('')
+				self.group_logo_text.setText('')
 				self.group_artist_text.setPlainText('')
 				self.group_location_text.setText('')
 				self.group_country_text.setText('')
