@@ -10,7 +10,7 @@ artist:
 - Mistress Aurora
 - Daitenshi
 location: OK
-country: USA
+country: US
 meta:
 - division of Wildfire Entertainment
 - flamingsphere.homestead.com

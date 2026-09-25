@@ -7,6 +7,6 @@ video:
 - mcp
 - "\xDCber Event"
 - Poi in the Park
-location: NY, USA
+location: NY, US
 group: '1337'
 ...

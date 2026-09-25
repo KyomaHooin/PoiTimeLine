@@ -11,8 +11,8 @@ apt-get install ffmpeg python3-yaml python3-pyqt6 python3-vlc
 FILE
 <pre>
 PTL/ ........... YML collections
-assets/ ........ HOP icons, snapshots, images
 _data/video/ ... JSON data files
+assets/ ........ HOP icons, snapshots, images
 PTL.py ......... Qt6 GUI Metadata toolkit (non-root)
 </pre>
 TODO

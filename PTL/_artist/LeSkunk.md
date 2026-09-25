@@ -7,7 +7,7 @@ hop: '260'
 picture: skunk_claire_2014.jpg
 video:
 - Le Skunk
-location: NY, USA
+location: NY, US
 group: '1337'
 meta:
 - danzfunk.com/fire/

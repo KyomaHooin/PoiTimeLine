@@ -10,7 +10,7 @@ video:
 - Nomad
 - Le Skunk
 - Spinning in Paris
-location: Paris, FR, Somerville, MA, USA
+location: Paris, FR, Somerville, MA, US
 group: A.N.T.H.E.L.I.O.N
 meta:
 - www.neonomad.net

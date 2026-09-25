@@ -6,5 +6,5 @@ icon: 4320.gif
 picture: icon_2006.jpg
 video:
 - Le Skunk
-location: Philadelphia, PA, USA
+location: Philadelphia, PA, US
 ...
