@@ -11,5 +11,4 @@ location: NY, US
 group: '1337'
 meta:
 - danzfunk.com/fire/
-- youtube.com/@hollerskunk
 ...
