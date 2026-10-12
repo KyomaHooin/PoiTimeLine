@@ -2,7 +2,7 @@
 nickname: Le Skunk
 altname:
 - Skunk from Snowy
-name: Dan ? (Daniel Holler)
+name: Daniel Holler
 hop: '260'
 picture: skunk_claire_2014.jpg
 video:
@@ -11,4 +11,5 @@ location: NY, US
 group: '1337'
 meta:
 - danzfunk.com/fire/
+- youtube.com/@hollerskunk
 ...
