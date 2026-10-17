@@ -4,7 +4,6 @@ altname:
 - Skunk from Snowy
 name: Daniel Holler
 hop: '260'
-picture: skunk_claire_2014.jpg
 video:
 - Le Skunk
 location: NY, US
