@@ -2,12 +2,12 @@
 name: Chicago GS
 artist:
 - Amith
-- Myron
+- Myron Lo
 - Scootch
-- Bryan
-- Wayne (tamwoof21)
-- Wes (mixinluv2u)
-- Will (William Shih)
+- Bryan Vu
+- Wayne Tam
+- Wes Huang
+- William Shih
 - MadRaverRai
 meta:
 - glowsticking.org
